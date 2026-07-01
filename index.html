@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Art by Anuprita · Folk Paintings from the Heart of India</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Lora:ital,wght@0,400;0,600;1,400&family=Caveat:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
@@ -782,7 +784,7 @@ function init(){
   posts     = JSON.parse(localStorage.getItem('abn_posts_v1')||'null')    || JSON.parse(JSON.stringify(SEED_POSTS));
   books     = JSON.parse(localStorage.getItem('abn_books_v1')||'null')    || JSON.parse(JSON.stringify(SEED_BOOKS));
   saveAll();
-  renderGallery(); renderBlog(); renderBooks();
+  renderGallery(); renderBlog(); renderBooks(); initMap();
   setupReveal();
   // set today as default date in journal form
   document.getElementById('j-date').value = new Date().toISOString().slice(0,10);
@@ -1071,7 +1073,7 @@ function setupReveal(){
 document.getElementById('af-modal').addEventListener('click',function(e){if(e.target===this)closeAfModal();});
 
 /* ===== FOLK ART MAP ===== */
-(function(){
+/* map init */
 var MAP_ARTS = {
   "Andhra Pradesh":    ["Dhuli Shilpa","Kalamkari","Thollu","Gold Emboss"],
   "Assam":             ["Assamese Manuscript"],
@@ -1200,8 +1202,7 @@ function initMap(){
       document.getElementById('map-status').textContent='Could not load map. Check your connection and refresh.';
     });
 }
-initMap();
-})();
+
 
 window.addEventListener('load',init);
 
@@ -1223,7 +1224,5 @@ window.addEventListener('load',init);
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 </body>
 </html>
