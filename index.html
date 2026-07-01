@@ -246,6 +246,54 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 /* RESPONSIVE */
 @media(max-width:960px){section{padding:68px 28px;}.about-grid{grid-template-columns:1fr;gap:40px;}.commission-layout{grid-template-columns:1fr;gap:40px;}.blog-featured{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;gap:36px;}}
 @media(max-width:680px){section{padding:56px 20px;}nav .nav-inner{padding:12px 20px;}.nav-links{display:none;}.nav-links.open{display:flex;flex-direction:column;width:100%;padding:16px 20px 20px;background:var(--ink);gap:14px;position:absolute;top:100%;left:0;}.hamburger{display:flex;}.hero-frame{inset:12px;}.footer-grid{grid-template-columns:1fr;gap:28px;}.blog-featured-body{padding:32px 24px;}.panel{padding:28px;}.nl-form{flex-direction:column;}}
+
+/* ===== FOLK ART MAP ===== */
+#folk-map{background:var(--ink);color:var(--paper);}
+#folk-map .section-title{color:var(--paper);}
+#folk-map .section-desc{color:var(--muted-lt);}
+#folk-map .section-eyebrow{color:var(--saffron);}
+.map-layout{display:grid;grid-template-columns:1fr 300px;gap:32px;align-items:start;}
+.map-svg-wrap{position:relative;}
+#india-map path{cursor:pointer;transition:opacity .15s;}
+#india-map path:hover{opacity:.75;}
+.map-tooltip{
+  display:none;position:absolute;
+  background:var(--paper-lt);color:var(--ink);
+  border:1px solid var(--saffron);
+  padding:6px 12px;font-size:.8rem;font-weight:700;
+  pointer-events:none;z-index:10;white-space:nowrap;
+}
+.map-legend{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:20px;}
+.map-legend-item{display:flex;align-items:center;gap:5px;font-size:.75rem;color:rgba(251,245,230,.55);}
+.map-legend-swatch{width:14px;height:14px;flex-shrink:0;}
+.map-panel{
+  background:rgba(251,245,230,.05);
+  border:1px solid rgba(240,165,0,.2);
+  padding:24px;
+  min-height:320px;
+}
+.map-panel-empty{
+  text-align:center;padding:40px 16px;
+  color:rgba(251,245,230,.35);
+  font-family:'Lora',serif;font-style:italic;font-size:.95rem;line-height:1.8;
+}
+.map-panel-state{
+  font-family:'Yatra One',serif;
+  font-size:1.5rem;color:var(--saffron);margin-bottom:4px;
+}
+.map-panel-count{font-size:.78rem;color:rgba(251,245,230,.45);margin-bottom:16px;letter-spacing:.5px;}
+.map-art-card{
+  border-left:3px solid var(--vermilion);
+  padding:9px 12px;margin-bottom:8px;
+  background:rgba(251,245,230,.04);
+}
+.map-art-card-name{font-size:.9rem;font-weight:700;color:var(--paper);margin-bottom:3px;}
+.map-art-card-desc{font-size:.75rem;color:rgba(251,245,230,.5);line-height:1.55;}
+.map-arts-scroll{max-height:400px;overflow-y:auto;padding-right:4px;}
+.map-arts-scroll::-webkit-scrollbar{width:3px;}
+.map-arts-scroll::-webkit-scrollbar-thumb{background:rgba(240,165,0,.3);}
+@media(max-width:768px){.map-layout{grid-template-columns:1fr;}.map-panel{min-height:auto;}}
+
 </style>
 </head>
 <body>
@@ -262,6 +310,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
       <li><a href="#book-reviews">Books</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#commission">Commission</a></li>
+      <li><a href="#folk-map">Map</a></li>
       <li><a href="#" onclick="openAdmin();return false;" class="btn-admin">⚙ Admin</a></li>
     </ul>
   </div>
@@ -458,6 +507,46 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 
 <div class="folk-border"></div>
 
+
+<div class="folk-border"></div>
+
+<!-- FOLK ART MAP -->
+<section id="folk-map">
+  <div class="section-inner">
+    <span class="section-eyebrow">✦ Art Across India</span>
+    <h2 class="section-title">Folk Art Map of India</h2>
+    <p class="section-desc">Every art form has a home. Click any state to discover which of Anuprita's 83 folk art traditions come from that soil.</p>
+
+    <div class="map-legend">
+      <span style="font-size:.75rem;color:rgba(251,245,230,.45);margin-right:4px;">Art form density →</span>
+      <span class="map-legend-item"><span class="map-legend-swatch" style="background:#2C1A06;"></span>None</span>
+      <span class="map-legend-item"><span class="map-legend-swatch" style="background:#6B3E0E;"></span>1–2</span>
+      <span class="map-legend-item"><span class="map-legend-swatch" style="background:#A05C15;"></span>3–5</span>
+      <span class="map-legend-item"><span class="map-legend-swatch" style="background:#C8851A;"></span>6–9</span>
+      <span class="map-legend-item"><span class="map-legend-swatch" style="background:#F0A500;"></span>10+</span>
+    </div>
+
+    <div class="map-layout">
+      <div class="map-svg-wrap" id="map-svg-wrap">
+        <div class="map-tooltip" id="map-tooltip"></div>
+        <svg id="india-map" viewBox="0 0 500 580" style="width:100%;display:block;"></svg>
+        <div id="map-status" style="font-size:.8rem;color:rgba(251,245,230,.35);margin-top:8px;text-align:center;">Loading map…</div>
+      </div>
+
+      <div class="map-panel" id="map-panel">
+        <div class="map-panel-empty" id="map-panel-empty">
+          ✦<br><br>Click any state on the map to see its folk art traditions
+        </div>
+        <div id="map-panel-content" style="display:none">
+          <div class="map-panel-state" id="map-panel-state"></div>
+          <div class="map-panel-count" id="map-panel-count"></div>
+          <div class="map-arts-scroll" id="map-arts-scroll"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- COMMISSION -->
 <section id="commission">
   <div class="section-inner">
@@ -513,7 +602,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
     </div>
     <div class="footer-col"><h4>Gallery</h4><ul><li><a href="#art-for-sale">Available Works</a></li><li><a href="#art-forms">Art Forms</a></li><li><a href="#commission">Commissions</a></li><li><a href="#about">About the Artist</a></li></ul></div>
     <div class="footer-col"><h4>Journal</h4><ul><li><a href="#blog">Weekly Blog</a></li><li><a href="#book-reviews">Book Reviews</a></li><li><a href="#newsletter">Newsletter</a></li></ul></div>
-    <div class="footer-col"><h4>Connect</h4><ul><li><a href="mailto:artbyanupritaa@gmail.com">artbyanupritaa@gmail.com</a></li><li><a href="https://www.instagram.com/artbyanuprita" target="_blank">@artbyanuprita</a></li><li><a href="#">WhatsApp</a></li><li><a href="#">Pinterest</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="mailto:art@artbyanuprita.com">art@artbyanuprita.com</a></li><li><a href="#">Instagram</a></li><li><a href="#">WhatsApp</a></li><li><a href="#">Pinterest</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <div class="folk-border-sm" style="margin-bottom:22px;max-width:320px;margin-left:auto;margin-right:auto"></div>
@@ -980,6 +1069,140 @@ function setupReveal(){
 }
 
 document.getElementById('af-modal').addEventListener('click',function(e){if(e.target===this)closeAfModal();});
+
+/* ===== FOLK ART MAP ===== */
+(function(){
+var MAP_ARTS = {
+  "Andhra Pradesh":    ["Dhuli Shilpa","Kalamkari","Thollu","Gold Emboss"],
+  "Assam":             ["Assamese Manuscript"],
+  "Bihar":             ["Aripan","Bhojpuri","Manjusha","Mithila Bharni","Mithila Kachni","Tikuli"],
+  "Chhattisgarh":      ["Baiga","Godhna","Muriya Chotul"],
+  "Delhi":             ["Mughal"],
+  "Gujarat":           ["Batik","Ganjifa","Jain Patta","Lippan","Mata Ni Pachedi","Pithora","Roghan"],
+  "Himachal Pradesh":  ["Basholi","Chamba","Guler","Kangra","Raagmala"],
+  "Jammu and Kashmir": ["Basholi"],
+  "Jharkhand":         ["Jadu Patua","Khovar","Paitkar","Santhal","Tusser"],
+  "Karnataka":         ["Chittara","Gold Emboss","Kavvi Kale","Kinnal","Mysore","Surpur","Togalu Gombayatta"],
+  "Kerala":            ["Kerala Mural"],
+  "Madhya Pradesh":    ["Baiga","Bhil","Gond","Mandana","Pithora"],
+  "Maharashtra":       ["Chitrakathi","Ganjifa","Warli"],
+  "Nagaland":          ["Tsungko"],
+  "Odisha":            ["Ganjifa","Idital","Jatri Patti","Jhoti Chitta","Juang","Jyunti Patta","Palm Leaf","Pattachitra","Suara"],
+  "Rajasthan":         ["Bheenth Chitra","Bikaner","Blue Pottery","Boondi","Jain Patta","Jaipur Marble Painting","Kavad","Kishangarh","Mandana","Phad","Pichwai","Raagmala","Rajasthani Miniature","Shekhawati","Usta Kala"],
+  "Sikkim":            ["Paubha","Thangka"],
+  "Tamil Nadu":        ["Kamangiri","Kolam","Kurumba","Palm Leaf","Tanjore"],
+  "Telangana":         ["Cheriyal","Deccan School","Nirmal","Shah Qalam"],
+  "Uttar Pradesh":     ["Bhojpuri","Mughal"],
+  "Uttarakhand":       ["Aipan"],
+  "West Bengal":       ["Alpona","Bengal Pattachitra","Jadu Patua","Jamini Roy","Kalighat","Mansa Pat","Santhal"]
+};
+
+var MAP_DESCS = {
+  "Aipan":"Ritual floor art by Kumaoni women using red ochre and white rice-paste.","Alpona":"Floor art tradition of Bengal created with rice paste on auspicious occasions.","Aripan":"Sacred Mithila floor painting drawn with rice paste during festivals.","Assamese Manuscript":"Ancient illustrated manuscripts on Saanchi bark depicting Hindu epics.","Baiga":"Tribal wall art of the Baiga people — bold elemental designs in natural pigments.","Basholi":"Earliest Pahari miniature school with bold colours and beetle-wing jewellery details.","Batik":"Wax-resist dyeing on fabric practiced across India with regional variations.","Bengal Pattachitra":"Scroll paintings by the Chitrakar community — painting and song were inseparable.","Bheenth Chitra":"Haveli wall murals of Rajasthan depicting mythology and royalty.","Bhil":"Tribal art filled with rhythmic dot patterns creating a shimmering mosaic quality.","Bhojpuri":"Folk paintings of eastern UP and Bihar marking festivals and weddings.","Bikaner":"Rajput miniature school celebrated for fine detailing and Mughal-influenced portraits.","Blue Pottery":"Jaipur craft using quartz base with Persian-influenced cobalt blue patterns.","Boondi":"Rajput miniature school with lush jewel-like landscapes teeming with wildlife.","Chamba":"Pahari school with lyrical depictions of Krishna and Radha in Himalayan landscapes.","Cheriyal":"Narrative scroll paintings from Telangana on flat red backgrounds.","Chitrakathi":"Folk painting from Palghar depicting mythology in bold frontal figures.","Chittara":"Women's ritual art of Karnataka's Malnad region drawn with rice paste on mud.","Deccan School":"Miniature paintings of the Deccan Sultanates blending Persian and South Indian styles.","Dhuli Shilpa":"Andhra Pradesh floor drawing with coloured powders for rituals.","Ganjifa":"Painted circular playing cards depicting Dashavatara scenes.","Godhna":"Tattoo-inspired art of Chhattisgarh's tribal communities on paper.","Gold Emboss":"Applied gold leaf creating three-dimensional luminosity in South Indian painting.","Gond":"Vibrant tribal art of dots and dashes from the Gondi cosmology.","Guler":"Refined Pahari school associated with the great master painter Nainsukh.","Idital":"Ritual Odishan wall painting created by women for festivals and rites of passage.","Jadu Patua":"Magical scroll paintings of the Santal people — used to guide souls of the deceased.","Jain Patta":"Illustrated Jain manuscripts with characteristic oblique eyes and use of gold.","Jaipur Marble Painting":"Traditional Rajasthani designs painted directly on natural marble.","Jamini Roy":"Visual language drawn from Kalighat and Bengal folk art — now a tradition itself.","Jatri Patti":"Small Pattachitra panels sold as sacred keepsakes to Puri pilgrims.","Jhoti Chitta":"Ancient Odishan floor drawings invoking Lakshmi — done each morning at the threshold.","Juang":"Tribal art of Odisha's Juang community painted during festivals.","Jyunti Patta":"Sub-style of Pattachitra on thick cloth for ritual use.","Kalamkari":"Ancient textile art using a natural-dye pen to paint mythological narratives.","Kalighat":"19th-century urban folk painting from Kolkata with a satirical edge.","Kamangiri":"Tamil Nadu folk painting depicting local deities in a bold, direct style.","Kangra":"The most celebrated Pahari school — the poetry of Indian painting.","Kavad":"Portable painted wooden shrine used by Rajasthani bards as a storytelling device.","Kavvi Kale":"Karnataka folk painting of the Kole fishermen depicting coastal deities.","Kerala Mural":"Classical temple wall painting using five natural mineral colours.","Kinnal":"Wooden deity figures sculpted and painted with natural pigments in Koppal.","Kishangarh":"Rajput miniature with elongated lotus-petal eyes — the Mona Lisa of India.","Khovar":"Ritual wall art created in the Jharkhand bridal chamber before a wedding.","Kolam":"Daily threshold drawing of South India created with rice flour before sunrise.","Kurumba":"One of India's rarest folk art traditions — extraordinary fine linework from the Nilgiris.","Lippan":"Relief wall art from Kutch — clay raised in patterns, studded with mirrors.","Mandana":"Floor and wall drawings by women using red earth and white lime.","Manjusha":"Bihar folk painting on bamboo boxes depicting the Bihula-Bishahari story.","Mansa Pat":"Scroll paintings of the snake goddess Mansa for the Manasamangal Kavya recitation.","Mata Ni Pachedi":"Portable temple paintings by Gujarat's Vaghari community for the Mother Goddess.","Mithila Bharni":"Bold Mithila painting style with flat opulent colour fills.","Mithila Kachni":"Mithila hatching style — intricate lines built up with extraordinary patience.","Mughal":"Court painting of the Mughal Empire blending Persian and Indian traditions.","Muriya Chotul":"Art of Chhattisgarh's Muriya Gond ghotul (youth dormitory) walls.","Mysore":"Classical South Indian painting of restrained elegance and gold leaf.","Nirmal":"Telangana painting on a golden-yellow tamarind-treated wood surface.","Palm Leaf":"Ancient art of incising illustrations on dried palm leaves with a metal stylus.","Paitkar":"Jharkhand scroll painting used to guide the soul of the deceased.","Pattachitra":"Odisha's celebrated cloth painting tradition using natural pigments throughout.","Paubha":"Sacred Newar painting tradition closely related to Tibetan Thangka.","Phad":"Enormous cloth narrative paintings unrolled at Rajasthani bard performances.","Pithora":"Tribal wall painting completed in a single ritual sitting as thanksgiving.","Pichwai":"Large devotional paintings as the changing backdrop for the Shrinathji idol.","Raagmala":"Miniature painting translating classical music modes into human figures and scenes.","Rajasthani Miniature":"Broad category of Rajput schools — Mewar, Marwar, Jaipur and more.","Roghan":"Rare Kutch art applying castor-oil paint that never touches the cloth.","Suara":"Odishan tribal folk painting of the Suara community for festivals.","Santhal":"Visual traditions of the Santhal people — wall paintings, scrolls, body decoration.","Shah Qalam":"Deccani sub-style with fantastical subjects painted with extraordinary freedom.","Shekhawati":"Haveli frescoes depicting colonial modernity painted beside gods.","Surpur":"Miniature painting of the former Surpur princely state blending Deccani and Rajput styles.","Tanjore":"Classical South Indian painting with gold leaf, semi-precious stones, and glass.","Tusser":"Paintings on wild silk cloth using natural dyes from Jharkhand plants.","Thangka":"Sacred Tibetan Buddhist painting — every gesture carries specific spiritual meaning.","Thollu":"Andhra's painted leather puppets that cast coloured shadows on white screens.","Tikuli":"Bihar folk painting on glass surfaces, originally associated with the decorative bindi.","Togalu Gombayatta":"Karnataka's painted leather shadow puppet tradition.","Tsungko":"Geometric patterns of the Ao Naga community encoding status and clan identity.","Usta Kala":"Rare camel-hide painting and gilding from Bikaner — among India's finest craft.","Warli":"Tribal art with simple white geometric figures on red-ochre backgrounds."
+};
+
+function mapColor(n){
+  if(!n)return"#2C1A06";
+  if(n<=2)return"#6B3E0E";
+  if(n<=5)return"#A05C15";
+  if(n<=9)return"#C8851A";
+  return"#F0A500";
+}
+
+function normMap(s){return s.toLowerCase().replace(/[^a-z ]/g,'').replace(/\s+/g,' ').trim();}
+
+var NL={};
+Object.keys(MAP_ARTS).forEach(function(k){NL[normMap(k)]=k;});
+NL["jammu kashmir"]="Jammu and Kashmir";
+NL["jammu & kashmir"]="Jammu and Kashmir";
+NL["orissa"]="Odisha";
+NL["uttaranchal"]="Uttarakhand";
+NL["ladakh"]="Jammu and Kashmir";
+
+function matchMapState(raw){
+  var n=normMap(raw);
+  if(NL.hasOwnProperty(n))return NL[n];
+  if(MAP_ARTS.hasOwnProperty(raw))return raw;
+  for(var k in NL){if(n.indexOf(k)>=0||k.indexOf(n)>=0)return NL[k];}
+  return null;
+}
+
+var mapActiveEl=null;
+
+function showMapPanel(stateName){
+  var arts=MAP_ARTS[stateName]||[];
+  document.getElementById('map-panel-empty').style.display='none';
+  document.getElementById('map-panel-content').style.display='block';
+  document.getElementById('map-panel-state').textContent=stateName;
+  document.getElementById('map-panel-count').textContent=
+    arts.length===0?'No art forms mapped to this state yet':
+    arts.length===1?'1 art form practiced here':
+    arts.length+' art forms practiced here';
+  var scroll=document.getElementById('map-arts-scroll');
+  if(arts.length===0){
+    scroll.innerHTML='<div style="font-size:.8rem;color:rgba(251,245,230,.35);font-style:italic;padding:8px 0;">No art forms from this collection are primarily associated with this state.</div>';
+    return;
+  }
+  scroll.innerHTML=arts.map(function(a){
+    var d=MAP_DESCS[a]||'';
+    return '<div class="map-art-card"><div class="map-art-card-name">'+a+'</div><div class="map-art-card-desc">'+d+'</div></div>';
+  }).join('');
+}
+
+function initMap(){
+  if(typeof d3==='undefined'||typeof topojson==='undefined'){setTimeout(initMap,200);return;}
+  fetch('https://cdn.jsdelivr.net/npm/datamaps@0.5.10/src/js/data/ind.topo.json')
+    .then(function(r){return r.json();})
+    .then(function(topo){
+      document.getElementById('map-status').textContent='';
+      var objKey=Object.keys(topo.objects)[0];
+      var features=topojson.feature(topo,topo.objects[objKey]).features;
+      var svg=d3.select('#india-map');
+      var proj=d3.geoMercator().fitSize([500,580],topojson.feature(topo,topo.objects[objKey]));
+      var pathFn=d3.geoPath().projection(proj);
+      var tooltip=document.getElementById('map-tooltip');
+      var wrap=document.getElementById('map-svg-wrap');
+
+      svg.selectAll('path').data(features).join('path')
+        .attr('d',pathFn)
+        .attr('fill',function(d){
+          var raw=d.properties.name||d.id||'';
+          var m=matchMapState(raw);
+          var arts=m?(MAP_ARTS[m]||[]):[];
+          return mapColor(arts.length);
+        })
+        .attr('stroke','#F0A50033').attr('stroke-width',0.6)
+        .on('mousemove',function(event,d){
+          var raw=d.properties.name||d.id||'';
+          var m=matchMapState(raw);
+          var n=m?(MAP_ARTS[m]||[]).length:0;
+          tooltip.style.display='block';
+          var rect=wrap.getBoundingClientRect();
+          tooltip.style.left=(event.clientX-rect.left+12)+'px';
+          tooltip.style.top=(event.clientY-rect.top-32)+'px';
+          tooltip.textContent=(m||raw)+' — '+n+' art form'+(n!==1?'s':'');
+          d3.select(this).style('opacity',0.7);
+        })
+        .on('mouseleave',function(){
+          tooltip.style.display='none';
+          if(this!==mapActiveEl)d3.select(this).style('opacity',1);
+        })
+        .on('click',function(event,d){
+          if(mapActiveEl){d3.select(mapActiveEl).attr('stroke','#F0A50033').attr('stroke-width',0.6).style('opacity',1);}
+          mapActiveEl=this;
+          d3.select(this).attr('stroke','#F0A500').attr('stroke-width',2).style('opacity',1);
+          var raw=d.properties.name||d.id||'';
+          var m=matchMapState(raw);
+          if(m)showMapPanel(m);
+        });
+    })
+    .catch(function(){
+      document.getElementById('map-status').textContent='Could not load map. Check your connection and refresh.';
+    });
+}
+initMap();
+})();
+
 window.addEventListener('load',init);
 
 </script>
@@ -1000,5 +1223,7 @@ window.addEventListener('load',init);
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 </body>
 </html>
