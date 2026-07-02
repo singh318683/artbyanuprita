@@ -261,7 +261,6 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 </style>
 </head>
 <body>
-
 <nav id="main-nav">
   <div class="nav-stripe"></div>
   <div class="nav-inner">
@@ -279,20 +278,18 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
     </ul>
   </div>
 </nav>
-
 <div class="folk-border"></div>
 
-<section id="blog">
+<section id="blog" style="background:var(--paper);padding:84px 48px;">
   <div class="section-inner">
-    <span class="section-eyebrow">✦ Weekly Reflections</span>
-    <h2 class="section-title">From the Studio</h2>
+    <span class="section-eyebrow">&#10022; Weekly Reflections</span>
+    <h1 class="section-title">From the Studio</h1>
     <p class="section-desc">Notes on tradition, technique, natural pigments, and the living practice of folk art — written every week from the studio.</p>
     <div id="blog-container"></div>
   </div>
 </section>
 
 <div class="folk-border"></div>
-
 
 <footer>
   <div class="footer-grid">
@@ -310,5 +307,62 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
   </div>
 </footer>
 
-</body>
-</html>
+<script>
+var posts=[];
+const SEED_POSTS = [
+  {id:1,title:'Why I Make My Own Paints: A Journey into Natural Pigments',tag:'Technique',date:'2025-06-22',read:'8 min',excerpt:'Store-bought colours are convenient — but they carry none of the intention of art made from the earth itself. When I first began grinding lapis lazuli for my Thangka practice, I understood something essential about why these traditions have survived for centuries.',body:'Store-bought colours are convenient — but they carry none of the intention of art made from the earth itself.\n\nWhen I first began grinding lapis lazuli for my Thangka practice, I understood something essential about why these traditions have survived for centuries. The act of making your paint is inseparable from the act of painting.\n\nEvery pigment I use starts as a raw material — a mineral, a plant, a soil. Ochre from the earth, indigo from the plant, vermilion from mercury sulphide. Each one has its own personality: how it spreads, how it dries, how it sits on handmade paper versus cloth.\n\nThis is why I will never go back to store-bought.'},
+  {id:2,title:'The Fish Motif in Pattachitra: Symbol, Story, and Structure',tag:'Symbolism',date:'2025-06-15',read:'5 min',excerpt:'In Odisha\'s Pattachitra tradition, the fish is not merely decorative — it is a vessel for narrative. Here is how I approach this iconic motif and what I learned from master Raghurajpur artists.',body:'In Odisha\'s Pattachitra tradition, the fish is not merely decorative — it is a vessel for narrative.\n\nWhen I spent time in Raghurajpur learning from the masters there, I noticed that the fish appears in almost every major composition. Sometimes as a border element, sometimes as the subject itself, but always carrying meaning.\n\nThe fish in Pattachitra represents abundance, fertility, and the flow of time. It is also one of the ten avatars of Vishnu — Matsya, the fish who saved the Vedas from the great flood.\n\nLearning to draw the Pattachitra fish took me three weeks. The outline must be done in a single confident stroke. No correction, no hesitation.'},
+  {id:3,title:'Learning Kurumba in the Nilgiris: A Style Almost Nobody Paints',tag:'Travel & Learning',date:'2025-06-08',read:'7 min',excerpt:'Kurumba art belongs to one of the oldest tribal communities in South India. Finding a master who still practised it took months of searching — and the work changed everything I thought I knew about line.',body:'Kurumba art belongs to one of the oldest tribal communities in South India.\n\nFinding a master who still practised it took months of searching. I was told by three different art historians that there was nobody left who could teach it. The fourth pointed me toward a village in the Nilgiris I had never heard of.\n\nThe work itself is unlike anything else I have learned. Where most folk traditions use bold, confident colour fills, Kurumba painting is almost entirely about line. Thin, trembling, precise lines that build up a world of enormous detail.\n\nI spent six weeks there. It changed everything I thought I knew about how a line could feel.'},
+];
+
+function init(){
+  posts=JSON.parse(localStorage.getItem('abn_posts_v1')||'null')||JSON.parse(JSON.stringify(SEED_POSTS));
+  renderBlog();
+  setupReveal();
+}
+
+function formatDate(d){
+  if(!d) return '';
+  const dt=new Date(d+'T00:00:00');
+  return dt.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+}
+function renderBlog(){
+  const c=document.getElementById('blog-container');
+  if(!posts.length){c.innerHTML='<p class="no-posts">No posts yet. Use the Admin panel to write your first journal entry.</p>';return;}
+  const [featured,...rest]=posts.slice().reverse(); // newest first
+  let html=`<div class="blog-grid">
+    <div class="blog-featured reveal">
+      <div class="blog-featured-img"><span class="blog-img-ph">Article image</span></div>
+      <div class="blog-featured-body">
+        <span class="blog-tag">✦ Latest · ${featured.tag}</span>
+        <h3 class="blog-title">${featured.title}</h3>
+        <p class="blog-excerpt">${featured.excerpt}</p>
+        <div class="blog-meta"><span>${formatDate(featured.date)}</span><span>·</span><span>${featured.read} read</span></div>
+      </div>
+    </div>`;
+  if(rest.length){
+    html+=`<div class="blog-cards-row">
+      ${rest.slice(0,3).map(p=>`
+        <div class="blog-card reveal">
+          <div class="blog-card-img"><span class="blog-img-ph" style="font-family:'Caveat',cursive;font-size:.95rem;color:rgba(26,15,0,.28)">Article image</span></div>
+          <div class="blog-card-body">
+            <span class="blog-tag">✦ ${p.tag}</span>
+            <h3 class="blog-title">${p.title}</h3>
+            <p class="blog-excerpt">${p.excerpt}</p>
+            <div class="blog-meta"><span>${formatDate(p.date)}</span><span>·</span><span>${p.read} read</span></div>
+          </div>
+        </div>`).join('')}
+    </div>`;
+  }
+  html+='</div>';
+  c.innerHTML=html;
+  setupReveal();
+}
+function setupReveal(){
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.08});
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>obs.observe(el));
+}
+
+window.addEventListener('load',init);
+</script>
+</body></html>
