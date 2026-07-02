@@ -325,16 +325,18 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
     <span class="section-eyebrow">✦ Living Traditions</span>
     <h2 class="section-title">Art Forms Practiced</h2>
     <p class="section-desc">From celebrated traditions to nearly-vanished forms — each style is a doorway into a distinct cultural cosmos. All 81 practiced with natural pigments and handmade materials.</p>
-    <button id="af-toggle-btn" onclick="toggleArtForms()" style="
+    <div style="text-align:center;margin-bottom:32px;">
+<button id="af-toggle-btn" onclick="toggleArtForms()" style="
   display:inline-flex;align-items:center;gap:10px;
   background:transparent;border:2px solid var(--saffron);
   color:var(--saffron);padding:12px 28px;
   font-family:'Lato',sans-serif;font-size:.82rem;font-weight:700;
   letter-spacing:1.3px;text-transform:uppercase;cursor:pointer;
-  transition:all .2s;margin-bottom:32px;">
+  transition:all .2s;">
   <span id="af-btn-text">View All 83 Art Forms</span>
   <span id="af-btn-icon" style="font-size:1rem;transition:transform .3s;">▼</span>
 </button>
+</div>
 
 <div id="af-collapsible" style="display:none;overflow:hidden;transition:all .3s;">
 <div class="art-forms-grid" id="art-forms-grid">
