@@ -261,7 +261,6 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 </style>
 </head>
 <body>
-
 <nav id="main-nav">
   <div class="nav-stripe"></div>
   <div class="nav-inner">
@@ -279,20 +278,18 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
     </ul>
   </div>
 </nav>
-
 <div class="folk-border"></div>
 
-<section id="book-reviews">
+<section id="book-reviews" style="background:var(--paper-dk);padding:84px 48px;">
   <div class="section-inner">
-    <span class="section-eyebrow">✦ Recommended Reading</span>
-    <h2 class="section-title">Book Reviews</h2>
+    <span class="section-eyebrow">&#10022; Recommended Reading</span>
+    <h1 class="section-title">Book Reviews</h1>
     <p class="section-desc">Books that have shaped my understanding of folk art, natural pigments, craft traditions, and the philosophy of making.</p>
     <div class="books-grid" id="books-grid"></div>
   </div>
 </section>
 
 <div class="folk-border"></div>
-
 
 <footer>
   <div class="footer-grid">
@@ -310,5 +307,43 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
   </div>
 </footer>
 
-</body>
-</html>
+<script>
+var books=[];
+const SEED_BOOKS = [
+  {id:1,title:'India Colour',author:'Charlotte Jirousek',stars:5,bg:'#8B3A8B',review:'A stunning exploration of colour across Indian folk and classical traditions. Changed how I source every pigment.'},
+  {id:2,title:'Crafts of India',author:'Aditi Ranjan',stars:5,bg:'#2D5A3D',review:'The most comprehensive survey of Indian craft traditions I have found — a desk reference I return to weekly.'},
+  {id:3,title:'The Illuminated Page',author:'Janet Backhouse',stars:4,bg:'#3D2B8E',review:'Invaluable for understanding how natural pigments were used in medieval manuscript art.'},
+  {id:4,title:"Nature's Palette",author:'Patrick Baty',stars:4,bg:'#C8391A',review:'A scientific and historical look at historic paint colours — essential for understanding why ochres and earths behave as they do.'},
+  {id:5,title:'The Living Arts of India',author:'Smithsonian Press',stars:5,bg:'#C87D00',review:'Gorgeous photography, rigorous scholarship. My most-gifted book to people curious about Indian folk traditions.'},
+  {id:6,title:'Painting the Sacred',author:'Vidya Dehejia',stars:4,bg:'#1A0F00',review:'A deeply thoughtful look at the relationship between religious narrative and visual form in Indian art.'},
+];
+
+function init(){
+  books=JSON.parse(localStorage.getItem('abn_books_v1')||'null')||JSON.parse(JSON.stringify(SEED_BOOKS));
+  renderBooks();
+  setupReveal();
+}
+
+function renderBooks(){
+  const g=document.getElementById('books-grid');
+  if(!books.length){g.innerHTML='<p style="color:var(--muted);font-style:italic">No books added yet.</p>';return;}
+  g.innerHTML=books.map(b=>`
+    <div class="book-card reveal">
+      <div class="book-cover" style="background:${b.bg}">${b.title}</div>
+      <div>
+        <div class="book-info-title">${b.title}</div>
+        <div class="book-author">${b.author}</div>
+        <div class="book-stars">${'★'.repeat(b.stars)}${'☆'.repeat(5-b.stars)}</div>
+        <div class="book-review">"${b.review}"</div>
+      </div>
+    </div>`).join('');
+  setupReveal();
+}
+function setupReveal(){
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.08});
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>obs.observe(el));
+}
+
+window.addEventListener('load',init);
+</script>
+</body></html>
