@@ -247,37 +247,11 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 @media(max-width:960px){section{padding:68px 28px;}.about-grid{grid-template-columns:1fr;gap:40px;}.commission-layout{grid-template-columns:1fr;gap:40px;}.blog-featured{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;gap:36px;}}
 @media(max-width:680px){section{padding:56px 20px;}nav .nav-inner{padding:12px 20px;}.nav-links{display:none;}.nav-links.open{display:flex;flex-direction:column;width:100%;padding:16px 20px 20px;background:var(--ink);gap:14px;position:absolute;top:100%;left:0;}.hamburger{display:flex;}.hero-frame{inset:12px;}.footer-grid{grid-template-columns:1fr;gap:28px;}.blog-featured-body{padding:32px 24px;}.panel{padding:28px;}.nl-form{flex-direction:column;}}
 .map-panel{min-height:auto;}}
+.region-list{max-height:200px;border-right:none;border-bottom:1px solid rgba(240,165,0,.12);}.region-detail{padding:24px 20px;max-height:none;}}
 
-/* region listing */
-#by-region{background:var(--ink);color:var(--paper);}
-#by-region .section-title{color:var(--paper);}
-#by-region .section-desc{color:var(--muted-lt);}
-#by-region .section-eyebrow{color:var(--saffron);}
-.region-layout{display:grid;grid-template-columns:260px 1fr;gap:0;border:1px solid rgba(240,165,0,.15);}
-.region-list{border-right:1px solid rgba(240,165,0,.12);overflow-y:auto;max-height:580px;}
-.region-list::-webkit-scrollbar{width:3px;}
-.region-list::-webkit-scrollbar-thumb{background:rgba(240,165,0,.2);}
-.region-btn{display:flex;align-items:center;justify-content:space-between;width:100%;padding:13px 18px;background:transparent;border:none;border-bottom:1px solid rgba(240,165,0,.07);color:var(--paper);text-align:left;cursor:pointer;font-family:'Lato',sans-serif;font-size:.88rem;transition:background .15s;}
-.region-btn:hover{background:rgba(240,165,0,.07);}
-.region-btn.active{background:rgba(240,165,0,.12);border-left:3px solid var(--saffron);padding-left:15px;color:var(--saffron);}
-.region-pill{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;flex-shrink:0;}
-.region-pill.p0{background:rgba(251,245,230,.05);color:rgba(251,245,230,.2);}
-.region-pill.p1{background:rgba(107,62,14,.5);color:#C88020;}
-.region-pill.p2{background:rgba(160,92,21,.5);color:#D49030;}
-.region-pill.p3{background:rgba(200,133,26,.4);color:#E8A030;}
-.region-pill.p4{background:rgba(240,165,0,.25);color:#F0A500;}
-.region-detail{padding:36px 40px;overflow-y:auto;max-height:580px;}
-.region-detail::-webkit-scrollbar{width:3px;}
-.region-detail::-webkit-scrollbar-thumb{background:rgba(240,165,0,.2);}
-.region-detail-state{font-family:'Yatra One',serif;font-size:1.9rem;color:var(--saffron);margin-bottom:4px;line-height:1.1;}
-.region-detail-count{font-size:.75rem;color:rgba(251,245,230,.38);letter-spacing:1px;text-transform:uppercase;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(240,165,0,.12);}
-.region-art-item{display:grid;grid-template-columns:38px 1fr;gap:0;padding:14px 0;border-bottom:1px solid rgba(240,165,0,.07);}
-.region-art-item:last-child{border-bottom:none;}
-.region-art-num{font-family:'Yatra One',serif;font-size:1rem;color:rgba(240,165,0,.22);padding-top:2px;}
-.region-art-name{font-size:.93rem;font-weight:700;color:var(--paper);margin-bottom:4px;}
-.region-art-desc{font-size:.78rem;color:rgba(251,245,230,.42);line-height:1.62;}
-@media(max-width:768px){.region-layout{grid-template-columns:1fr;}.region-list{max-height:200px;border-right:none;border-bottom:1px solid rgba(240,165,0,.12);}.region-detail{padding:24px 20px;max-height:none;}}
 
+.btn-edit{background:none;border:1px solid var(--forest);color:var(--forest);cursor:pointer;font-size:.78rem;padding:3px 10px;font-family:'Lato',sans-serif;transition:all .15s;}
+.btn-edit:hover{background:var(--forest);color:#fff;}
 </style>
 </head>
 <body>
@@ -294,7 +268,6 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
       <li><a href="#book-reviews">Books</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#commission">Commission</a></li>
-      <li><a href="#by-region">By Region</a></li>
       <li><a href="#" onclick="openAdmin();return false;" class="btn-admin">⚙ Admin</a></li>
 
     </ul>
@@ -492,49 +465,6 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 
 <div class="folk-border"></div>
 
-<div class="folk-border"></div>
-<section id="by-region">
-  <div class="section-inner">
-    <span class="section-eyebrow">&#10022; Art by Region</span>
-    <h2 class="section-title">Folk Art Traditions by State</h2>
-    <p class="section-desc">Select a state to explore which folk art traditions come from that soil — from celebrated forms to nearly-vanished practices.</p>
-    <div class="region-layout">
-      <div class="region-list">
-<button class="region-btn active" onclick="showRegion(this,0)"><span>Andhra Pradesh</span><span class="region-pill p2">4</span></button>
-<button class="region-btn" onclick="showRegion(this,1)"><span>Assam</span><span class="region-pill p1">1</span></button>
-<button class="region-btn" onclick="showRegion(this,2)"><span>Bihar</span><span class="region-pill p3">6</span></button>
-<button class="region-btn" onclick="showRegion(this,3)"><span>Chhattisgarh</span><span class="region-pill p2">3</span></button>
-<button class="region-btn" onclick="showRegion(this,4)"><span>Delhi</span><span class="region-pill p1">1</span></button>
-<button class="region-btn" onclick="showRegion(this,5)"><span>Goa</span><span class="region-pill p0">—</span></button>
-<button class="region-btn" onclick="showRegion(this,6)"><span>Gujarat</span><span class="region-pill p3">7</span></button>
-<button class="region-btn" onclick="showRegion(this,7)"><span>Haryana</span><span class="region-pill p0">—</span></button>
-<button class="region-btn" onclick="showRegion(this,8)"><span>Himachal Pradesh</span><span class="region-pill p2">5</span></button>
-<button class="region-btn" onclick="showRegion(this,9)"><span>Jammu and Kashmir</span><span class="region-pill p1">1</span></button>
-<button class="region-btn" onclick="showRegion(this,10)"><span>Jharkhand</span><span class="region-pill p2">5</span></button>
-<button class="region-btn" onclick="showRegion(this,11)"><span>Karnataka</span><span class="region-pill p3">7</span></button>
-<button class="region-btn" onclick="showRegion(this,12)"><span>Kerala</span><span class="region-pill p1">1</span></button>
-<button class="region-btn" onclick="showRegion(this,13)"><span>Madhya Pradesh</span><span class="region-pill p2">5</span></button>
-<button class="region-btn" onclick="showRegion(this,14)"><span>Maharashtra</span><span class="region-pill p2">3</span></button>
-<button class="region-btn" onclick="showRegion(this,15)"><span>Manipur</span><span class="region-pill p0">—</span></button>
-<button class="region-btn" onclick="showRegion(this,16)"><span>Meghalaya</span><span class="region-pill p0">—</span></button>
-<button class="region-btn" onclick="showRegion(this,17)"><span>Nagaland</span><span class="region-pill p1">1</span></button>
-<button class="region-btn" onclick="showRegion(this,18)"><span>Odisha</span><span class="region-pill p3">9</span></button>
-<button class="region-btn" onclick="showRegion(this,19)"><span>Punjab</span><span class="region-pill p0">—</span></button>
-<button class="region-btn" onclick="showRegion(this,20)"><span>Rajasthan</span><span class="region-pill p4">15</span></button>
-<button class="region-btn" onclick="showRegion(this,21)"><span>Sikkim</span><span class="region-pill p1">2</span></button>
-<button class="region-btn" onclick="showRegion(this,22)"><span>Tamil Nadu</span><span class="region-pill p2">5</span></button>
-<button class="region-btn" onclick="showRegion(this,23)"><span>Telangana</span><span class="region-pill p2">4</span></button>
-<button class="region-btn" onclick="showRegion(this,24)"><span>Uttar Pradesh</span><span class="region-pill p1">2</span></button>
-<button class="region-btn" onclick="showRegion(this,25)"><span>Uttarakhand</span><span class="region-pill p1">1</span></button>
-<button class="region-btn" onclick="showRegion(this,26)"><span>West Bengal</span><span class="region-pill p3">7</span></button>
-      </div>
-      <div class="region-detail" id="region-detail">
-<div class="region-detail-state">Andhra Pradesh</div><div class="region-detail-count">4 art forms practiced here</div><div class="region-art-item"><div class="region-art-num">01</div><div><div class="region-art-name">Dhuli Shilpa</div><div class="region-art-desc">Andhra Pradesh floor drawing with coloured powders for rituals and festivals.</div></div></div><div class="region-art-item"><div class="region-art-num">02</div><div><div class="region-art-name">Kalamkari</div><div class="region-art-desc">Ancient textile art using a natural-dye pen to paint mythological narratives on cloth.</div></div></div><div class="region-art-item"><div class="region-art-num">03</div><div><div class="region-art-name">Thollu</div><div class="region-art-desc">Andhra's painted leather puppets that cast coloured shadows on white screens.</div></div></div><div class="region-art-item"><div class="region-art-num">04</div><div><div class="region-art-name">Gold Emboss</div><div class="region-art-desc">Applied gold leaf creating three-dimensional luminosity in South Indian classical painting.</div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- COMMISSION -->
 <section id="commission">
   <div class="section-inner">
@@ -590,7 +520,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
     </div>
     <div class="footer-col"><h4>Gallery</h4><ul><li><a href="#art-for-sale">Available Works</a></li><li><a href="#art-forms">Art Forms</a></li><li><a href="#commission">Commissions</a></li><li><a href="#about">About the Artist</a></li></ul></div>
     <div class="footer-col"><h4>Journal</h4><ul><li><a href="#blog">Weekly Blog</a></li><li><a href="#book-reviews">Book Reviews</a></li><li><a href="#newsletter">Newsletter</a></li></ul></div>
-    <div class="footer-col"><h4>Connect</h4><ul><li><a href="mailto:art@artbyanuprita.com">art@artbyanuprita.com</a></li><li><a href="#">Instagram</a></li><li><a href="#">WhatsApp</a></li><li><a href="#">Pinterest</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="mailto:artbyanupritaa@gmail.com">artbyanupritaa@gmail.com</a></li><li><a href="#">Instagram</a></li><li><a href="#">WhatsApp</a></li><li><a href="#">Pinterest</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <div class="folk-border-sm" style="margin-bottom:22px;max-width:320px;margin-left:auto;margin-right:auto"></div>
@@ -625,19 +555,24 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 
       <!-- TAB: PAINTINGS -->
       <div class="admin-tab-pane active" id="tab-paintings">
+        <input type="hidden" id="u-edit-id" value="">
         <div class="form-group"><label>Painting Title</label><input type="text" id="u-title" placeholder="e.g. Radha with Peacocks"></div>
         <div class="form-group"><label>Art Style</label><input type="text" id="u-style" placeholder="e.g. Pichwai, Kalamkari…"></div>
         <div class="form-group"><label>Dimensions</label><input type="text" id="u-dims" placeholder="e.g. 12 × 16 inches"></div>
         <div class="form-group"><label>Price (₹)</label><input type="text" id="u-price" placeholder="e.g. 9500"></div>
         <div class="form-group"><label>Status</label><select id="u-status"><option value="available">Available</option><option value="sold">Sold</option></select></div>
         <div class="form-group"><label>Painting Image</label><input type="file" id="u-image" accept="image/*" onchange="previewImg(this)"><img id="img-preview" alt="Preview"></div>
-        <button class="btn btn-green" onclick="addPainting()" style="width:100%;margin-bottom:8px">＋ Add to Gallery</button>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-green" id="u-submit-btn" onclick="savePainting()" style="flex:1">＋ Add to Gallery</button>
+          <button class="btn" onclick="resetPaintingForm()" style="background:rgba(26,15,0,.15);color:var(--ink);display:none" id="u-cancel-btn">✕ Cancel</button>
+        </div>
         <div class="admin-section-title">Manage Existing Paintings</div>
         <div id="admin-paintings-list"></div>
       </div>
 
       <!-- TAB: JOURNAL -->
       <div class="admin-tab-pane" id="tab-journal">
+        <input type="hidden" id="j-edit-id" value="">
         <div class="form-group"><label>Post Title</label><input type="text" id="j-title" placeholder="e.g. The Secret of Ochre"></div>
         <div class="form-group"><label>Tag / Category</label><input type="text" id="j-tag" placeholder="e.g. Technique, Travel, Materials"></div>
         <div class="form-group"><label>Date</label><input type="date" id="j-date"></div>
@@ -650,7 +585,10 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
           <label>Full Article</label>
           <textarea id="j-body" style="height:160px" placeholder="Write the full article here. Paragraphs separated by blank lines will be formatted automatically."></textarea>
         </div>
-        <button class="btn btn-green" onclick="addPost()" style="width:100%;margin-bottom:8px">＋ Publish Post</button>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-green" id="j-submit-btn" onclick="savePost()" style="flex:1">＋ Publish Post</button>
+          <button class="btn" onclick="resetPostForm()" style="background:rgba(26,15,0,.15);color:var(--ink);display:none" id="j-cancel-btn">✕ Cancel</button>
+        </div>
         <div class="admin-section-title">Published Posts</div>
         <div id="admin-posts-list"></div>
       </div>
@@ -688,7 +626,11 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
           <label>Your Review</label>
           <textarea id="b-review" style="height:80px" placeholder="A short personal note about why you recommend this book…"></textarea>
         </div>
-        <button class="btn btn-green" onclick="addBook()" style="width:100%;margin-bottom:8px">＋ Add Book</button>
+        <input type="hidden" id="b-edit-id" value="">
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-green" id="b-submit-btn" onclick="saveBook()" style="flex:1">＋ Add Book</button>
+          <button class="btn" onclick="resetBookForm()" style="background:rgba(26,15,0,.15);color:var(--ink);display:none" id="b-cancel-btn">✕ Cancel</button>
+        </div>
         <div class="admin-section-title">Current Book List</div>
         <div id="admin-books-list"></div>
       </div>
@@ -913,21 +855,54 @@ function previewImg(input){
   const prev=document.getElementById('img-preview');
   if(input.files&&input.files[0]){const r=new FileReader();r.onload=e=>{prev.src=e.target.result;prev.style.display='block';};r.readAsDataURL(input.files[0]);}
 }
-function addPainting(){
+function resetPaintingForm(){
+  document.getElementById('u-edit-id').value='';
+  ['u-title','u-style','u-dims','u-price'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('u-status').value='available';
+  document.getElementById('img-preview').style.display='none';
+  document.getElementById('u-image').value='';
+  document.getElementById('u-submit-btn').textContent='＋ Add to Gallery';
+  document.getElementById('u-cancel-btn').style.display='none';
+}
+function editPainting(id){
+  const p=paintings.find(x=>x.id===id);
+  if(!p)return;
+  document.getElementById('u-edit-id').value=id;
+  document.getElementById('u-title').value=p.title;
+  document.getElementById('u-style').value=p.style;
+  document.getElementById('u-dims').value=p.dims;
+  document.getElementById('u-price').value=p.price.replace('₹','').replace(/,/g,'');
+  document.getElementById('u-status').value=p.status;
+  if(p.img){const prev=document.getElementById('img-preview');prev.src=p.img;prev.style.display='block';}
+  document.getElementById('u-submit-btn').textContent='✓ Update Painting';
+  document.getElementById('u-cancel-btn').style.display='inline-block';
+  document.getElementById('tab-paintings').scrollTop=0;
+}
+function savePainting(){
   const title=document.getElementById('u-title').value.trim();
   const style=document.getElementById('u-style').value.trim();
   const dims=document.getElementById('u-dims').value.trim();
   const price=document.getElementById('u-price').value.trim();
   const status=document.getElementById('u-status').value;
+  const editId=document.getElementById('u-edit-id').value;
   if(!title||!style||!price){alert('Please fill in Title, Style, and Price.');return;}
+  const priceStr=/₹/.test(price)?price:'₹'+Number(price).toLocaleString('en-IN');
   const finish=img=>{
-    paintings.push({id:Date.now(),title,style,dims:dims||'Dimensions on request',price:/₹/.test(price)?price:'₹'+Number(price).toLocaleString('en-IN'),status,img});
-    saveAll();renderGallery();renderAdminPaintings();
-    ['u-title','u-style','u-dims','u-price'].forEach(id=>document.getElementById(id).value='');
-    document.getElementById('u-status').value='available';
-    document.getElementById('img-preview').style.display='none';
-    document.getElementById('u-image').value='';
-    alert('✓ Painting added!');
+    if(editId){
+      const idx=paintings.findIndex(p=>p.id==editId);
+      if(idx!==-1){
+        const oldImg=paintings[idx].img;
+        paintings[idx]={id:paintings[idx].id,title,style,dims:dims||'Dimensions on request',price:priceStr,status,img:img||oldImg};
+        saveAll();renderGallery();renderAdminPaintings();
+        resetPaintingForm();
+        alert('✓ Painting updated!');
+      }
+    } else {
+      paintings.push({id:Date.now(),title,style,dims:dims||'Dimensions on request',price:priceStr,status,img});
+      saveAll();renderGallery();renderAdminPaintings();
+      resetPaintingForm();
+      alert('✓ Painting added!');
+    }
   };
   const imgEl=document.getElementById('u-image');
   if(imgEl.files&&imgEl.files[0]){const r=new FileReader();r.onload=e=>finish(e.target.result);r.readAsDataURL(imgEl.files[0]);}
@@ -940,26 +915,55 @@ function deletePainting(id){
 }
 function renderAdminPaintings(){
   document.getElementById('admin-paintings-list').innerHTML=paintings.length
-    ?paintings.map(p=>`<div class="admin-list-item"><div class="admin-list-item-info"><div class="title">${p.title}</div><div class="meta">${p.style} · ${p.price} · <span style="color:${p.status==='sold'?'var(--vermilion)':'var(--forest)'}">${p.status}</span></div></div><button class="btn-remove" onclick="deletePainting(${p.id})">Remove</button></div>`).join('')
+    ?paintings.map(p=>`<div class="admin-list-item"><div class="admin-list-item-info"><div class="title">${p.title}</div><div class="meta">${p.style} · ${p.price} · <span style="color:${p.status==='sold'?'var(--vermilion)':'var(--forest)'}">${p.status}</span></div></div><div style="display:flex;gap:6px"><button class="btn-edit" onclick="editPainting(${p.id})">Edit</button><button class="btn-remove" onclick="deletePainting(${p.id})">Remove</button></div></div>`).join('')
     :'<p style="color:#9A8070;font-size:.86rem">No paintings yet.</p>';
 }
 
 /* ============================================================
    ADMIN — journal
    ============================================================ */
-function addPost(){
+function resetPostForm(){
+  document.getElementById('j-edit-id').value='';
+  ['j-title','j-tag','j-read','j-excerpt','j-body'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('j-date').value=new Date().toISOString().slice(0,10);
+  document.getElementById('j-submit-btn').textContent='＋ Publish Post';
+  document.getElementById('j-cancel-btn').style.display='none';
+}
+function editPost(id){
+  const p=posts.find(x=>x.id===id);
+  if(!p)return;
+  document.getElementById('j-edit-id').value=id;
+  document.getElementById('j-title').value=p.title;
+  document.getElementById('j-tag').value=p.tag;
+  document.getElementById('j-date').value=p.date;
+  document.getElementById('j-read').value=p.read;
+  document.getElementById('j-excerpt').value=p.excerpt;
+  document.getElementById('j-body').value=p.body||'';
+  document.getElementById('j-submit-btn').textContent='✓ Update Post';
+  document.getElementById('j-cancel-btn').style.display='inline-block';
+  document.getElementById('tab-journal').scrollTop=0;
+}
+function savePost(){
   const title=document.getElementById('j-title').value.trim();
   const tag=document.getElementById('j-tag').value.trim()||'Journal';
   const date=document.getElementById('j-date').value||new Date().toISOString().slice(0,10);
   const read=document.getElementById('j-read').value.trim()||'5 min';
   const excerpt=document.getElementById('j-excerpt').value.trim();
   const body=document.getElementById('j-body').value.trim();
+  const editId=document.getElementById('j-edit-id').value;
   if(!title||!excerpt){alert('Please fill in the Title and Excerpt.');return;}
-  posts.push({id:Date.now(),title,tag,date,read,excerpt,body});
-  saveAll();renderBlog();renderAdminPosts();
-  ['j-title','j-tag','j-read','j-excerpt','j-body'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('j-date').value=new Date().toISOString().slice(0,10);
-  alert('✓ Post published!');
+  if(editId){
+    const idx=posts.findIndex(p=>p.id==editId);
+    if(idx!==-1){posts[idx]={id:posts[idx].id,title,tag,date,read,excerpt,body};}
+    saveAll();renderBlog();renderAdminPosts();
+    resetPostForm();
+    alert('✓ Post updated!');
+  } else {
+    posts.push({id:Date.now(),title,tag,date,read,excerpt,body});
+    saveAll();renderBlog();renderAdminPosts();
+    resetPostForm();
+    alert('✓ Post published!');
+  }
 }
 function deletePost(id){
   if(!confirm('Delete this post?')) return;
@@ -968,7 +972,7 @@ function deletePost(id){
 }
 function renderAdminPosts(){
   document.getElementById('admin-posts-list').innerHTML=posts.length
-    ?posts.slice().reverse().map(p=>`<div class="admin-list-item"><div class="admin-list-item-info"><div class="title">${p.title}</div><div class="meta">${formatDate(p.date)} · ${p.tag}</div></div><button class="btn-remove" onclick="deletePost(${p.id})">Delete</button></div>`).join('')
+    ?posts.slice().reverse().map(p=>`<div class="admin-list-item"><div class="admin-list-item-info"><div class="title">${p.title}</div><div class="meta">${formatDate(p.date)} · ${p.tag}</div></div><div style="display:flex;gap:6px"><button class="btn-edit" onclick="editPost(${p.id})">Edit</button><button class="btn-remove" onclick="deletePost(${p.id})">Delete</button></div></div>`).join('')
     :'<p style="color:#9A8070;font-size:.86rem">No posts yet.</p>';
 }
 
@@ -988,16 +992,49 @@ function setSwatch(el){
   selectedColor=el.dataset.color;
   document.getElementById('b-color').value=selectedColor;
 }
-function addBook(){
+function resetBookForm(){
+  document.getElementById('b-edit-id').value='';
+  ['b-title','b-author','b-review'].forEach(id=>document.getElementById(id).value='');
+  setStars(5);
+  document.getElementById('b-submit-btn').textContent='＋ Add Book';
+  document.getElementById('b-cancel-btn').style.display='none';
+}
+function editBook(id){
+  const b=books.find(x=>x.id===id);
+  if(!b)return;
+  document.getElementById('b-edit-id').value=id;
+  document.getElementById('b-title').value=b.title;
+  document.getElementById('b-author').value=b.author;
+  document.getElementById('b-review').value=b.review;
+  setStars(b.stars||5);
+  // set color swatch
+  document.querySelectorAll('.color-swatch').forEach(s=>{
+    s.classList.toggle('selected',s.dataset.color===b.bg);
+  });
+  selectedColor=b.bg;
+  document.getElementById('b-color').value=b.bg;
+  document.getElementById('b-submit-btn').textContent='✓ Update Book';
+  document.getElementById('b-cancel-btn').style.display='inline-block';
+  document.getElementById('tab-books').scrollTop=0;
+}
+function saveBook(){
   const title=document.getElementById('b-title').value.trim();
   const author=document.getElementById('b-author').value.trim();
   const review=document.getElementById('b-review').value.trim();
+  const editId=document.getElementById('b-edit-id').value;
   if(!title||!author||!review){alert('Please fill in Title, Author, and Review.');return;}
-  books.push({id:Date.now(),title,author,stars:selectedStars,bg:selectedColor,review});
-  saveAll();renderBooks();renderAdminBooks();
-  ['b-title','b-author','b-review'].forEach(id=>document.getElementById(id).value='');
-  setStars(5);
-  alert('✓ Book added!');
+  if(editId){
+    const idx=books.findIndex(b=>b.id==editId);
+    if(idx!==-1){books[idx]={id:books[idx].id,title,author,stars:selectedStars,bg:selectedColor,review};}
+    saveAll();renderBooks();renderAdminBooks();
+    resetBookForm();
+    alert('✓ Book updated!');
+  } else {
+    books.push({id:Date.now(),title,author,stars:selectedStars,bg:selectedColor,review});
+    saveAll();renderBooks();renderAdminBooks();
+    resetBookForm();
+    alert('✓ Book added!');
+  }
 }
 function deleteBook(id){
   if(!confirm('Remove this book?')) return;
@@ -1006,7 +1043,7 @@ function deleteBook(id){
 }
 function renderAdminBooks(){
   document.getElementById('admin-books-list').innerHTML=books.length
-    ?books.map(b=>`<div class="admin-list-item"><div class="admin-list-item-info"><div class="title">${b.title}</div><div class="meta">${b.author} · ${'★'.repeat(b.stars)}</div></div><button class="btn-remove" onclick="deleteBook(${b.id})">Remove</button></div>`).join('')
+    ?books.map(b=>`<div class="admin-list-item"><div class="admin-list-item-info"><div class="title">${b.title}</div><div class="meta">${b.author} · ${'★'.repeat(b.stars)}</div></div><div style="display:flex;gap:6px"><button class="btn-edit" onclick="editBook(${b.id})">Edit</button><button class="btn-remove" onclick="deleteBook(${b.id})">Remove</button></div></div>`).join('')
     :'<p style="color:#9A8070;font-size:.86rem">No books yet.</p>';
 }
 
@@ -1057,20 +1094,6 @@ function setupReveal(){
 }
 
 document.getElementById('af-modal').addEventListener('click',function(e){if(e.target===this)closeAfModal();});
-
-/* region by state */
-var RD=[{"s": "Andhra Pradesh", "a": ["Dhuli Shilpa", "Kalamkari", "Thollu", "Gold Emboss"]}, {"s": "Assam", "a": ["Assamese Manuscript"]}, {"s": "Bihar", "a": ["Aripan", "Bhojpuri", "Manjusha", "Mithila Bharni", "Mithila Kachni", "Tikuli"]}, {"s": "Chhattisgarh", "a": ["Baiga", "Godhna", "Muriya Chotul"]}, {"s": "Delhi", "a": ["Mughal"]}, {"s": "Goa", "a": []}, {"s": "Gujarat", "a": ["Batik", "Ganjifa", "Jain Patta", "Lippan", "Mata Ni Pachedi", "Pithora", "Roghan"]}, {"s": "Haryana", "a": []}, {"s": "Himachal Pradesh", "a": ["Basholi", "Chamba", "Guler", "Kangra", "Raagmala"]}, {"s": "Jammu and Kashmir", "a": ["Basholi"]}, {"s": "Jharkhand", "a": ["Jadu Patua", "Khovar", "Paitkar", "Santhal", "Tusser"]}, {"s": "Karnataka", "a": ["Chittara", "Gold Emboss", "Kavvi Kale", "Kinnal", "Mysore", "Surpur", "Togalu Gombayatta"]}, {"s": "Kerala", "a": ["Kerala Mural"]}, {"s": "Madhya Pradesh", "a": ["Baiga", "Bhil", "Gond", "Mandana", "Pithora"]}, {"s": "Maharashtra", "a": ["Chitrakathi", "Ganjifa", "Warli"]}, {"s": "Manipur", "a": []}, {"s": "Meghalaya", "a": []}, {"s": "Nagaland", "a": ["Tsungko"]}, {"s": "Odisha", "a": ["Ganjifa", "Idital", "Jatri Patti", "Jhoti Chitta", "Juang", "Jyunti Patta", "Palm Leaf", "Pattachitra", "Suara"]}, {"s": "Punjab", "a": []}, {"s": "Rajasthan", "a": ["Bheenth Chitra", "Bikaner", "Blue Pottery", "Boondi", "Jain Patta", "Jaipur Marble Painting", "Kavad", "Kishangarh", "Mandana", "Phad", "Pichwai", "Raagmala", "Rajasthani Miniature", "Shekhawati", "Usta Kala"]}, {"s": "Sikkim", "a": ["Paubha", "Thangka"]}, {"s": "Tamil Nadu", "a": ["Kamangiri", "Kolam", "Kurumba", "Palm Leaf", "Tanjore"]}, {"s": "Telangana", "a": ["Cheriyal", "Deccan School", "Nirmal", "Shah Qalam"]}, {"s": "Uttar Pradesh", "a": ["Bhojpuri", "Mughal"]}, {"s": "Uttarakhand", "a": ["Aipan"]}, {"s": "West Bengal", "a": ["Alpona", "Bengal Pattachitra", "Jadu Patua", "Jamini Roy", "Kalighat", "Mansa Pat", "Santhal"]}];
-var RDES={"Aipan": "Ritual floor art by women of Kumaon using red ochre and white rice-paste designs.", "Alpona": "Floor art tradition of Bengal created with rice paste on auspicious occasions.", "Aripan": "Sacred floor-painting from Mithila drawn with rice paste during festivals.", "Assamese Manuscript": "Ancient illustrated manuscripts on Saanchi bark depicting Hindu epics.", "Baiga": "Tribal wall art of the Baiga people \u2014 bold elemental designs in natural pigments.", "Basholi": "Earliest Pahari miniature school with bold colours and beetle-wing jewellery details.", "Batik": "Wax-resist dyeing on fabric practiced across India with distinct regional variations.", "Bengal Pattachitra": "Scroll paintings by the Chitrakar community where painting and song were inseparable.", "Bheenth Chitra": "Haveli wall murals of Rajasthan depicting mythology and royalty in natural pigments.", "Bhil": "Tribal art filled with rhythmic dot patterns creating a shimmering mosaic quality.", "Bhojpuri": "Folk paintings of eastern UP and Bihar marking festivals and weddings.", "Bikaner": "Rajput miniature school celebrated for fine detailing and Mughal-influenced portraits.", "Blue Pottery": "Jaipur craft using quartz stone base with Persian-influenced cobalt blue patterns.", "Boondi": "Rajput miniature school with lush jewel-like landscapes teeming with animals and birds.", "Chamba": "Pahari school from Himachal Pradesh with lyrical depictions of Krishna and Radha.", "Cheriyal": "Narrative scroll paintings from Telangana on flat red backgrounds.", "Chitrakathi": "Folk painting from Palghar, Maharashtra depicting mythology in bold frontal figures.", "Chittara": "Women's ritual art of Karnataka's Malnad region drawn with rice paste on mud walls.", "Deccan School": "Miniature paintings of the Deccan Sultanates blending Persian and South Indian styles.", "Dhuli Shilpa": "Andhra Pradesh floor drawing with coloured powders for rituals and festivals.", "Ganjifa": "Painted circular playing cards depicting Dashavatara \u2014 the ten avatars of Vishnu.", "Godhna": "Tattoo-inspired art of tribal Chhattisgarh, translated from skin onto paper and walls.", "Gold Emboss": "Applied gold leaf creating three-dimensional luminosity in South Indian classical painting.", "Gond": "Vibrant tribal art of dots and dashes from the Gondi cosmology of Madhya Pradesh.", "Guler": "Refined Pahari school associated with the great master painter Nainsukh.", "Idital": "Ritual wall painting created by Odishan women for festivals and rites of passage.", "Jadu Patua": "Magical scroll paintings of the Santal people, used to guide souls of the deceased.", "Jain Patta": "Illustrated Jain manuscripts with characteristic oblique eyes and use of gold leaf.", "Jaipur Marble Painting": "Traditional Rajasthani designs painted directly on natural marble stone.", "Jamini Roy": "A visual language drawn from Kalighat and Bengal folk art, now a tradition itself.", "Jatri Patti": "Small Pattachitra panels sold as sacred keepsakes to Puri pilgrims.", "Jhoti Chitta": "Ancient Odishan floor drawings invoking Lakshmi, done each morning at the threshold.", "Juang": "Tribal art of the Juang community of Keonjhar, Odisha painted during festivals.", "Jyunti Patta": "Sub-style of Pattachitra on thick cloth base for ritual and ceremonial use.", "Kalamkari": "Ancient textile art using a natural-dye pen to paint mythological narratives on cloth.", "Kalighat": "19th-century urban folk painting from Kolkata with a satirical edge.", "Kamangiri": "Tamil Nadu folk painting depicting local deities in bold, direct natural colours.", "Kangra": "The most celebrated Pahari school, sometimes called the poetry of Indian painting.", "Kavad": "Portable painted wooden shrine used by Rajasthani bards as a storytelling device.", "Kavvi Kale": "Karnataka folk painting of the Kole fishermen depicting coastal deities.", "Kerala Mural": "Classical temple wall painting using only five colours derived from natural minerals.", "Kinnal": "Wooden deity figures sculpted and painted with natural pigments in Koppal, Karnataka.", "Kishangarh": "Rajput miniature with elongated lotus-petal eyes \u2014 the Mona Lisa of India.", "Khovar": "Ritual wall art created in the Jharkhand bridal chamber before a wedding.", "Kolam": "Daily threshold drawing of South India created with rice flour before sunrise.", "Kurumba": "One of India's rarest folk art traditions \u2014 extraordinary fine linework from the Nilgiris.", "Lippan": "Relief wall art from Kutch \u2014 clay raised in patterns and studded with mirror pieces.", "Mandana": "Floor and wall drawings by women of Rajasthan and MP using red earth and white lime.", "Manjusha": "Bihar folk painting on bamboo boxes depicting the Bihula-Bishahari story.", "Mansa Pat": "Scroll paintings of the snake goddess Mansa for the Manasamangal Kavya recitation.", "Mata Ni Pachedi": "Portable temple cloth paintings by Gujarat's Vaghari community for the Mother Goddess.", "Mithila Bharni": "The older Mithila painting style \u2014 bold outlines filled with flat, unmixed colour.", "Mithila Kachni": "Mithila hatching style \u2014 intricate cross-hatched lines built up with extraordinary patience.", "Mughal": "Court painting of the Mughal Empire blending Persian manuscript art with Indian sensibility.", "Muriya Chotul": "Art of the Muriya Gond ghotul (youth dormitory) walls in Bastar, Chhattisgarh.", "Mysore": "Classical South Indian painting of restrained elegance with extensive use of gold leaf.", "Nirmal": "Telangana painting on a golden-yellow tamarind seed powder-treated wood surface.", "Palm Leaf": "Ancient art of incising illustrations on dried palm leaves with a metal stylus.", "Paitkar": "Jharkhand scroll painting used in rituals to guide the soul of the deceased.", "Pattachitra": "Odisha's celebrated cloth painting tradition using only natural pigments throughout.", "Paubha": "Sacred Newar painting tradition from Nepal, closely related to Tibetan Thangka.", "Phad": "Enormous cloth narrative paintings unrolled at Rajasthani bard performances by lamplight.", "Pithora": "Tribal wall painting completed in a single ritual sitting as an act of thanksgiving.", "Pichwai": "Large devotional paintings as the changing backdrop for the Shrinathji idol in Nathdwara.", "Raagmala": "Miniature painting translating classical music modes into human figures and seasonal settings.", "Rajasthani Miniature": "Broad category of Rajput schools \u2014 Mewar, Marwar, Jaipur, Kishangarh and more.", "Roghan": "Extraordinarily rare Kutch art \u2014 castor-oil paint applied with a stylus never touching the cloth.", "Suara": "Folk painting of the Suara tribal community of Odisha created for festivals.", "Santhal": "Visual traditions of the Santhal people including wall paintings, scrolls and body decoration.", "Shah Qalam": "Deccani sub-style with fantastical subjects painted with extraordinary freedom.", "Shekhawati": "Haveli frescoes of Rajasthan depicting colonial modernity painted beside gods.", "Surpur": "Miniature painting of the former Surpur princely state blending Deccani and Rajput styles.", "Tanjore": "Classical South Indian painting with gold leaf, semi-precious stones and glass.", "Tusser": "Paintings on wild silk cloth using natural dyes from local Jharkhand plants.", "Thangka": "Sacred Tibetan Buddhist painting where every pose and colour carries spiritual meaning.", "Thollu": "Andhra's painted leather puppets that cast coloured shadows on white screens.", "Tikuli": "Bihar folk painting on glass surfaces, originally associated with the decorative bindi.", "Togalu Gombayatta": "Karnataka's painted leather shadow puppet tradition.", "Tsungko": "Geometric patterns of the Ao Naga community encoding status and clan identity in cloth.", "Usta Kala": "Rare camel-hide painting and gilding from Bikaner \u2014 among India's finest decorative craft.", "Warli": "Simple white geometric figures on red-ochre backgrounds depicting life with remarkable vitality."};
-function showRegion(btn,idx){
-  document.querySelectorAll(".region-btn").forEach(function(b){b.classList.remove("active");});
-  btn.classList.add("active");
-  var s=RD[idx],det=document.getElementById("region-detail");
-  if(!s.a.length){det.innerHTML='<div class="region-detail-state">'+s.s+'</div><div class="region-detail-count">No art forms from this collection are mapped to this state yet.</div>';return;}
-  var cnt=s.a.length===1?"1 art form practiced here":s.a.length+" art forms practiced here";
-  var items=s.a.map(function(a,i){var d=RDES[a]||"";var n=i+1<10?"0"+(i+1):""+(i+1);return'<div class="region-art-item"><div class="region-art-num">'+n+'</div><div><div class="region-art-name">'+a+'</div><div class="region-art-desc">'+d+'</div></div></div>';}).join("");
-  det.innerHTML='<div class="region-detail-state">'+s.s+'</div><div class="region-detail-count">'+cnt+'</div>'+items;
-  det.scrollTop=0;
-}
 
 window.addEventListener('load',init);
 
