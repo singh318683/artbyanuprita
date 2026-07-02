@@ -481,7 +481,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
           <li><span>Progress photos at key milestones. Final delivery with a signed certificate.</span></li>
         </ol>
         <h3>Pricing guide</h3>
-        <p>Small (A4) · ₹4,000–₹8,000 &nbsp;|&nbsp; Medium (A3) · ₹8,000–₹18,000 &nbsp;|&nbsp; Large (A2+) · ₹18,000+</p>
+        <p>Small (A4) · $50–$100 &nbsp;|&nbsp; Medium (A3) · $100–$215 &nbsp;|&nbsp; Large (A2+) · $215+</p>
         <h3>Delivery</h3>
         <p>Within India: 7–10 days. International: 14–21 days via tracked courier.</p>
       </div>
@@ -559,7 +559,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
         <div class="form-group"><label>Painting Title</label><input type="text" id="u-title" placeholder="e.g. Radha with Peacocks"></div>
         <div class="form-group"><label>Art Style</label><input type="text" id="u-style" placeholder="e.g. Pichwai, Kalamkari…"></div>
         <div class="form-group"><label>Dimensions</label><input type="text" id="u-dims" placeholder="e.g. 12 × 16 inches"></div>
-        <div class="form-group"><label>Price (₹)</label><input type="text" id="u-price" placeholder="e.g. 9500"></div>
+        <div class="form-group"><label>Price (USD $)</label><input type="text" id="u-price" placeholder="e.g. 9500"></div>
         <div class="form-group"><label>Status</label><select id="u-status"><option value="available">Available</option><option value="sold">Sold</option></select></div>
         <div class="form-group"><label>Painting Image</label><input type="file" id="u-image" accept="image/*" onchange="previewImg(this)"><img id="img-preview" alt="Preview"></div>
         <div style="display:flex;gap:8px">
@@ -708,7 +708,7 @@ let currentPostId=null; /* for reading a full post */
    INIT
    ============================================================ */
 function init(){
-  paintings = JSON.parse(localStorage.getItem('abn_paintings_v2')||'null') || JSON.parse(JSON.stringify(SEED_PAINTINGS));
+  paintings = JSON.parse(localStorage.getItem('abn_paintings_v3')||'null') || JSON.parse(JSON.stringify(SEED_PAINTINGS));
   posts     = JSON.parse(localStorage.getItem('abn_posts_v1')||'null')    || JSON.parse(JSON.stringify(SEED_POSTS));
   books     = JSON.parse(localStorage.getItem('abn_books_v1')||'null')    || JSON.parse(JSON.stringify(SEED_BOOKS));
   saveAll();
@@ -718,7 +718,7 @@ function init(){
   document.getElementById('j-date').value = new Date().toISOString().slice(0,10);
 }
 function saveAll(){
-  localStorage.setItem('abn_paintings_v2', JSON.stringify(paintings));
+  localStorage.setItem('abn_paintings_v3', JSON.stringify(paintings));
   localStorage.setItem('abn_posts_v1',     JSON.stringify(posts));
   localStorage.setItem('abn_books_v1',     JSON.stringify(books));
 }
@@ -871,7 +871,7 @@ function editPainting(id){
   document.getElementById('u-title').value=p.title;
   document.getElementById('u-style').value=p.style;
   document.getElementById('u-dims').value=p.dims;
-  document.getElementById('u-price').value=p.price.replace('₹','').replace(/,/g,'');
+  document.getElementById('u-price').value=p.price.replace('$','').replace(/,/g,'');
   document.getElementById('u-status').value=p.status;
   if(p.img){const prev=document.getElementById('img-preview');prev.src=p.img;prev.style.display='block';}
   document.getElementById('u-submit-btn').textContent='✓ Update Painting';
@@ -886,7 +886,7 @@ function savePainting(){
   const status=document.getElementById('u-status').value;
   const editId=document.getElementById('u-edit-id').value;
   if(!title||!style||!price){alert('Please fill in Title, Style, and Price.');return;}
-  const priceStr=/₹/.test(price)?price:'₹'+Number(price).toLocaleString('en-IN');
+  const priceStr=price.startsWith('$')?price:'$'+Number(price.replace(/[^0-9.]/g,'')).toLocaleString('en-US');
   const finish=img=>{
     if(editId){
       const idx=paintings.findIndex(p=>p.id==editId);
