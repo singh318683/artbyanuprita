@@ -319,11 +319,122 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 </section>
 
 <div class="triangle-divider"></div>
+<div class="folk-border"></div>
+<!-- ART FORMS -->
+<section id="art-forms">
+  <div class="section-inner">
+    <span class="section-eyebrow">✦ Living Traditions</span>
+    <h2 class="section-title">Art Forms Practiced</h2>
+    <p class="section-desc">From celebrated traditions to nearly-vanished forms — each style is a doorway into a distinct cultural cosmos. All 81 practiced with natural pigments and handmade materials.</p>
+    <div style="text-align:center;margin-bottom:32px;">
+<button id="af-toggle-btn" onclick="toggleArtForms()" style="
+  display:inline-flex;align-items:center;gap:10px;
+  background:transparent;border:2px solid var(--saffron);
+  color:var(--saffron);padding:12px 28px;
+  font-family:'Lato',sans-serif;font-size:.82rem;font-weight:700;
+  letter-spacing:1.3px;text-transform:uppercase;cursor:pointer;
+  transition:all .2s;">
+  <span id="af-btn-text">View All 83 Art Forms</span>
+  <span id="af-btn-icon" style="font-size:1rem;transition:transform .3s;">&#9660;</span>
+</button>
+</div>
 
+<div id="af-collapsible" style="display:none;">
+<div class="art-forms-grid" id="art-forms-grid">
+<div class="art-form-row" onclick="showArtForm(0)"><div class="form-name">Aipan</div><div class="form-region">Uttarakhand</div></div>
+<div class="art-form-row" onclick="showArtForm(1)"><div class="form-name">Alpona</div><div class="form-region">West Bengal</div></div>
+<div class="art-form-row" onclick="showArtForm(2)"><div class="form-name">Aripan</div><div class="form-region">Bihar / Mithila</div></div>
+<div class="art-form-row" onclick="showArtForm(3)"><div class="form-name">Assamese Manuscript</div><div class="form-region">Assam</div></div>
+<div class="art-form-row" onclick="showArtForm(4)"><div class="form-name">Baiga</div><div class="form-region">Madhya Pradesh / Chhattisgarh</div></div>
+<div class="art-form-row" onclick="showArtForm(5)"><div class="form-name">Basholi</div><div class="form-region">Jammu and Kashmir</div></div>
+<div class="art-form-row" onclick="showArtForm(6)"><div class="form-name">Batik</div><div class="form-region">Pan-India</div></div>
+<div class="art-form-row" onclick="showArtForm(7)"><div class="form-name">Bengal Pattachitra</div><div class="form-region">West Bengal</div></div>
+<div class="art-form-row" onclick="showArtForm(8)"><div class="form-name">Bheenth Chitra</div><div class="form-region">Rajasthan</div></div>
+<div class="art-form-row" onclick="showArtForm(9)"><div class="form-name">Bhil</div><div class="form-region">Madhya Pradesh / Rajasthan</div></div>
+<div class="art-form-row" onclick="showArtForm(10)"><div class="form-name">Bhojpuri</div><div class="form-region">Uttar Pradesh / Bihar</div></div>
+<div class="art-form-row" onclick="showArtForm(11)"><div class="form-name">Bikaner</div><div class="form-region">Rajasthan</div></div>
+<div class="art-form-row" onclick="showArtForm(12)"><div class="form-name">Blue Pottery</div><div class="form-region">Rajasthan (Jaipur)</div></div>
+<div class="art-form-row" onclick="showArtForm(13)"><div class="form-name">Boondi</div><div class="form-region">Rajasthan</div></div>
+<div class="art-form-row" onclick="showArtForm(14)"><div class="form-name">Chamba</div><div class="form-region">Himachal Pradesh</div></div>
+<div class="art-form-row" onclick="showArtForm(15)"><div class="form-name">Cheriyal</div><div class="form-region">Telangana</div></div>
+<div class="art-form-row" onclick="showArtForm(16)"><div class="form-name">Chitrakathi</div><div class="form-region">Maharashtra (Palghar)</div></div>
+<div class="art-form-row" onclick="showArtForm(17)"><div class="form-name">Chittara</div><div class="form-region">Karnataka</div></div>
+<div class="art-form-row" onclick="showArtForm(18)"><div class="form-name">Deccan School</div><div class="form-region">Deccan / Hyderabad</div></div>
+<div class="art-form-row" onclick="showArtForm(19)"><div class="form-name">Dhuli Shilpa</div><div class="form-region">Andhra Pradesh</div></div>
+<div class="art-form-row" onclick="showArtForm(20)"><div class="form-name">Ganjifa</div><div class="form-region">Odisha / Maharashtra</div></div>
+<div class="art-form-row" onclick="showArtForm(21)"><div class="form-name">Godhna</div><div class="form-region">Chhattisgarh</div></div>
+<div class="art-form-row" onclick="showArtForm(22)"><div class="form-name">Gold Emboss</div><div class="form-region">Karnataka / Tamil Nadu</div></div>
+<div class="art-form-row" onclick="showArtForm(23)"><div class="form-name">Gond</div><div class="form-region">Madhya Pradesh</div></div>
+<div class="art-form-row" onclick="showArtForm(24)"><div class="form-name">Guler</div><div class="form-region">Himachal Pradesh</div></div>
+<div class="art-form-row" onclick="showArtForm(25)"><div class="form-name">Idital</div><div class="form-region">Odisha</div></div>
+<div class="art-form-row" onclick="showArtForm(26)"><div class="form-name">Jadu Patua</div><div class="form-region">West Bengal / Jharkhand</div></div>
+<div class="art-form-row" onclick="showArtForm(27)"><div class="form-name">Jain Patta</div><div class="form-region">Gujarat / Rajasthan</div></div>
+<div class="art-form-row" onclick="showArtForm(28)"><div class="form-name">Jaipur Marble Painting</div><div class="form-region">Rajasthan</div></div>
+<div class="art-form-row" onclick="showArtForm(29)"><div class="form-name">Jamini Roy</div><div class="form-region">West Bengal</div></div>
+<div class="art-form-row" onclick="showArtForm(30)"><div class="form-name">Jatri Patti</div><div class="form-region">Odisha</div></div>
+<div class="art-form-row" onclick="showArtForm(31)"><div class="form-name">Jhoti Chitta</div><div class="form-region">Odisha</div></div>
+<div class="art-form-row" onclick="showArtForm(32)"><div class="form-name">Juang</div><div class="form-region">Odisha</div></div>
+<div class="art-form-row" onclick="showArtForm(33)"><div class="form-name">Jyunti Patta</div><div class="form-region">Odisha</div></div>
+<div class="art-form-row" onclick="showArtForm(34)"><div class="form-name">Kalamkari</div><div class="form-region">Andhra Pradesh</div></div>
+<div class="art-form-row" onclick="showArtForm(35)"><div class="form-name">Kamangiri</div><div class="form-region">Tamil Nadu</div></div>
+<div class="art-form-row" onclick="showArtForm(36)"><div class="form-name">Kalighat</div><div class="form-region">West Bengal</div></div>
+<div class="art-form-row" onclick="showArtForm(37)"><div class="form-name">Kangra</div><div class="form-region">Himachal Pradesh</div></div>
+<div class="art-form-row" onclick="showArtForm(38)"><div class="form-name">Kavad</div><div class="form-region">Rajasthan</div></div>
+<div class="art-form-row" onclick="showArtForm(39)"><div class="form-name">Kavvi Kale</div><div class="form-region">Karnataka</div></div>
+<div class="art-form-row" onclick="showArtForm(40)"><div class="form-name">Kerala Mural</div><div class="form-region">Kerala</div></div>
+<div class="art-form-row" onclick="showArtForm(41)"><div class="form-name">Kinnal</div><div class="form-region">Karnataka</div></div>
+<div class="art-form-row" onclick="showArtForm(42)"><div class="form-name">Kishangarh</div><div class="form-region">Rajasthan</div></div>
+<div class="art-form-row" onclick="showArtForm(43)"><div class="form-name">Khovar</div><div class="form-region">Jharkhand</div></div>
+<div class="art-form-row" onclick="showArtForm(44)"><div class="form-name">Kolam</div><div class="form-region">Tamil Nadu / Andhra Pradesh</div></div>
+<div class="art-form-row" onclick="showArtForm(45)"><div class="form-name">Kurumba</div><div class="form-region">Tamil Nadu (Nilgiris)</div></div>
+<div class="art-form-row" onclick="showArtForm(46)"><div class="form-name">Lippan</div><div class="form-region">Gujarat (Kutch)</div></div>
+<div class="art-form-row" onclick="showArtForm(47)"><div class="form-name">Mandana</div><div class="form-region">Rajasthan / Madhya Pradesh</div></div>
+<div class="art-form-row" onclick="showArtForm(48)"><div class="form-name">Manjusha</div><div class="form-region">Bihar</div></div>
+<div class="art-form-row" onclick="showArtForm(49)"><div class="form-name">Mansa Pat</div><div class="form-region">West Bengal</div></div>
+<div class="art-form-row" onclick="showArtForm(50)"><div class="form-name">Mata Ni Pachedi</div><div class="form-region">Gujarat</div></div>
+<div class="art-form-row" onclick="showArtForm(51)"><div class="form-name">Mithila Bharni</div><div class="form-region">Bihar / Mithila</div></div>
+<div class="art-form-row" onclick="showArtForm(52)"><div class="form-name">Mithila Kachni</div><div class="form-region">Bihar / Mithila</div></div>
+<div class="art-form-row" onclick="showArtForm(53)"><div class="form-name">Mughal</div><div class="form-region">Delhi / Agra</div></div>
+<div class="art-form-row" onclick="showArtForm(54)"><div class="form-name">Muriya Chotul</div><div class="form-region">Chhattisgarh</div></div>
+<div class="art-form-row" onclick="showArtForm(55)"><div class="form-name">Mysore</div><div class="form-region">Karnataka</div></div>
+<div class="art-form-row" onclick="showArtForm(56)"><div class="form-name">Nirmal</div><div class="form-region">Telangana</div></div>
+<div class="art-form-row" onclick="showArtForm(57)"><div class="form-name">Palm Leaf</div><div class="form-region">Odisha / Tamil Nadu</div></div>
+<div class="art-form-row" onclick="showArtForm(58)"><div class="form-name">Paitkar</div><div class="form-region">Jharkhand</div></div>
+<div class="art-form-row" onclick="showArtForm(59)"><div class="form-name">Pattachitra</div><div class="form-region">Odisha</div></div>
+<div class="art-form-row" onclick="showArtForm(60)"><div class="form-name">Paubha</div><div class="form-region">Nepal / Himalayas</div></div>
+<div class="art-form-row" onclick="showArtForm(61)"><div class="form-name">Phad</div><div class="form-region">Rajasthan</div></div>
+<div class="art-form-row" onclick="showArtForm(62)"><div class="form-name">Pithora</div><div class="form-region">Gujarat / Madhya Pradesh</div></div>
+<div class="art-form-row" onclick="showArtForm(63)"><div class="form-name">Pichwai</div><div class="form-region">Rajasthan (Nathdwara)</div></div>
+<div class="art-form-row" onclick="showArtForm(64)"><div class="form-name">Raagmala</div><div class="form-region">Rajasthan / Himachal Pradesh</div></div>
+<div class="art-form-row" onclick="showArtForm(65)"><div class="form-name">Rajasthani Miniature</div><div class="form-region">Rajasthan</div></div>
+<div class="art-form-row" onclick="showArtForm(66)"><div class="form-name">Roghan</div><div class="form-region">Gujarat (Kutch)</div></div>
+<div class="art-form-row" onclick="showArtForm(67)"><div class="form-name">Suara</div><div class="form-region">Odisha</div></div>
+<div class="art-form-row" onclick="showArtForm(68)"><div class="form-name">Santhal</div><div class="form-region">Jharkhand / West Bengal</div></div>
+<div class="art-form-row" onclick="showArtForm(69)"><div class="form-name">Shah Qalam</div><div class="form-region">Deccan</div></div>
+<div class="art-form-row" onclick="showArtForm(70)"><div class="form-name">Shekhawati</div><div class="form-region">Rajasthan</div></div>
+<div class="art-form-row" onclick="showArtForm(71)"><div class="form-name">Surpur</div><div class="form-region">Karnataka</div></div>
+<div class="art-form-row" onclick="showArtForm(72)"><div class="form-name">Tanjore</div><div class="form-region">Tamil Nadu</div></div>
+<div class="art-form-row" onclick="showArtForm(73)"><div class="form-name">Tusser</div><div class="form-region">Jharkhand / Bihar</div></div>
+<div class="art-form-row" onclick="showArtForm(74)"><div class="form-name">Thangka</div><div class="form-region">Tibet / Himalayas</div></div>
+<div class="art-form-row" onclick="showArtForm(75)"><div class="form-name">Thollu</div><div class="form-region">Andhra Pradesh</div></div>
+<div class="art-form-row" onclick="showArtForm(76)"><div class="form-name">Tikuli</div><div class="form-region">Bihar</div></div>
+<div class="art-form-row" onclick="showArtForm(77)"><div class="form-name">Togalu Gombayatta</div><div class="form-region">Karnataka</div></div>
+<div class="art-form-row" onclick="showArtForm(78)"><div class="form-name">Tsungko</div><div class="form-region">Nagaland</div></div>
+<div class="art-form-row" onclick="showArtForm(79)"><div class="form-name">Usta Kala</div><div class="form-region">Rajasthan (Bikaner)</div></div>
+<div class="art-form-row" onclick="showArtForm(80)"><div class="form-name">Vijayanagar Painting</div><div class="form-region">Karnataka</div></div>
+<div class="art-form-row" onclick="showArtForm(81)"><div class="form-name">Yantras</div><div class="form-region">Pan-India</div></div>
+<div class="art-form-row" onclick="showArtForm(82)"><div class="form-name">Warli</div><div class="form-region">Maharashtra</div></div>
+</div>
+</div>
+    <div class="forms-footer">
+      <p style="margin-bottom:22px">All <strong>81 folk art styles</strong> practiced using only natural pigments and handmade paper or traditional canvas.</p>
+      <a href="#commission" class="btn btn-outline-gold">Request Any Style as a Commission</a>
+    </div>
+  </div>
+</section>
+
+<div class="folk-border"></div>
 <div class="triangle-divider"></div>
-<div class="folk-border"></div>
-
-<div class="folk-border"></div>
 
 <!-- COMMISSION -->
 <section id="commission">
