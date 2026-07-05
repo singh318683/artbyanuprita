@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Art by Anuprita · Folk Paintings from the Heart of India</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Lora:ital,wght@0,400;0,600;1,400&family=Caveat:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Lora:ital,wght@0,400;0,600;1,400&family=Caveat:wght@400;600;700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --ink:#1A0F00; --vermilion:#C8391A; --saffron:#F0A500; --gold-deep:#C87D00;
-  --forest:#2D5A3D; --indigo:#3D2B8E; --paper:#FBF5E6; --paper-dk:#F0E8D0;
-  --paper-lt:#FFFDF5; --muted:#5A4535; --muted-lt:rgba(251,245,230,0.65);
+  --forest:#2D5A3D; --indigo:#3D2B8E; --paper:#FEE8CC; --paper-dk:#FAD9A8;
+  --paper-lt:#FFF5E8; --muted:#5A4535; --muted-lt:rgba(251,245,230,0.65);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -27,7 +27,7 @@ a{text-decoration:none;color:inherit;}
 .nav-stripe{height:5px;background:linear-gradient(90deg,var(--vermilion) 0%,var(--saffron) 20%,var(--forest) 40%,var(--indigo) 60%,var(--vermilion) 80%,var(--saffron) 100%);}
 nav{position:sticky;top:0;z-index:900;background:var(--ink);}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 48px;gap:16px;flex-wrap:wrap;max-width:1400px;margin:0 auto;}
-.nav-logo{font-family:'Yatra One',serif;font-size:1.45rem;color:var(--saffron);}
+.nav-logo{font-family:'Dancing Script','Brush Script MT',cursive;font-size:1.7rem;color:var(--saffron);}
 .nav-logo span{color:var(--vermilion);}
 .nav-links{display:flex;list-style:none;gap:24px;align-items:center;flex-wrap:wrap;}
 .nav-links a{color:rgba(251,245,230,.8);font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:color .2s;}
@@ -38,23 +38,23 @@ nav{position:sticky;top:0;z-index:900;background:var(--ink);}
 .hamburger span{display:block;width:24px;height:2px;background:var(--paper);}
 
 /* HERO */
-.hero{min-height:94vh;background:var(--ink);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;}
+.hero{min-height:94vh;background:#FCE4B0;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(200,57,26,.14) 0%,transparent 55%),radial-gradient(ellipse at 80% 70%,rgba(61,43,142,.18) 0%,transparent 55%);}
-.hero-pattern{position:absolute;inset:0;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='32' fill='none' stroke='%23F0A500' stroke-width='.8'/%3E%3Ccircle cx='40' cy='40' r='18' fill='none' stroke='%23F0A500' stroke-width='.5'/%3E%3Ccircle cx='40' cy='40' r='6' fill='%23F0A500' opacity='.4'/%3E%3Cline x1='8' y1='40' x2='72' y2='40' stroke='%23F0A500' stroke-width='.4'/%3E%3Cline x1='40' y1='8' x2='40' y2='72' stroke='%23F0A500' stroke-width='.4'/%3E%3C/svg%3E");background-size:80px 80px;}
-.hero-frame{position:absolute;inset:28px;border:1px solid rgba(240,165,0,.2);pointer-events:none;}
+.hero-pattern{position:absolute;inset:0;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='32' fill='none' stroke='%23F0A500' stroke-width='.8'/%3E%3Ccircle cx='40' cy='40' r='18' fill='none' stroke='%23F0A500' stroke-width='.5'/%3E%3Ccircle cx='40' cy='40' r='6' fill='%23F0A500' opacity='.4'/%3E%3Cline x1='8' y1='40' x2='72' y2='40' stroke='%23F0A500' stroke-width='.4'/%3E%3Cline x1='40' y1='8' x2='40' y2='72' stroke='%23F0A500' stroke-width='.4'/%3E%3C/svg%3E");background-size:80px 80px;}
+.hero-frame{position:absolute;inset:28px;border:1px solid rgba(200,57,26,.2);pointer-events:none;}
 .hero-frame::before,.hero-frame::after{content:'';position:absolute;width:48px;height:48px;border-style:solid;border-color:var(--saffron);}
-.hero-frame::before{top:-2px;left:-2px;border-width:2px 0 0 2px;}
-.hero-frame::after{bottom:-2px;right:-2px;border-width:0 2px 2px 0;}
+.hero-frame::before{top:-2px;left:-2px;border-width:2px 0 0 2px;border-color:var(--vermilion);}
+.hero-frame::after{bottom:-2px;right:-2px;border-width:0 2px 2px 0;border-color:var(--vermilion);}
 .hero-content{position:relative;z-index:2;padding:60px 32px;}
-.hero-eyebrow{font-family:'Caveat',cursive;color:var(--saffron);font-size:1.25rem;letter-spacing:2px;display:block;margin-bottom:18px;}
-.hero-title{font-family:'Yatra One',serif;font-size:clamp(3.6rem,9vw,7.5rem);color:var(--paper);line-height:1.0;letter-spacing:-2px;margin-bottom:14px;}
-.hero-title em{color:var(--saffron);font-style:normal;}
-.hero-subtitle{font-family:'Lora',serif;font-size:clamp(1rem,2.2vw,1.35rem);color:rgba(240,165,0,.85);font-style:italic;margin-bottom:42px;}
-.hero-desc{font-size:.97rem;color:rgba(251,245,230,.68);max-width:540px;margin:0 auto 50px;line-height:1.85;}
+.hero-eyebrow{font-family:'Caveat',cursive;color:var(--vermilion);font-size:1.25rem;letter-spacing:2px;display:block;margin-bottom:18px;}
+.hero-title{font-family:'Dancing Script','Brush Script MT',cursive;font-size:clamp(3.6rem,9vw,7.5rem);color:var(--ink);line-height:1.05;letter-spacing:-1px;margin-bottom:14px;}
+.hero-title em{color:var(--vermilion);font-style:normal;}
+.hero-subtitle{font-family:'Lora',serif;font-size:clamp(1rem,2.2vw,1.35rem);color:#7A2B10;font-style:italic;margin-bottom:42px;}
+.hero-desc{font-size:.97rem;color:var(--muted);max-width:540px;margin:0 auto 50px;line-height:1.85;}
 .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:64px;}
-.hero-stats{display:flex;gap:56px;justify-content:center;flex-wrap:wrap;border-top:1px solid rgba(240,165,0,.15);padding-top:40px;}
-.hero-stat-num{font-family:'Yatra One',serif;font-size:2.6rem;color:var(--saffron);display:block;line-height:1;}
-.hero-stat-label{font-size:.75rem;color:rgba(251,245,230,.5);text-transform:uppercase;letter-spacing:1.2px;margin-top:6px;display:block;}
+.hero-stats{display:flex;gap:56px;justify-content:center;flex-wrap:wrap;border-top:1px solid rgba(200,57,26,.2);padding-top:40px;}
+.hero-stat-num{font-family:'Yatra One',serif;font-size:2.6rem;color:var(--vermilion);display:block;line-height:1;}
+.hero-stat-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin-top:6px;display:block;}
 
 /* BUTTONS */
 .btn{display:inline-block;padding:13px 34px;font-family:'Lato',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;cursor:pointer;border:none;transition:all .2s;line-height:1;}
@@ -190,7 +190,7 @@ section{padding:84px 48px;}
 .form-group textarea{height:96px;resize:vertical;}
 
 /* NEWSLETTER */
-#newsletter{background:var(--forest);text-align:center;padding:80px 48px;}
+#newsletter{background:#7A2B10;text-align:center;padding:80px 48px;}
 #newsletter .section-title{color:var(--paper);margin-bottom:12px;}
 .newsletter-lead{font-family:'Lora',serif;font-style:italic;font-size:1.05rem;color:rgba(251,245,230,.7);margin-bottom:36px;}
 .nl-form{display:flex;max-width:460px;margin:0 auto;}
@@ -286,14 +286,14 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
   <div class="hero-content">
     <span class="hero-eyebrow">✦ Natural Pigments · Handmade Paper · Living Traditions ✦</span>
     <h1 class="hero-title">Art by<br><em>Anuprita</em></h1>
-    <p class="hero-subtitle">81 Folk Art Traditions, Learned at the Feet of Masters</p>
-    <p class="hero-desc">Six years of learning through online classes, books, and direct mentorship from master folk artists — keeping vanishing art forms alive, one hand-ground pigment at a time.</p>
+    <p class="hero-subtitle">60+ Folk Painting Styles from India</p>
+    <p class="hero-desc">Celebrating the rich diversity of Indian folk painting — from celebrated traditions to rare and nearly-vanished art forms, each one practiced with natural pigments and handmade materials.</p>
     <div class="hero-cta">
       <a href="#art-for-sale" class="btn btn-red">Explore the Gallery</a>
       <a href="#commission" class="btn btn-outline-gold">Commission a Painting</a>
     </div>
     <div class="hero-stats">
-      <div><span class="hero-stat-num">81</span><span class="hero-stat-label">Folk Art Styles</span></div>
+      <div><span class="hero-stat-num">60+</span><span class="hero-stat-label">Folk Painting Styles</span></div>
       <div><span class="hero-stat-num">6+</span><span class="hero-stat-label">Years of Mastery</span></div>
       <div><span class="hero-stat-num">100%</span><span class="hero-stat-label">Natural Pigments</span></div>
       <div><span class="hero-stat-num">∞</span><span class="hero-stat-label">Living Traditions</span></div>
@@ -325,7 +325,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
   <div class="section-inner">
     <span class="section-eyebrow">✦ Living Traditions</span>
     <h2 class="section-title">Art Forms Practiced</h2>
-    <p class="section-desc">From celebrated traditions to nearly-vanished forms — each style is a doorway into a distinct cultural cosmos. All 81 practiced with natural pigments and handmade materials.</p>
+    <p class="section-desc">From celebrated traditions to nearly-vanished forms — each style is a doorway into a distinct cultural cosmos. All practiced with natural pigments and handmade materials.</p>
     <div class="art-forms-grid" id="art-forms-grid">
 <div class="art-form-row" onclick="showArtForm(0)"><div class="form-name">Aipan</div><div class="form-region">Uttarakhand</div></div>
 <div class="art-form-row" onclick="showArtForm(1)"><div class="form-name">Alpona</div><div class="form-region">West Bengal</div></div>
@@ -412,7 +412,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 <div class="art-form-row" onclick="showArtForm(82)"><div class="form-name">Warli</div><div class="form-region">Maharashtra</div></div>
 </div>
     <div class="forms-footer">
-      <p style="margin-bottom:22px">All <strong>81 folk art styles</strong> practiced using only natural pigments and handmade paper or traditional canvas.</p>
+      <p style="margin-bottom:22px">All <strong>60+ folk painting styles</strong> practiced using only natural pigments and handmade paper or traditional canvas.</p>
       <a href="#commission" class="btn btn-outline-gold">Request Any Style as a Commission</a>
     </div>
   </div>
@@ -426,7 +426,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
   <div class="section-inner">
     <span class="section-eyebrow">✦ Custom Artwork</span>
     <h2 class="section-title">Commission a Painting</h2>
-    <p class="section-desc">Request an original piece in any of the 81 folk art styles — for your home, a gift, a wedding, or a heritage project.</p>
+    <p class="section-desc">Request an original piece in any of the folk painting styles — for your home, a gift, a wedding, or a heritage project.</p>
     <div class="commission-layout">
       <div class="commission-info">
         <h3>How it works</h3>
@@ -437,7 +437,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
           <li><span>Progress photos at key milestones. Final delivery with a signed certificate.</span></li>
         </ol>
         <h3>Pricing guide</h3>
-        <p>Small (A4) · $50–$100 &nbsp;|&nbsp; Medium (A3) · $100–$215 &nbsp;|&nbsp; Large (A2+) · $215+</p>
+        <p>Pricing varies with the art form, complexity, and size. Please reach out with your vision and Anuprita will provide a personalised estimate within 3–5 days.</p>
         <h3>Delivery</h3>
         <p>Within India: 7–10 days. International: 14–21 days via tracked courier.</p>
       </div>
@@ -472,7 +472,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
   <div class="footer-grid">
     <div>
       <span class="footer-brand">✦ Art by Anuprita</span>
-      <p class="footer-tagline">Preserving 81 folk art traditions of India with natural pigments and handmade materials. Every painting is a bridge between ancient knowledge and the present moment.</p>
+      <p class="footer-tagline">Celebrating 60+ folk painting styles from India with natural pigments and handmade materials. Every painting is a bridge between ancient knowledge and the present moment.</p>
     </div>
     <div class="footer-col"><h4>Gallery</h4><ul><li><a href="#art-for-sale">Available Works</a></li><li><a href="#art-forms">Art Forms</a></li><li><a href="#commission">Commissions</a></li><li><a href="about.html">About the Artist</a></li></ul></div>
     <div class="footer-col"><h4>Journal</h4><ul><li><a href="journal.html">Weekly Blog</a></li><li><a href="books.html">Book Reviews</a></li><li><a href="#newsletter">Newsletter</a></li></ul></div>
