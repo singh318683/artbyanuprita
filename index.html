@@ -1099,6 +1099,18 @@ function renderAdminArtForms(){
     :'<p style="color:#9A8070;font-size:.86rem">No art forms yet.</p>';
 }
 
+
+function renderArtForms(){
+  var grid = document.getElementById('art-forms-grid');
+  if(!grid) return;
+  grid.innerHTML = artforms.map(function(f, i){
+    return '<div class="art-form-row" onclick="showArtForm(' + i + ')">' +
+      '<div class="form-name">' + f.name + '</div>' +
+      '<div class="form-region">' + f.region + '</div>' +
+      '</div>';
+  }).join('');
+}
+
 window.addEventListener('load',init);
 
 </script>
