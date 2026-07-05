@@ -764,6 +764,7 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
    ============================================================ */
 function renderBlog(){
   const c=document.getElementById('blog-container');
+  if(!c)return;
   if(!posts.length){c.innerHTML='<p class="no-posts">No posts yet. Use the Admin panel to write your first journal entry.</p>';return;}
   const [featured,...rest]=posts.slice().reverse(); // newest first
   let html=`<div class="blog-grid">
@@ -805,6 +806,7 @@ function formatDate(d){
    ============================================================ */
 function renderBooks(){
   const g=document.getElementById('books-grid');
+  if(!g)return;
   if(!books.length){g.innerHTML='<p style="color:var(--muted);font-style:italic">No books added yet.</p>';return;}
   g.innerHTML=books.map(b=>`
     <div class="book-card reveal">
