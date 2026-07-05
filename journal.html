@@ -365,4 +365,22 @@ function setupReveal(){
 
 window.addEventListener('load',init);
 </script>
+<button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+<style>
+.back-to-top{position:fixed;bottom:28px;right:28px;width:48px;height:48px;border-radius:50%;background:var(--vermilion);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 6px 20px rgba(26,15,0,.28);cursor:pointer;border:none;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .3s,transform .3s,visibility .3s,background .2s;z-index:800;}
+.back-to-top.show{opacity:1;visibility:visible;transform:translateY(0);}
+.back-to-top:hover{background:#a82d13;transform:translateY(-3px);}
+@media (max-width:640px){.back-to-top{bottom:18px;right:18px;width:42px;height:42px;font-size:1.1rem;}}
+</style>
+<script>
+(function(){
+  var btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 400) { btn.classList.add('show'); } else { btn.classList.remove('show'); }
+  });
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
 </body></html>
