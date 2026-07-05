@@ -207,6 +207,8 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 .footer-col ul li a{font-size:.86rem;color:rgba(251,245,230,.48);transition:color .2s;}
 .footer-col ul li a:hover{color:var(--saffron);}
 .footer-bottom{max-width:1240px;margin:0 auto;border-top:1px solid rgba(251,245,230,.08);padding-top:24px;text-align:center;font-size:.8rem;}
+.footer-admin-btn{opacity:.3;font-size:.8rem;margin-left:8px;transition:opacity .2s;}
+.footer-admin-btn:hover{opacity:.9;color:var(--saffron);}
 
 /* ADMIN OVERLAY */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:9000;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;}
@@ -258,6 +260,19 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 #af-toggle-btn:hover{background:var(--saffron);color:var(--ink);}
 #af-toggle-btn.open{background:rgba(240,165,0,.12);}
 
+/* POST READER MODAL */
+.post-reader-overlay{display:none;position:fixed;inset:0;background:rgba(10,6,0,.82);z-index:9200;align-items:flex-start;justify-content:center;padding:56px 20px;overflow-y:auto;}
+.post-reader-overlay.open{display:flex;}
+.post-reader-panel{background:var(--paper-lt);max-width:720px;width:100%;padding:56px 56px 64px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.4);}
+.post-reader-close{position:absolute;top:20px;right:20px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--muted);width:36px;height:36px;border-radius:50%;transition:all .2s;}
+.post-reader-close:hover{background:rgba(26,15,0,.08);color:var(--ink);}
+.post-reader-tag{font-size:.75rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--vermilion);display:block;margin-bottom:14px;}
+.post-reader-title{font-family:'Lora',serif;font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:16px;}
+.post-reader-meta{font-size:.82rem;color:#9A8070;margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid rgba(26,15,0,.1);}
+.post-reader-body p{font-size:1rem;color:var(--ink);line-height:1.9;margin-bottom:22px;}
+.post-reader-body p:last-child{margin-bottom:0;}
+@media(max-width:680px){.post-reader-panel{padding:40px 24px 48px;}.post-reader-overlay{padding:24px 12px;}}
+
 </style>
 </head>
 <body>
@@ -273,7 +288,6 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
       <li><a href="books.html">Books</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="index.html#commission">Commission</a></li>
-      <li><a href="#" onclick="openAdmin();return false;" class="btn-admin">⚙ Admin</a></li>
 
     </ul>
   </div>
@@ -291,6 +305,17 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 
 <div class="folk-border"></div>
 
+<!-- ===== POST READER OVERLAY ===== -->
+<div class="post-reader-overlay" id="post-reader-overlay">
+  <div class="post-reader-panel" onclick="event.stopPropagation()">
+    <button class="post-reader-close" onclick="closePost()">✕</button>
+    <span class="post-reader-tag" id="post-reader-tag"></span>
+    <h2 class="post-reader-title" id="post-reader-title"></h2>
+    <div class="post-reader-meta" id="post-reader-meta"></div>
+    <div class="post-reader-body" id="post-reader-body"></div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-grid">
     <div>
@@ -299,11 +324,11 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
     </div>
     <div class="footer-col"><h4>Gallery</h4><ul><li><a href="index.html#art-for-sale">Available Works</a></li><li><a href="index.html#art-forms">Art Forms</a></li><li><a href="index.html#commission">Commissions</a></li><li><a href="about.html">About the Artist</a></li></ul></div>
     <div class="footer-col"><h4>Journal</h4><ul><li><a href="journal.html">Weekly Blog</a></li><li><a href="books.html">Book Reviews</a></li><li><a href="#newsletter">Newsletter</a></li></ul></div>
-    <div class="footer-col"><h4>Connect</h4><ul><li><a href="mailto:artbyanupritaa@gmail.com">artbyanupritaa@gmail.com</a></li><li><a href="#">Instagram</a></li><li><a href="#">WhatsApp</a></li><li><a href="#">Pinterest</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="mailto:artbyanupritaa@gmail.com">artbyanupritaa@gmail.com</a></li><li><a href="#">Instagram</a></li><li><a href="#">WhatsApp</a></li><li><a href="#">Pinterest</a></li><li><a href="copyright.html">Copyright Policy</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <div class="folk-border-sm" style="margin-bottom:22px;max-width:320px;margin-left:auto;margin-right:auto"></div>
-    <p>© 2025 Art by Anuprita · artbyanuprita.com · Made with natural pigments and a whole lot of love.</p>
+    <p>© 2025 Art by Anuprita · artbyanuprita.com · Made with natural pigments and a whole lot of love. <a href="index.html" class="footer-admin-btn" title="Admin">⚙</a></p>
   </div>
 </footer>
 
@@ -319,6 +344,8 @@ function init(){
   posts=JSON.parse(localStorage.getItem('abn_posts_v1')||'null')||JSON.parse(JSON.stringify(SEED_POSTS));
   renderBlog();
   setupReveal();
+  document.getElementById('post-reader-overlay').addEventListener('click',closePost);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closePost();});
 }
 
 function formatDate(d){
@@ -331,7 +358,7 @@ function renderBlog(){
   if(!posts.length){c.innerHTML='<p class="no-posts">No posts yet. Use the Admin panel to write your first journal entry.</p>';return;}
   const [featured,...rest]=posts.slice().reverse(); // newest first
   let html=`<div class="blog-grid">
-    <div class="blog-featured reveal">
+    <div class="blog-featured reveal" onclick="openPost(${featured.id})" style="cursor:pointer">
       <div class="blog-featured-img"><span class="blog-img-ph">Article image</span></div>
       <div class="blog-featured-body">
         <span class="blog-tag">✦ Latest · ${featured.tag}</span>
@@ -343,7 +370,7 @@ function renderBlog(){
   if(rest.length){
     html+=`<div class="blog-cards-row">
       ${rest.slice(0,3).map(p=>`
-        <div class="blog-card reveal">
+        <div class="blog-card reveal" onclick="openPost(${p.id})" style="cursor:pointer">
           <div class="blog-card-img"><span class="blog-img-ph" style="font-family:'Caveat',cursive;font-size:.95rem;color:rgba(26,15,0,.28)">Article image</span></div>
           <div class="blog-card-body">
             <span class="blog-tag">✦ ${p.tag}</span>
@@ -357,6 +384,23 @@ function renderBlog(){
   html+='</div>';
   c.innerHTML=html;
   setupReveal();
+}
+function openPost(id){
+  const p=posts.find(x=>x.id===id);
+  if(!p)return;
+  const bodyHtml=(p.body&&p.body.trim())
+    ? p.body.split(/\n\s*\n/).map(para=>`<p>${para.replace(/\n/g,'<br>')}</p>`).join('')
+    : `<p>${p.excerpt}</p>`;
+  document.getElementById('post-reader-tag').textContent='✦ '+p.tag;
+  document.getElementById('post-reader-title').textContent=p.title;
+  document.getElementById('post-reader-meta').textContent=formatDate(p.date)+' · '+p.read+' read';
+  document.getElementById('post-reader-body').innerHTML=bodyHtml;
+  document.getElementById('post-reader-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePost(){
+  document.getElementById('post-reader-overlay').classList.remove('open');
+  document.body.style.overflow='';
 }
 function setupReveal(){
   const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.08});
