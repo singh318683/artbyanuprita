@@ -630,7 +630,7 @@ let currentPostId=null; /* for reading a full post */
    ============================================================ */
 function init(){
   paintings = JSON.parse(localStorage.getItem('abn_paintings_v3')||'null') || JSON.parse(JSON.stringify(SEED_PAINTINGS));
-  artforms = JSON.parse(localStorage.getItem('abn_artforms_v1')||'null') || JSON.parse(JSON.stringify(SEED_ARTFORMS));
+  var _af=JSON.parse(localStorage.getItem('abn_artforms_v2')||'null'); artforms=(_af&&_af.length>0)?_af:JSON.parse(JSON.stringify(SEED_ARTFORMS));
   posts     = JSON.parse(localStorage.getItem('abn_posts_v1')||'null')    || JSON.parse(JSON.stringify(SEED_POSTS));
   books     = JSON.parse(localStorage.getItem('abn_books_v1')||'null')    || JSON.parse(JSON.stringify(SEED_BOOKS));
   saveAll();
@@ -641,7 +641,7 @@ function init(){
 }
 function saveAll(){
   localStorage.setItem('abn_paintings_v3', JSON.stringify(paintings));
-  localStorage.setItem('abn_artforms_v1', JSON.stringify(artforms));
+  localStorage.setItem('abn_artforms_v2', JSON.stringify(artforms));
   localStorage.setItem('abn_posts_v1',     JSON.stringify(posts));
   localStorage.setItem('abn_books_v1',     JSON.stringify(books));
 }
