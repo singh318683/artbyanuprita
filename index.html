@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+// Prevent the browser's native hash-scroll from firing before dynamic content (gallery/journal/books)
+// has rendered, which causes it to scroll to the wrong position. We clear the hash immediately,
+// then scroll to it manually once init() finishes rendering everything.
+window.__pendingHash = location.hash;
+if(location.hash){ history.replaceState(null, '', location.pathname + location.search); }
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="cAN94H37wMPss-toaktBEz9r-UWj0lskEfDIRmzN-7c" />
@@ -72,7 +79,7 @@ nav{position:sticky;top:0;z-index:900;background:var(--ink);}
 .btn-green:hover{background:#1d3d29;}
 
 /* SECTION COMMONS */
-section{padding:84px 48px;}
+section{padding:84px 48px;scroll-margin-top:90px;}
 .section-inner{max-width:1240px;margin:0 auto;}
 .section-eyebrow{font-family:'Caveat',cursive;font-size:1.1rem;color:var(--vermilion);letter-spacing:1.5px;display:block;margin-bottom:8px;}
 .section-title{font-family:'Yatra One',serif;font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.15;margin-bottom:16px;}
@@ -714,6 +721,16 @@ function init(){
   setupReveal();
   // set today as default date in journal form
   document.getElementById('j-date').value = new Date().toISOString().slice(0,10);
+  // re-scroll to the originally-requested section now that dynamic content has fully rendered
+  if(window.__pendingHash){
+    setTimeout(()=>{
+      const target=document.querySelector(window.__pendingHash);
+      if(target){
+        history.replaceState(null, '', location.pathname + location.search + window.__pendingHash);
+        target.scrollIntoView();
+      }
+    }, 100);
+  }
 }
 function saveAll(){
   localStorage.setItem('abn_paintings_v3', JSON.stringify(paintings));
