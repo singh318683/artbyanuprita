@@ -123,6 +123,20 @@ section{padding:84px 48px;}
 .af-panel-close{position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:rgba(251,245,230,.6);line-height:1;transition:color .2s;}
 .af-panel-close:hover{color:var(--saffron);}
 
+/* JOURNAL POST MODAL */
+.post-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9500;align-items:center;justify-content:center;padding:24px;}
+.post-modal.open{display:flex;}
+.post-panel{background:var(--paper-lt);max-width:680px;width:100%;max-height:85vh;overflow-y:auto;position:relative;border-top:5px solid var(--saffron);}
+.post-panel-header{background:var(--ink);padding:40px 48px 30px;}
+.post-panel-eyebrow{font-family:'Caveat',cursive;font-size:1rem;color:var(--saffron);letter-spacing:1.5px;display:block;margin-bottom:10px;}
+.post-panel-title{font-family:'Lora',serif;font-size:1.7rem;color:var(--paper);font-weight:600;line-height:1.35;margin-bottom:14px;}
+.post-panel-meta{font-size:.78rem;color:rgba(251,245,230,.5);display:flex;gap:12px;}
+.post-panel-body{padding:36px 48px 44px;}
+.post-panel-body p{font-family:'Lora',serif;font-size:1rem;color:var(--muted);line-height:1.9;margin-bottom:20px;}
+.post-panel-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:rgba(251,245,230,.6);line-height:1;z-index:2;transition:color .2s;}
+.post-panel-close:hover{color:var(--saffron);}
+@media(max-width:680px){.post-panel-header{padding:28px 24px 22px}.post-panel-body{padding:24px 24px 32px}}
+
 /* BLOG */
 #blog{background:var(--paper);}
 .blog-grid{display:grid;gap:28px;}
@@ -289,6 +303,18 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
   </div>
 </section>
 
+<div class="post-modal" id="post-modal" onclick="if(event.target===this)closePost()">
+  <div class="post-panel">
+    <button class="post-panel-close" onclick="closePost()">✕</button>
+    <div class="post-panel-header">
+      <span class="post-panel-eyebrow" id="post-tag"></span>
+      <h2 class="post-panel-title" id="post-title"></h2>
+      <div class="post-panel-meta" id="post-meta"></div>
+    </div>
+    <div class="post-panel-body" id="post-body"></div>
+  </div>
+</div>
+
 <div class="folk-border"></div>
 
 <footer>
@@ -329,7 +355,7 @@ function renderBlog(){
   if(!posts.length){c.innerHTML='<p class="no-posts">No posts yet. Use the Admin panel to write your first journal entry.</p>';return;}
   const [featured,...rest]=posts.slice().reverse(); // newest first
   let html=`<div class="blog-grid">
-    <div class="blog-featured reveal">
+    <div class="blog-featured reveal" onclick="openPost(${featured.id})" style="cursor:pointer">
       <div class="blog-featured-img"><span class="blog-img-ph">Article image</span></div>
       <div class="blog-featured-body">
         <span class="blog-tag">✦ Latest · ${featured.tag}</span>
@@ -341,7 +367,7 @@ function renderBlog(){
   if(rest.length){
     html+=`<div class="blog-cards-row">
       ${rest.slice(0,3).map(p=>`
-        <div class="blog-card reveal">
+        <div class="blog-card reveal" onclick="openPost(${p.id})" style="cursor:pointer">
           <div class="blog-card-img"><span class="blog-img-ph" style="font-family:'Caveat',cursive;font-size:.95rem;color:rgba(26,15,0,.28)">Article image</span></div>
           <div class="blog-card-body">
             <span class="blog-tag">✦ ${p.tag}</span>
@@ -355,6 +381,20 @@ function renderBlog(){
   html+='</div>';
   c.innerHTML=html;
   setupReveal();
+}
+function openPost(id){
+  const p=posts.find(x=>x.id===id);
+  if(!p)return;
+  document.getElementById('post-tag').textContent='✦ '+p.tag;
+  document.getElementById('post-title').textContent=p.title;
+  document.getElementById('post-meta').innerHTML=`<span>${formatDate(p.date)}</span><span>·</span><span>${p.read} read</span>`;
+  document.getElementById('post-body').innerHTML=(p.body||p.excerpt).split('\n\n').map(para=>`<p>${para.replace(/\n/g,'<br>')}</p>`).join('');
+  document.getElementById('post-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePost(){
+  document.getElementById('post-modal').classList.remove('open');
+  document.body.style.overflow='';
 }
 function setupReveal(){
   const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.08});
