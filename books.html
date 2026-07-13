@@ -150,9 +150,22 @@ section{padding:84px 48px;}
 /* BOOK REVIEWS */
 #book-reviews{background:var(--paper-dk);}
 .books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;}
-.book-card{background:var(--paper-lt);display:flex;gap:18px;padding:22px;border-bottom:3px solid var(--forest);transition:box-shadow .2s;}
+.book-card{background:var(--paper-lt);display:flex;gap:18px;padding:22px;border-bottom:3px solid var(--forest);transition:box-shadow .2s;cursor:pointer;}
 .book-card:hover{box-shadow:0 6px 20px rgba(26,15,0,.1);}
-.book-cover{width:68px;flex-shrink:0;aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:.78rem;color:#fff;text-align:center;padding:6px;line-height:1.35;overflow:hidden;}
+
+/* BOOK REVIEW READER */
+.book-reader-overlay{display:none;position:fixed;inset:0;background:rgba(10,6,0,.82);z-index:9200;align-items:flex-start;justify-content:center;padding:56px 20px;overflow-y:auto;}
+.book-reader-overlay.open{display:flex;}
+.book-reader-panel{background:var(--paper-lt);max-width:640px;width:100%;padding:48px 48px 56px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.4);display:flex;gap:28px;}
+.book-reader-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--muted);width:36px;height:36px;border-radius:50%;transition:all .2s;}
+.book-reader-close:hover{background:rgba(26,15,0,.08);color:var(--ink);}
+.book-reader-cover{width:150px;flex-shrink:0;aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:1rem;color:#fff;text-align:center;padding:12px;line-height:1.35;overflow:hidden;}
+.book-reader-title{font-family:'Lora',serif;font-size:1.4rem;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:6px;}
+.book-reader-author{font-size:.85rem;color:var(--vermilion);margin-bottom:10px;}
+.book-reader-stars{color:var(--saffron);font-size:1.1rem;margin-bottom:20px;letter-spacing:1px;}
+.book-reader-review{font-family:'Lora',serif;font-size:1rem;color:var(--ink);line-height:1.85;font-style:italic;}
+@media(max-width:680px){.book-reader-panel{padding:36px 24px 40px;flex-direction:column;}.book-reader-overlay{padding:24px 12px;}.book-reader-cover{width:110px;}}
+.book-cover{width:136px;flex-shrink:0;aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:.95rem;color:#fff;text-align:center;padding:10px;line-height:1.35;overflow:hidden;}
 .book-info-title{font-family:'Lora',serif;font-size:.98rem;font-weight:600;color:var(--ink);margin-bottom:3px;line-height:1.3;}
 .book-author{font-size:.78rem;color:var(--vermilion);margin-bottom:7px;}
 .book-stars{color:var(--saffron);font-size:.95rem;margin-bottom:8px;letter-spacing:1px;}
@@ -288,6 +301,19 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
   </div>
 </section>
 
+<div class="book-reader-overlay" id="book-reader-overlay">
+  <div class="book-reader-panel" onclick="event.stopPropagation()">
+    <button class="book-reader-close" onclick="closeBookReview()">✕</button>
+    <div class="book-reader-cover" id="book-reader-cover"></div>
+    <div>
+      <div class="book-reader-title" id="book-reader-title"></div>
+      <div class="book-reader-author" id="book-reader-author"></div>
+      <div class="book-reader-stars" id="book-reader-stars"></div>
+      <div class="book-reader-review" id="book-reader-review"></div>
+    </div>
+  </div>
+</div>
+
 <div class="folk-border"></div>
 
 <footer>
@@ -321,7 +347,7 @@ function renderBooks(){
   const g=document.getElementById('books-grid');
   if(!books.length){g.innerHTML='<p style="color:var(--muted);font-style:italic">No books added yet.</p>';return;}
   g.innerHTML=books.map(b=>`
-    <div class="book-card reveal">
+    <div class="book-card reveal" onclick="openBookReview(${b.id})">
       <div class="book-cover" style="background:${b.bg}">${b.img?`<img src="${b.img}" alt="${b.title}" style="width:100%;height:100%;object-fit:cover">`:b.title}</div>
       <div>
         <div class="book-info-title">${b.title}</div>
@@ -332,12 +358,28 @@ function renderBooks(){
     </div>`).join('');
   setupReveal();
 }
+function openBookReview(id){
+  const b=books.find(x=>x.id===id);
+  if(!b)return;
+  const cover=document.getElementById('book-reader-cover');
+  cover.style.background=b.bg;
+  cover.innerHTML=b.img?`<img src="${b.img}" alt="${b.title}" style="width:100%;height:100%;object-fit:cover">`:b.title;
+  document.getElementById('book-reader-title').textContent=b.title;
+  document.getElementById('book-reader-author').textContent=b.author;
+  document.getElementById('book-reader-stars').textContent='★'.repeat(b.stars)+'☆'.repeat(5-b.stars);
+  document.getElementById('book-reader-review').textContent='"'+b.review+'"';
+  document.getElementById('book-reader-overlay').classList.add('open');
+}
+function closeBookReview(){
+  document.getElementById('book-reader-overlay').classList.remove('open');
+}
 function setupReveal(){
   const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.08});
   document.querySelectorAll('.reveal:not(.in)').forEach(el=>obs.observe(el));
 }
 
 window.addEventListener('load',init);
+document.getElementById('book-reader-overlay').addEventListener('click',closeBookReview);
 </script>
 <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
 <style>
