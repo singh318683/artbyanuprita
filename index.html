@@ -1100,7 +1100,10 @@ function setupReveal(){
   document.querySelectorAll('.reveal:not(.in)').forEach(el=>obs.observe(el));
 }
 
-document.getElementById('af-modal').addEventListener('click',function(e){if(e.target===this)closeAfModal();});
+window.addEventListener('load',function(){
+  var afModalEl=document.getElementById('af-modal');
+  if(afModalEl){afModalEl.addEventListener('click',function(e){if(e.target===this)closeAfModal();});}
+});
 
 
 function toggleArtForms(){
