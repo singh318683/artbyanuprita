@@ -204,6 +204,8 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 .footer-bottom{max-width:1240px;margin:0 auto;border-top:1px solid rgba(251,245,230,.08);padding-top:24px;text-align:center;font-size:.8rem;}
 .footer-admin-btn{opacity:.3;font-size:.8rem;margin-left:8px;transition:opacity .2s;}
 .footer-admin-btn:hover{opacity:.9;color:var(--saffron);}
+.nav-admin-btn{opacity:.3;font-size:.85rem;margin-left:10px;color:rgba(251,245,230,.7);text-decoration:none;transition:opacity .2s;}
+.nav-admin-btn:hover{opacity:.9;color:var(--saffron);}
 
 /* ADMIN OVERLAY */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:9000;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;}
@@ -274,7 +276,10 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 <nav id="main-nav">
   <div class="nav-stripe"></div>
   <div class="nav-inner">
-    <span class="nav-logo">✦ Art by <span>Anuprita</span></span>
+    <div style="display:flex;align-items:center;">
+      <span class="nav-logo">✦ Art by <span>Anuprita</span></span>
+      <a href="index.html" class="nav-admin-btn" title="Admin">⚙</a>
+    </div>
     <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html#art-for-sale">Gallery</a></li>
@@ -323,7 +328,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
   </div>
   <div class="footer-bottom">
     <div class="folk-border-sm" style="margin-bottom:22px;max-width:320px;margin-left:auto;margin-right:auto"></div>
-    <p>© 2025 Art by Anuprita · artbyanuprita.com · Made with natural pigments and a whole lot of love. <a href="index.html" class="footer-admin-btn" title="Admin">⚙</a></p>
+    <p>© 2025 Art by Anuprita · artbyanuprita.com · Made with natural pigments and a whole lot of love.</p>
   </div>
 </footer>
 
