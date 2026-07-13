@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="cAN94H37wMPss-toaktBEz9r-UWj0lskEfDIRmzN-7c" />
 <title>Art by Anuprita · Folk Paintings from the Heart of India</title>
-<meta name="description" content="Original Indian folk art by Anuprita Khare — Pattachitra, Cheriyal, Kalamkari, Kurumba, Kavad and 70+ traditional styles, hand-painted with natural pigments on handmade paper and canvas. Browse paintings for sale, a weekly art journal, and book reviews.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Lora:ital,wght@0,400;0,600;1,400&family=Caveat:wght@400;600;700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 <style>
@@ -34,8 +32,8 @@ nav{position:sticky;top:0;z-index:900;background:var(--ink);}
 .nav-links{display:flex;list-style:none;gap:24px;align-items:center;flex-wrap:wrap;}
 .nav-links a{color:rgba(251,245,230,.8);font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:color .2s;}
 .nav-links a:hover{color:var(--saffron);}
-.footer-admin-btn{opacity:.3;font-size:.8rem;margin-left:8px;transition:opacity .2s;}
-.footer-admin-btn:hover{opacity:.9;color:var(--saffron);}
+.nav-links .btn-admin{background:var(--vermilion);color:#fff!important;padding:7px 18px;}
+.nav-links .btn-admin:hover{background:#a82d13;}
 .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px;}
 .hamburger span{display:block;width:24px;height:2px;background:var(--paper);}
 
@@ -276,6 +274,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
       <li><a href="books.html">Books</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="#commission">Commission</a></li>
+      <li><a href="#" onclick="openAdmin();return false;" class="btn-admin">⚙ Admin</a></li>
 
     </ul>
   </div>
@@ -497,11 +496,11 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
     </div>
     <div class="footer-col"><h4>Gallery</h4><ul><li><a href="#art-for-sale">Available Works</a></li><li><a href="#art-forms">Art Forms</a></li><li><a href="#commission">Commissions</a></li><li><a href="about.html">About the Artist</a></li></ul></div>
     <div class="footer-col"><h4>Journal</h4><ul><li><a href="journal.html">Weekly Blog</a></li><li><a href="books.html">Book Reviews</a></li><li><a href="#newsletter">Newsletter</a></li></ul></div>
-    <div class="footer-col"><h4>Connect</h4><ul><li><a href="mailto:artbyanupritaa@gmail.com">artbyanupritaa@gmail.com</a></li><li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="copyright.html">Copyright Policy</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="mailto:artbyanupritaa@gmail.com">artbyanupritaa@gmail.com</a></li><li><a href="#">Instagram</a></li><li><a href="#">WhatsApp</a></li><li><a href="#">Pinterest</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <div class="folk-border-sm" style="margin-bottom:22px;max-width:320px;margin-left:auto;margin-right:auto"></div>
-    <p>© 2025 Art by Anuprita · artbyanuprita.com · Made with natural pigments and a whole lot of love. <a href="#" onclick="openAdmin();return false;" class="footer-admin-btn" title="Admin">⚙</a></p>
+    <p>© 2025 Art by Anuprita · artbyanuprita.com · Made with natural pigments and a whole lot of love.</p>
   </div>
 </footer>
 
@@ -536,7 +535,8 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
         <div class="form-group"><label>Painting Title</label><input type="text" id="u-title" placeholder="e.g. Radha with Peacocks"></div>
         <div class="form-group"><label>Art Style</label><input type="text" id="u-style" placeholder="e.g. Pichwai, Kalamkari…"></div>
         <div class="form-group"><label>Dimensions</label><input type="text" id="u-dims" placeholder="e.g. 12 × 16 inches"></div>
-        <div class="form-group"><label>Price (USD $)</label><input type="text" id="u-price" placeholder="e.g. 9500"></div>
+        <div class="form-group"><label>Price (USD $)</label><input type="text" id="u-price" placeholder="e.g. 9500"><label style="display:flex;align-items:center;gap:6px;margin-top:8px;font-weight:400;cursor:pointer"><input type="checkbox" id="u-price-request" onchange="togglePriceRequest()" style="width:auto"> Price on request (show "Contact the Artist" instead of a $ amount)</label></div>
+
         <div class="form-group"><label>Status</label><select id="u-status"><option value="available">Available</option><option value="sold">Sold</option></select></div>
         <div class="form-group"><label>Painting Image</label><input type="file" id="u-image" accept="image/*" onchange="previewImg(this)"><img id="img-preview" alt="Preview"></div>
         <div style="display:flex;gap:8px">
@@ -764,7 +764,6 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
    ============================================================ */
 function renderBlog(){
   const c=document.getElementById('blog-container');
-  if(!c)return;
   if(!posts.length){c.innerHTML='<p class="no-posts">No posts yet. Use the Admin panel to write your first journal entry.</p>';return;}
   const [featured,...rest]=posts.slice().reverse(); // newest first
   let html=`<div class="blog-grid">
@@ -806,7 +805,6 @@ function formatDate(d){
    ============================================================ */
 function renderBooks(){
   const g=document.getElementById('books-grid');
-  if(!g)return;
   if(!books.length){g.innerHTML='<p style="color:var(--muted);font-style:italic">No books added yet.</p>';return;}
   g.innerHTML=books.map(b=>`
     <div class="book-card reveal">
@@ -857,11 +855,20 @@ function previewImg(input){
 function resetPaintingForm(){
   document.getElementById('u-edit-id').value='';
   ['u-title','u-style','u-dims','u-price'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('u-price-request').checked=false;
+  togglePriceRequest();
   document.getElementById('u-status').value='available';
   document.getElementById('img-preview').style.display='none';
   document.getElementById('u-image').value='';
   document.getElementById('u-submit-btn').textContent='＋ Add to Gallery';
   document.getElementById('u-cancel-btn').style.display='none';
+}
+function togglePriceRequest(){
+  const on=document.getElementById('u-price-request').checked;
+  const priceInput=document.getElementById('u-price');
+  priceInput.disabled=on;
+  if(on){priceInput.value='';priceInput.placeholder='Contact the Artist';}
+  else{priceInput.placeholder='e.g. 9500';}
 }
 function editPainting(id){
   const p=paintings.find(x=>x.id===id);
@@ -870,7 +877,10 @@ function editPainting(id){
   document.getElementById('u-title').value=p.title;
   document.getElementById('u-style').value=p.style;
   document.getElementById('u-dims').value=p.dims;
-  document.getElementById('u-price').value=p.price.replace('$','').replace(/,/g,'');
+  const onRequest=p.price==='Contact the Artist';
+  document.getElementById('u-price-request').checked=onRequest;
+  document.getElementById('u-price').value=onRequest?'':p.price.replace('$','').replace(/,/g,'');
+  togglePriceRequest();
   document.getElementById('u-status').value=p.status;
   if(p.img){const prev=document.getElementById('img-preview');prev.src=p.img;prev.style.display='block';}
   document.getElementById('u-submit-btn').textContent='✓ Update Painting';
@@ -881,11 +891,12 @@ function savePainting(){
   const title=document.getElementById('u-title').value.trim();
   const style=document.getElementById('u-style').value.trim();
   const dims=document.getElementById('u-dims').value.trim();
+  const priceOnRequest=document.getElementById('u-price-request').checked;
   const price=document.getElementById('u-price').value.trim();
   const status=document.getElementById('u-status').value;
   const editId=document.getElementById('u-edit-id').value;
-  if(!title||!style||!price){alert('Please fill in Title, Style, and Price.');return;}
-  const priceStr=price.startsWith('$')?price:'$'+Number(price.replace(/[^0-9.]/g,'')).toLocaleString('en-US');
+  if(!title||!style||(!priceOnRequest&&!price)){alert('Please fill in Title, Style, and Price.');return;}
+  const priceStr=priceOnRequest?'Contact the Artist':(price.startsWith('$')?price:'$'+Number(price.replace(/[^0-9.]/g,'')).toLocaleString('en-US'));
   const finish=img=>{
     if(editId){
       const idx=paintings.findIndex(p=>p.id==editId);
@@ -1207,19 +1218,5 @@ window.addEventListener('load',init);
   </div>
 </div>
 
-<button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
-<style>
-.back-to-top{position:fixed;bottom:28px;right:28px;width:48px;height:48px;border-radius:50%;background:var(--vermilion);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 6px 20px rgba(26,15,0,.28);cursor:pointer;border:none;transition:transform .2s,background .2s;z-index:800;}
-.back-to-top:hover{background:#a82d13;transform:translateY(-3px);}
-@media (max-width:640px){.back-to-top{bottom:18px;right:18px;width:42px;height:42px;font-size:1.1rem;}}
-</style>
-<script>
-(function(){
-  var btn = document.getElementById('backToTop');
-  btn.addEventListener('click', function(){
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-})();
-</script>
 </body>
 </html>
