@@ -314,7 +314,7 @@ const SEED_POSTS = [
 ];
 
 function init(){
-  posts=JSON.parse(localStorage.getItem('abn_posts_v1')||'null')||JSON.parse(JSON.stringify(SEED_POSTS));
+  posts=JSON.parse(localStorage.getItem('abn_posts_v2')||'null')||JSON.parse(JSON.stringify(SEED_POSTS));
   renderBlog();
   setupReveal();
 }
