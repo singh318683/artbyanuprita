@@ -153,7 +153,9 @@ section{padding:84px 48px;}
 
 /* BOOK REVIEWS */
 #book-reviews{background:var(--paper-dk);}
-.books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;}
+.books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:20px;}
+.book-thumb-card{background:var(--paper-lt);display:flex;align-items:center;justify-content:center;padding:20px;border-bottom:3px solid var(--forest);transition:box-shadow .2s;cursor:pointer;}
+.book-thumb-card:hover{box-shadow:0 6px 20px rgba(26,15,0,.1);}
 .book-card{background:var(--paper-lt);display:flex;align-items:flex-start;gap:18px;padding:22px;border-bottom:3px solid var(--forest);transition:box-shadow .2s;}
 .book-card:hover{box-shadow:0 6px 20px rgba(26,15,0,.1);}
 .book-cover{width:68px;flex-shrink:0;aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:.78rem;color:#fff;text-align:center;padding:6px;line-height:1.35;overflow:hidden;}
@@ -805,14 +807,8 @@ function renderBooks(){
   if(!g)return;
   if(!books.length){g.innerHTML='<p style="color:var(--muted);font-style:italic">No books added yet.</p>';return;}
   g.innerHTML=books.map(b=>`
-    <div class="book-card reveal">
+    <div class="book-thumb-card reveal" title="${b.title}">
       <div class="book-cover" style="background:${b.bg}">${b.img?`<img src="${b.img}" alt="${b.title}" style="width:100%;height:100%;object-fit:cover">`:b.title}</div>
-      <div>
-        <div class="book-info-title">${b.title}</div>
-        <div class="book-author">${b.author}</div>
-        <div class="book-stars">${'★'.repeat(b.stars)}${'☆'.repeat(5-b.stars)}</div>
-        <div class="book-review">"${b.review}"</div>
-      </div>
     </div>`).join('');
   setupReveal();
 }
