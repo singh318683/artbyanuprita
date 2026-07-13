@@ -123,6 +123,20 @@ section{padding:84px 48px;}
 .af-panel-close{position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:rgba(251,245,230,.6);line-height:1;transition:color .2s;}
 .af-panel-close:hover{color:var(--saffron);}
 
+/* JOURNAL POST MODAL */
+.post-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9500;align-items:center;justify-content:center;padding:24px;}
+.post-modal.open{display:flex;}
+.post-panel{background:var(--paper-lt);max-width:680px;width:100%;max-height:85vh;overflow-y:auto;position:relative;border-top:5px solid var(--saffron);}
+.post-panel-header{background:var(--ink);padding:40px 48px 30px;}
+.post-panel-eyebrow{font-family:'Caveat',cursive;font-size:1rem;color:var(--saffron);letter-spacing:1.5px;display:block;margin-bottom:10px;}
+.post-panel-title{font-family:'Lora',serif;font-size:1.7rem;color:var(--paper);font-weight:600;line-height:1.35;margin-bottom:14px;}
+.post-panel-meta{font-size:.78rem;color:rgba(251,245,230,.5);display:flex;gap:12px;}
+.post-panel-body{padding:36px 48px 44px;}
+.post-panel-body p{font-family:'Lora',serif;font-size:1rem;color:var(--muted);line-height:1.9;margin-bottom:20px;}
+.post-panel-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:rgba(251,245,230,.6);line-height:1;z-index:2;transition:color .2s;}
+.post-panel-close:hover{color:var(--saffron);}
+@media(max-width:680px){.post-panel-header{padding:28px 24px 22px}.post-panel-body{padding:24px 24px 32px}}
+
 /* BLOG */
 #blog{background:var(--paper);}
 .blog-grid{display:grid;gap:28px;}
@@ -289,6 +303,18 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
   </div>
 </section>
 
+<div class="post-modal" id="post-modal" onclick="if(event.target===this)closePost()">
+  <div class="post-panel">
+    <button class="post-panel-close" onclick="closePost()">✕</button>
+    <div class="post-panel-header">
+      <span class="post-panel-eyebrow" id="post-tag"></span>
+      <h2 class="post-panel-title" id="post-title"></h2>
+      <div class="post-panel-meta" id="post-meta"></div>
+    </div>
+    <div class="post-panel-body" id="post-body"></div>
+  </div>
+</div>
+
 <div class="folk-border"></div>
 
 <footer>
@@ -310,13 +336,11 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 <script>
 var posts=[];
 const SEED_POSTS = [
-  {id:1,title:'Why I Make My Own Paints: A Journey into Natural Pigments',tag:'Technique',date:'2025-06-22',read:'8 min',excerpt:'Store-bought colours are convenient — but they carry none of the intention of art made from the earth itself. When I first began grinding lapis lazuli for my Thangka practice, I understood something essential about why these traditions have survived for centuries.',body:'Store-bought colours are convenient — but they carry none of the intention of art made from the earth itself.\n\nWhen I first began grinding lapis lazuli for my Thangka practice, I understood something essential about why these traditions have survived for centuries. The act of making your paint is inseparable from the act of painting.\n\nEvery pigment I use starts as a raw material — a mineral, a plant, a soil. Ochre from the earth, indigo from the plant, vermilion from mercury sulphide. Each one has its own personality: how it spreads, how it dries, how it sits on handmade paper versus cloth.\n\nThis is why I will never go back to store-bought.'},
-  {id:2,title:'The Fish Motif in Pattachitra: Symbol, Story, and Structure',tag:'Symbolism',date:'2025-06-15',read:'5 min',excerpt:'In Odisha\'s Pattachitra tradition, the fish is not merely decorative — it is a vessel for narrative. Here is how I approach this iconic motif and what I learned from master Raghurajpur artists.',body:'In Odisha\'s Pattachitra tradition, the fish is not merely decorative — it is a vessel for narrative.\n\nWhen I spent time in Raghurajpur learning from the masters there, I noticed that the fish appears in almost every major composition. Sometimes as a border element, sometimes as the subject itself, but always carrying meaning.\n\nThe fish in Pattachitra represents abundance, fertility, and the flow of time. It is also one of the ten avatars of Vishnu — Matsya, the fish who saved the Vedas from the great flood.\n\nLearning to draw the Pattachitra fish took me three weeks. The outline must be done in a single confident stroke. No correction, no hesitation.'},
-  {id:3,title:'Learning Kurumba in the Nilgiris: A Style Almost Nobody Paints',tag:'Travel & Learning',date:'2025-06-08',read:'7 min',excerpt:'Kurumba art belongs to one of the oldest tribal communities in South India. Finding a master who still practised it took months of searching — and the work changed everything I thought I knew about line.',body:'Kurumba art belongs to one of the oldest tribal communities in South India.\n\nFinding a master who still practised it took months of searching. I was told by three different art historians that there was nobody left who could teach it. The fourth pointed me toward a village in the Nilgiris I had never heard of.\n\nThe work itself is unlike anything else I have learned. Where most folk traditions use bold, confident colour fills, Kurumba painting is almost entirely about line. Thin, trembling, precise lines that build up a world of enormous detail.\n\nI spent six weeks there. It changed everything I thought I knew about how a line could feel.'},
+  {id:1,title:'Why I Started This Website',tag:'Beginning',date:'2026-07-05',read:'5 min',excerpt:'Over the past months, I have realized that a single platform cannot hold everything I am trying to do. This is why artbyanuprita.com exists now. I sell paintings, I take on commission work, and I want to write about art — both my own process and the books I read about it. A website lets me give each of these its own place, while still keeping them connected to the same source.',body:'Over the past months, I have realized that a single platform cannot hold everything I am trying to do. This is why artbyanuprita.com exists now. I sell paintings, I take on commission work, and I want to write about art — both my own process and the books I read about it. A website lets me give each of these its own place, while still keeping them connected to the same source.'},
 ];
 
 function init(){
-  posts=JSON.parse(localStorage.getItem('abn_posts_v1')||'null')||JSON.parse(JSON.stringify(SEED_POSTS));
+  posts=JSON.parse(localStorage.getItem('abn_posts_v2')||'null')||JSON.parse(JSON.stringify(SEED_POSTS));
   renderBlog();
   setupReveal();
 }
@@ -331,7 +355,7 @@ function renderBlog(){
   if(!posts.length){c.innerHTML='<p class="no-posts">No posts yet. Use the Admin panel to write your first journal entry.</p>';return;}
   const [featured,...rest]=posts.slice().reverse(); // newest first
   let html=`<div class="blog-grid">
-    <div class="blog-featured reveal">
+    <div class="blog-featured reveal" onclick="openPost(${featured.id})" style="cursor:pointer">
       <div class="blog-featured-img"><span class="blog-img-ph">Article image</span></div>
       <div class="blog-featured-body">
         <span class="blog-tag">✦ Latest · ${featured.tag}</span>
@@ -343,7 +367,7 @@ function renderBlog(){
   if(rest.length){
     html+=`<div class="blog-cards-row">
       ${rest.slice(0,3).map(p=>`
-        <div class="blog-card reveal">
+        <div class="blog-card reveal" onclick="openPost(${p.id})" style="cursor:pointer">
           <div class="blog-card-img"><span class="blog-img-ph" style="font-family:'Caveat',cursive;font-size:.95rem;color:rgba(26,15,0,.28)">Article image</span></div>
           <div class="blog-card-body">
             <span class="blog-tag">✦ ${p.tag}</span>
@@ -357,6 +381,20 @@ function renderBlog(){
   html+='</div>';
   c.innerHTML=html;
   setupReveal();
+}
+function openPost(id){
+  const p=posts.find(x=>x.id===id);
+  if(!p)return;
+  document.getElementById('post-tag').textContent='✦ '+p.tag;
+  document.getElementById('post-title').textContent=p.title;
+  document.getElementById('post-meta').innerHTML=`<span>${formatDate(p.date)}</span><span>·</span><span>${p.read} read</span>`;
+  document.getElementById('post-body').innerHTML=(p.body||p.excerpt).split('\n\n').map(para=>`<p>${para.replace(/\n/g,'<br>')}</p>`).join('');
+  document.getElementById('post-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePost(){
+  document.getElementById('post-modal').classList.remove('open');
+  document.body.style.overflow='';
 }
 function setupReveal(){
   const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.08});
