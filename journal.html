@@ -126,7 +126,10 @@ section{padding:84px 48px;}
 /* BLOG */
 #blog{background:var(--paper);}
 .blog-grid{display:grid;gap:28px;}
-.blog-featured{display:grid;grid-template-columns:1fr;background:var(--ink);color:var(--paper);margin-bottom:4px;}
+.blog-featured{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);color:var(--paper);margin-bottom:4px;}
+.blog-featured-img{min-height:340px;background:var(--paper-dk);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.blog-featured-img img{width:100%;height:100%;object-fit:cover;}
+.blog-img-ph{font-family:'Caveat',cursive;font-size:1rem;color:rgba(26,15,0,.28);text-align:center;padding:20px;}
 .blog-featured-body{padding:52px 48px;display:flex;flex-direction:column;justify-content:center;}
 .blog-tag{font-size:.68rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--saffron);margin-bottom:12px;display:block;}
 .blog-featured-body .blog-title{font-family:'Lora',serif;font-size:1.7rem;color:var(--paper);font-weight:600;line-height:1.35;margin-bottom:16px;}
@@ -135,6 +138,8 @@ section{padding:84px 48px;}
 .blog-cards-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px;}
 .blog-card{background:var(--paper-lt);border:1px solid rgba(26,15,0,.07);transition:box-shadow .2s;}
 .blog-card:hover{box-shadow:0 8px 24px rgba(26,15,0,.1);}
+.blog-card-img{aspect-ratio:16/9;overflow:hidden;background:var(--paper-dk);display:flex;align-items:center;justify-content:center;}
+.blog-card-img img{width:100%;height:100%;object-fit:cover;}
 .blog-card-body{padding:24px;}
 .blog-card-body .blog-title{font-family:'Lora',serif;font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.4;margin-bottom:10px;}
 .blog-card-body .blog-tag{color:var(--vermilion);}
@@ -202,8 +207,6 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 .footer-col ul li a{font-size:.86rem;color:rgba(251,245,230,.48);transition:color .2s;}
 .footer-col ul li a:hover{color:var(--saffron);}
 .footer-bottom{max-width:1240px;margin:0 auto;border-top:1px solid rgba(251,245,230,.08);padding-top:24px;text-align:center;font-size:.8rem;}
-.footer-admin-btn{opacity:.3;font-size:.8rem;margin-left:8px;transition:opacity .2s;}
-.footer-admin-btn:hover{opacity:.9;color:var(--saffron);}
 
 /* ADMIN OVERLAY */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:9000;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;}
@@ -255,19 +258,6 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 #af-toggle-btn:hover{background:var(--saffron);color:var(--ink);}
 #af-toggle-btn.open{background:rgba(240,165,0,.12);}
 
-/* POST READER MODAL */
-.post-reader-overlay{display:none;position:fixed;inset:0;background:rgba(10,6,0,.82);z-index:9200;align-items:flex-start;justify-content:center;padding:56px 20px;overflow-y:auto;}
-.post-reader-overlay.open{display:flex;}
-.post-reader-panel{background:var(--paper-lt);max-width:720px;width:100%;padding:56px 56px 64px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.4);}
-.post-reader-close{position:absolute;top:20px;right:20px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--muted);width:36px;height:36px;border-radius:50%;transition:all .2s;}
-.post-reader-close:hover{background:rgba(26,15,0,.08);color:var(--ink);}
-.post-reader-tag{font-size:.75rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--vermilion);display:block;margin-bottom:14px;}
-.post-reader-title{font-family:'Lora',serif;font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:16px;}
-.post-reader-meta{font-size:.82rem;color:#9A8070;margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid rgba(26,15,0,.1);}
-.post-reader-body p{font-size:1rem;color:var(--ink);line-height:1.9;margin-bottom:22px;}
-.post-reader-body p:last-child{margin-bottom:0;}
-@media(max-width:680px){.post-reader-panel{padding:40px 24px 48px;}.post-reader-overlay{padding:24px 12px;}}
-
 </style>
 </head>
 <body>
@@ -283,6 +273,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
       <li><a href="books.html">Books</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="index.html#commission">Commission</a></li>
+      <li><a href="#" onclick="openAdmin();return false;" class="btn-admin">⚙ Admin</a></li>
 
     </ul>
   </div>
@@ -300,17 +291,6 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 
 <div class="folk-border"></div>
 
-<!-- ===== POST READER OVERLAY ===== -->
-<div class="post-reader-overlay" id="post-reader-overlay">
-  <div class="post-reader-panel" onclick="event.stopPropagation()">
-    <button class="post-reader-close" onclick="closePost()">✕</button>
-    <span class="post-reader-tag" id="post-reader-tag"></span>
-    <h2 class="post-reader-title" id="post-reader-title"></h2>
-    <div class="post-reader-meta" id="post-reader-meta"></div>
-    <div class="post-reader-body" id="post-reader-body"></div>
-  </div>
-</div>
-
 <footer>
   <div class="footer-grid">
     <div>
@@ -319,28 +299,24 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
     </div>
     <div class="footer-col"><h4>Gallery</h4><ul><li><a href="index.html#art-for-sale">Available Works</a></li><li><a href="index.html#art-forms">Art Forms</a></li><li><a href="index.html#commission">Commissions</a></li><li><a href="about.html">About the Artist</a></li></ul></div>
     <div class="footer-col"><h4>Journal</h4><ul><li><a href="journal.html">Weekly Blog</a></li><li><a href="books.html">Book Reviews</a></li><li><a href="#newsletter">Newsletter</a></li></ul></div>
-    <div class="footer-col"><h4>Connect</h4><ul><li><a href="mailto:artbyanupritaa@gmail.com">artbyanupritaa@gmail.com</a></li><li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="copyright.html">Copyright Policy</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="mailto:artbyanupritaa@gmail.com">artbyanupritaa@gmail.com</a></li><li><a href="#">Instagram</a></li><li><a href="#">WhatsApp</a></li><li><a href="#">Pinterest</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <div class="folk-border-sm" style="margin-bottom:22px;max-width:320px;margin-left:auto;margin-right:auto"></div>
-    <p>© 2025 Art by Anuprita · artbyanuprita.com · Made with natural pigments and a whole lot of love. <a href="index.html" class="footer-admin-btn" title="Admin">⚙</a></p>
+    <p>© 2025 Art by Anuprita · artbyanuprita.com · Made with natural pigments and a whole lot of love.</p>
   </div>
 </footer>
 
 <script>
 var posts=[];
 const SEED_POSTS = [
-  {id:1,title:'Why I Make My Own Paints: A Journey into Natural Pigments',tag:'Technique',date:'2025-06-22',read:'8 min',excerpt:'Store-bought colours are convenient — but they carry none of the intention of art made from the earth itself. When I first began grinding lapis lazuli for my Thangka practice, I understood something essential about why these traditions have survived for centuries.',body:'Store-bought colours are convenient — but they carry none of the intention of art made from the earth itself.\n\nWhen I first began grinding lapis lazuli for my Thangka practice, I understood something essential about why these traditions have survived for centuries. The act of making your paint is inseparable from the act of painting.\n\nEvery pigment I use starts as a raw material — a mineral, a plant, a soil. Ochre from the earth, indigo from the plant, vermilion from mercury sulphide. Each one has its own personality: how it spreads, how it dries, how it sits on handmade paper versus cloth.\n\nThis is why I will never go back to store-bought.'},
-  {id:2,title:'The Fish Motif in Pattachitra: Symbol, Story, and Structure',tag:'Symbolism',date:'2025-06-15',read:'5 min',excerpt:'In Odisha\'s Pattachitra tradition, the fish is not merely decorative — it is a vessel for narrative. Here is how I approach this iconic motif and what I learned from master Raghurajpur artists.',body:'In Odisha\'s Pattachitra tradition, the fish is not merely decorative — it is a vessel for narrative.\n\nWhen I spent time in Raghurajpur learning from the masters there, I noticed that the fish appears in almost every major composition. Sometimes as a border element, sometimes as the subject itself, but always carrying meaning.\n\nThe fish in Pattachitra represents abundance, fertility, and the flow of time. It is also one of the ten avatars of Vishnu — Matsya, the fish who saved the Vedas from the great flood.\n\nLearning to draw the Pattachitra fish took me three weeks. The outline must be done in a single confident stroke. No correction, no hesitation.'},
-  {id:3,title:'Learning Kurumba in the Nilgiris: A Style Almost Nobody Paints',tag:'Travel & Learning',date:'2025-06-08',read:'7 min',excerpt:'Kurumba art belongs to one of the oldest tribal communities in South India. Finding a master who still practised it took months of searching — and the work changed everything I thought I knew about line.',body:'Kurumba art belongs to one of the oldest tribal communities in South India.\n\nFinding a master who still practised it took months of searching. I was told by three different art historians that there was nobody left who could teach it. The fourth pointed me toward a village in the Nilgiris I had never heard of.\n\nThe work itself is unlike anything else I have learned. Where most folk traditions use bold, confident colour fills, Kurumba painting is almost entirely about line. Thin, trembling, precise lines that build up a world of enormous detail.\n\nI spent six weeks there. It changed everything I thought I knew about how a line could feel.'},
+  {id:1,title:'Why I Started This Website',tag:'Beginning',date:'2026-07-05',read:'5 min',excerpt:'Over the past months, I have realized that a single platform cannot hold everything I am trying to do. This is why artbyanuprita.com exists now. I sell paintings, I take on commission work, and I want to write about art — both my own process and the books I read about it. A website lets me give each of these its own place, while still keeping them connected to the same source.',body:'Over the past months, I have realized that a single platform cannot hold everything I am trying to do. This is why artbyanuprita.com exists now. I sell paintings, I take on commission work, and I want to write about art — both my own process and the books I read about it. A website lets me give each of these its own place, while still keeping them connected to the same source.'},
 ];
 
 function init(){
   posts=JSON.parse(localStorage.getItem('abn_posts_v1')||'null')||JSON.parse(JSON.stringify(SEED_POSTS));
   renderBlog();
   setupReveal();
-  document.getElementById('post-reader-overlay').addEventListener('click',closePost);
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closePost();});
 }
 
 function formatDate(d){
@@ -353,7 +329,8 @@ function renderBlog(){
   if(!posts.length){c.innerHTML='<p class="no-posts">No posts yet. Use the Admin panel to write your first journal entry.</p>';return;}
   const [featured,...rest]=posts.slice().reverse(); // newest first
   let html=`<div class="blog-grid">
-    <div class="blog-featured reveal" onclick="openPost(${featured.id})" style="cursor:pointer">
+    <div class="blog-featured reveal">
+      <div class="blog-featured-img"><span class="blog-img-ph">Article image</span></div>
       <div class="blog-featured-body">
         <span class="blog-tag">✦ Latest · ${featured.tag}</span>
         <h3 class="blog-title">${featured.title}</h3>
@@ -364,7 +341,8 @@ function renderBlog(){
   if(rest.length){
     html+=`<div class="blog-cards-row">
       ${rest.slice(0,3).map(p=>`
-        <div class="blog-card reveal" onclick="openPost(${p.id})" style="cursor:pointer">
+        <div class="blog-card reveal">
+          <div class="blog-card-img"><span class="blog-img-ph" style="font-family:'Caveat',cursive;font-size:.95rem;color:rgba(26,15,0,.28)">Article image</span></div>
           <div class="blog-card-body">
             <span class="blog-tag">✦ ${p.tag}</span>
             <h3 class="blog-title">${p.title}</h3>
@@ -378,42 +356,11 @@ function renderBlog(){
   c.innerHTML=html;
   setupReveal();
 }
-function openPost(id){
-  const p=posts.find(x=>x.id===id);
-  if(!p)return;
-  const bodyHtml=(p.body&&p.body.trim())
-    ? p.body.split(/\n\s*\n/).map(para=>`<p>${para.replace(/\n/g,'<br>')}</p>`).join('')
-    : `<p>${p.excerpt}</p>`;
-  document.getElementById('post-reader-tag').textContent='✦ '+p.tag;
-  document.getElementById('post-reader-title').textContent=p.title;
-  document.getElementById('post-reader-meta').textContent=formatDate(p.date)+' · '+p.read+' read';
-  document.getElementById('post-reader-body').innerHTML=bodyHtml;
-  document.getElementById('post-reader-overlay').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closePost(){
-  document.getElementById('post-reader-overlay').classList.remove('open');
-  document.body.style.overflow='';
-}
 function setupReveal(){
   const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.08});
   document.querySelectorAll('.reveal:not(.in)').forEach(el=>obs.observe(el));
 }
 
 window.addEventListener('load',init);
-</script>
-<button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
-<style>
-.back-to-top{position:fixed;bottom:28px;right:28px;width:48px;height:48px;border-radius:50%;background:var(--vermilion);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 6px 20px rgba(26,15,0,.28);cursor:pointer;border:none;transition:transform .2s,background .2s;z-index:800;}
-.back-to-top:hover{background:#a82d13;transform:translateY(-3px);}
-@media (max-width:640px){.back-to-top{bottom:18px;right:18px;width:42px;height:42px;font-size:1.1rem;}}
-</style>
-<script>
-(function(){
-  var btn = document.getElementById('backToTop');
-  btn.addEventListener('click', function(){
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-})();
 </script>
 </body></html>
