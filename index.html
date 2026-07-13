@@ -154,7 +154,7 @@ section{padding:84px 48px;}
 .books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;}
 .book-card{background:var(--paper-lt);display:flex;gap:18px;padding:22px;border-bottom:3px solid var(--forest);transition:box-shadow .2s;}
 .book-card:hover{box-shadow:0 6px 20px rgba(26,15,0,.1);}
-.book-cover{width:68px;flex-shrink:0;aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:.78rem;color:#fff;text-align:center;padding:6px;line-height:1.35;}
+.book-cover{width:68px;flex-shrink:0;aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:.78rem;color:#fff;text-align:center;padding:6px;line-height:1.35;overflow:hidden;}
 .book-info-title{font-family:'Lora',serif;font-size:.98rem;font-weight:600;color:var(--ink);margin-bottom:3px;line-height:1.3;}
 .book-author{font-size:.78rem;color:var(--vermilion);margin-bottom:7px;}
 .book-stars{color:var(--saffron);font-size:.95rem;margin-bottom:8px;letter-spacing:1px;}
@@ -615,6 +615,11 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
           <input type="hidden" id="b-color" value="#3D2B8E">
         </div>
         <div class="form-group">
+          <label>Book Cover Image (optional)</label>
+          <input type="file" id="b-image" accept="image/*" onchange="previewBookImg(this)">
+          <img id="book-img-preview" alt="Preview" style="display:none;max-width:120px;margin-top:8px;border-radius:4px">
+        </div>
+        <div class="form-group">
           <label>Your Review</label>
           <textarea id="b-review" style="height:80px" placeholder="A short personal note about why you recommend this book…"></textarea>
         </div>
@@ -805,7 +810,7 @@ function renderBooks(){
   if(!books.length){g.innerHTML='<p style="color:var(--muted);font-style:italic">No books added yet.</p>';return;}
   g.innerHTML=books.map(b=>`
     <div class="book-card reveal">
-      <div class="book-cover" style="background:${b.bg}">${b.title}</div>
+      <div class="book-cover" style="background:${b.bg}">${b.img?`<img src="${b.img}" alt="${b.title}" style="width:100%;height:100%;object-fit:cover">`:b.title}</div>
       <div>
         <div class="book-info-title">${b.title}</div>
         <div class="book-author">${b.author}</div>
@@ -847,6 +852,10 @@ function switchTab(name,btn){
    ============================================================ */
 function previewImg(input){
   const prev=document.getElementById('img-preview');
+  if(input.files&&input.files[0]){const r=new FileReader();r.onload=e=>{prev.src=e.target.result;prev.style.display='block';};r.readAsDataURL(input.files[0]);}
+}
+function previewBookImg(input){
+  const prev=document.getElementById('book-img-preview');
   if(input.files&&input.files[0]){const r=new FileReader();r.onload=e=>{prev.src=e.target.result;prev.style.display='block';};r.readAsDataURL(input.files[0]);}
 }
 function resetPaintingForm(){
@@ -1003,6 +1012,9 @@ function resetBookForm(){
   document.getElementById('b-edit-id').value='';
   ['b-title','b-author','b-review'].forEach(id=>document.getElementById(id).value='');
   setStars(5);
+  document.getElementById('b-image').value='';
+  document.getElementById('book-img-preview').style.display='none';
+  document.getElementById('book-img-preview').src='';
   document.getElementById('b-submit-btn').textContent='＋ Add Book';
   document.getElementById('b-cancel-btn').style.display='none';
 }
@@ -1020,6 +1032,8 @@ function editBook(id){
   });
   selectedColor=b.bg;
   document.getElementById('b-color').value=b.bg;
+  if(b.img){const prev=document.getElementById('book-img-preview');prev.src=b.img;prev.style.display='block';}
+  else{document.getElementById('book-img-preview').style.display='none';}
   document.getElementById('b-submit-btn').textContent='✓ Update Book';
   document.getElementById('b-cancel-btn').style.display='inline-block';
   document.getElementById('tab-books').scrollTop=0;
@@ -1030,18 +1044,26 @@ function saveBook(){
   const review=document.getElementById('b-review').value.trim();
   const editId=document.getElementById('b-edit-id').value;
   if(!title||!author||!review){alert('Please fill in Title, Author, and Review.');return;}
-  if(editId){
-    const idx=books.findIndex(b=>b.id==editId);
-    if(idx!==-1){books[idx]={id:books[idx].id,title,author,stars:selectedStars,bg:selectedColor,review};}
-    saveAll();renderBooks();renderAdminBooks();
-    resetBookForm();
-    alert('✓ Book updated!');
-  } else {
-    books.push({id:Date.now(),title,author,stars:selectedStars,bg:selectedColor,review});
-    saveAll();renderBooks();renderAdminBooks();
-    resetBookForm();
-    alert('✓ Book added!');
-  }
+  const finish=img=>{
+    if(editId){
+      const idx=books.findIndex(b=>b.id==editId);
+      if(idx!==-1){
+        const oldImg=books[idx].img;
+        books[idx]={id:books[idx].id,title,author,stars:selectedStars,bg:selectedColor,review,img:img||oldImg};
+      }
+      saveAll();renderBooks();renderAdminBooks();
+      resetBookForm();
+      alert('✓ Book updated!');
+    } else {
+      books.push({id:Date.now(),title,author,stars:selectedStars,bg:selectedColor,review,img});
+      saveAll();renderBooks();renderAdminBooks();
+      resetBookForm();
+      alert('✓ Book added!');
+    }
+  };
+  const imgEl=document.getElementById('b-image');
+  if(imgEl.files&&imgEl.files[0]){const r=new FileReader();r.onload=e=>finish(e.target.result);r.readAsDataURL(imgEl.files[0]);}
+  else finish(null);
 }
 function deleteBook(id){
   if(!confirm('Remove this book?')) return;
