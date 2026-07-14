@@ -335,35 +335,14 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
   </div>
 </footer>
 
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
-<script>
-const firebaseConfig = {
-  apiKey: "AIzaSyDVUq1QHtcSsrrAVwu12v-41EhUrHp8ro8",
-  authDomain: "artbyanupritaa-ac538.firebaseapp.com",
-  projectId: "artbyanupritaa-ac538",
-  storageBucket: "artbyanupritaa-ac538.firebasestorage.app",
-  messagingSenderId: "187829645795",
-  appId: "1:187829645795:web:500946c7cece918c87f0d6"
-};
-firebase.initializeApp(firebaseConfig);
-const fbDb = firebase.firestore();
-</script>
 <script>
 var posts=[];
 const SEED_POSTS = [
   {id:1,title:'Why I Started This Website',tag:'Beginning',date:'2026-07-05',read:'5 min',excerpt:'For a long time, I did not think I needed a website. My paintings were living on Instagram, one post a week, and that felt like enough. However, over the past months, I have realized that a single platform cannot hold everything I am trying to do.',body:'For a long time, I did not think I needed a website. My paintings were living on Instagram, one post a week, and that felt like enough. However, over the past months, I have realized that a single platform cannot hold everything I am trying to do. This is why artbyanuprita.com exists now, and I want to use this first post to explain how it came to be.\n\nMy path into Indian folk painting did not begin in an art school. It began during the Covid pandemic, through online classes, at a time when most of us were looking for something to hold onto. Because of that beginning, I never took the traditional route of formal training. Instead, I learned directly from more than 50 master artists across India, all through online platforms, and I paired that learning with real research — reading published papers on different folk painting styles, and interviewing master artists myself about how canvases and paints are prepared, using stone pigments, earth pigments, and materials drawn from plants. This may be part of why I think of my practice as research-backed rather than purely instinctive, even though the two are never fully separate.\n\nAt some point during this journey, I set myself a 100-day painting challenge, working through 80 folk painting styles — more than 65 from India, and about 15 from elsewhere. That challenge gave me something I did not expect: a working understanding of how these traditions differ, and how they connect.\n\nA website lets me give each part of this its own place — the paintings, the commissions, the writing — while still keeping them connected to the same source.'},
 ];
 
-async function init(){
-  try {
-    const snap = await fbDb.collection('posts').orderBy('createdAt','desc').get();
-    posts = snap.docs.map(d=>({id:d.id, ...d.data()}));
-    if(!posts.length) posts = JSON.parse(JSON.stringify(SEED_POSTS));
-  } catch(e) {
-    console.error('Failed to load posts from Firestore, using built-in default:', e);
-    posts = JSON.parse(JSON.stringify(SEED_POSTS));
-  }
+function init(){
+  posts=JSON.parse(localStorage.getItem('abn_posts_v2')||'null')||JSON.parse(JSON.stringify(SEED_POSTS));
   renderBlog();
   setupReveal();
   document.getElementById('post-reader-overlay').addEventListener('click',closePost);
@@ -378,9 +357,9 @@ function formatDate(d){
 function renderBlog(){
   const c=document.getElementById('blog-container');
   if(!posts.length){c.innerHTML='<p class="no-posts">No posts yet. Use the Admin panel to write your first journal entry.</p>';return;}
-  const [featured,...rest]=posts; // already newest-first from Firestore query
+  const [featured,...rest]=posts.slice().reverse(); // newest first
   let html=`<div class="blog-grid">
-    <div class="blog-featured reveal" onclick="openPost('${featured.id}')" style="cursor:pointer">
+    <div class="blog-featured reveal" onclick="openPost(${featured.id})" style="cursor:pointer">
       <div class="blog-featured-body">
         <span class="blog-tag">✦ Latest · ${featured.tag}</span>
         <h3 class="blog-title">${featured.title}</h3>
@@ -391,7 +370,7 @@ function renderBlog(){
   if(rest.length){
     html+=`<div class="blog-cards-row">
       ${rest.slice(0,3).map(p=>`
-        <div class="blog-card reveal" onclick="openPost('${p.id}')" style="cursor:pointer">
+        <div class="blog-card reveal" onclick="openPost(${p.id})" style="cursor:pointer">
           <div class="blog-card-body">
             <span class="blog-tag">✦ ${p.tag}</span>
             <h3 class="blog-title">${p.title}</h3>
