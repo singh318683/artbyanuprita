@@ -343,35 +343,14 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 .back-to-top:hover{background:#a82d13;transform:translateY(-3px);}
 @media (max-width:640px){.back-to-top{bottom:18px;right:18px;width:42px;height:42px;font-size:1.1rem;}}
 </style>
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
-<script>
-const firebaseConfig = {
-  apiKey: "AIzaSyDVUq1QHtcSsrrAVwu12v-41EhUrHp8ro8",
-  authDomain: "artbyanupritaa-ac538.firebaseapp.com",
-  projectId: "artbyanupritaa-ac538",
-  storageBucket: "artbyanupritaa-ac538.firebasestorage.app",
-  messagingSenderId: "187829645795",
-  appId: "1:187829645795:web:500946c7cece918c87f0d6"
-};
-firebase.initializeApp(firebaseConfig);
-const fbDb = firebase.firestore();
-</script>
 <script>
 const SEED_ABOUT = {
   photo: null,
   bio: "About Anuprita\n\nAnuprita Khare is an artist, science teacher, and independent researcher whose practice brings together Indian traditional art, material exploration, cultural research, and storytelling.\n\nHer focused journey into Indian folk and traditional art began during the COVID-19 pandemic. As artistic learning became increasingly accessible online, she found opportunities to study directly with practicing artists, hereditary tradition-bearers, master artisans, and art educators from different regions of India.\n\nWhat began with a search for a Warli painting workshop gradually developed into a sustained exploration of living artistic traditions. Through artist-led workshops, demonstrations, conversations, books, museum collections, and independent research, she began studying the techniques, materials, motifs, narratives, and cultural histories associated with each form.\n\nAnuprita’s learning spans a wide range of Indian painting, mural, manuscript, miniature, floor-art, textile, and craft traditions. Her level of engagement with each tradition has varied. In some, she has completed focused studies or a small number of works to understand the foundations of its visual language. In others, she has pursued deeper and more sustained practice.\n\nShe does not present this broad learning as mastery of every tradition she has encountered. Instead, she approaches each experience as an introduction to a complex and evolving artistic practice shaped by generations of artists, families, and communities. Respect for these artistic lineages—and acknowledgment of the teachers from whom she has learned—remains central to her work.\n\nHer broader study supports a more concentrated studio practice centered on selected traditions, natural pigments, handmade surfaces, and historically informed material processes. She is particularly interested in colors created from earth, minerals, plants, soot, and other locally available materials, as well as the use of rice paste, lime, natural binders, handmade paper, cloth, and prepared surfaces.\n\nWith a background in Chemical Engineering, Anuprita brings scientific curiosity to her material studies. She explores how pigments are sourced and processed, how binders behave on different surfaces, how colors change through preparation and layering, and how practical knowledge of local environments is reflected in traditional artistic methods.\n\nAs a science teacher, she enjoys creating connections between art, observation, experimentation, history, and environmental learning. Her educational work encourages children and adults to look beyond an artwork’s decorative appearance and consider its materials, makers, cultural setting, and methods of transmission.\n\nAnuprita is also interested in visual relationships across regions and cultures. She studies recurring forms such as sacred trees, animals, geometric structures, narrative borders, domestic symbols, and community stories, while recognizing that similar-looking images can carry distinct meanings within different cultural contexts.\n\nThrough Art by Anuprita, she shares paintings, material studies, research, and reflections from her continuing learning journey. Her goal is to honor the artists who have guided her, document what she learns responsibly, and help wider audiences encounter traditional art with curiosity, context, and respect.\n\nAt the heart of her practice is a commitment to continued learning: understanding traditional art not simply as a collection of recognizable styles, but as living cultural knowledge carried by people, materials, places, and generations.",
   mission: "Through her art, writing, and research, Anuprita is building a bridge between cultures, generations, and artistic lineages. Her mission is simple yet profound: to honour traditional artists, preserve cultural knowledge, and share the beauty and interconnectedness of global folk art with the world."
 };
-async function renderAbout(){
-  let about;
-  try {
-    const doc = await fbDb.collection('about').doc('main').get();
-    about = doc.exists ? doc.data() : SEED_ABOUT;
-  } catch(e) {
-    console.error('Failed to load About page from Firestore, using built-in default:', e);
-    about = SEED_ABOUT;
-  }
+function renderAbout(){
+  const about = JSON.parse(localStorage.getItem('abn_about_v1')||'null') || SEED_ABOUT;
   if(about.photo){ document.getElementById('about-photo-img').src = about.photo; }
   const paragraphs = (about.bio||'').split('\n\n').filter(p=>p.trim()).map(p=>`<p class="about-text">${p}</p>`).join('\n');
   const missionHtml = about.mission ? `<p class="about-text" style="border-left:3px solid var(--vermilion);padding-left:16px;font-style:italic;color:var(--ink);">${about.mission}</p>` : '';
