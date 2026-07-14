@@ -342,34 +342,13 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
   </div>
 </footer>
 
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
-<script>
-const firebaseConfig = {
-  apiKey: "AIzaSyDVUq1QHtcSsrrAVwu12v-41EhUrHp8ro8",
-  authDomain: "artbyanupritaa-ac538.firebaseapp.com",
-  projectId: "artbyanupritaa-ac538",
-  storageBucket: "artbyanupritaa-ac538.firebasestorage.app",
-  messagingSenderId: "187829645795",
-  appId: "1:187829645795:web:500946c7cece918c87f0d6"
-};
-firebase.initializeApp(firebaseConfig);
-const fbDb = firebase.firestore();
-</script>
 <script>
 var books=[];
 const SEED_BOOKS = [
 ];
 
-async function init(){
-  try {
-    const snap = await fbDb.collection('books').orderBy('createdAt','desc').get();
-    books = snap.docs.map(d=>({id:d.id, ...d.data()}));
-    if(!books.length) books = JSON.parse(JSON.stringify(SEED_BOOKS));
-  } catch(e) {
-    console.error('Failed to load books from Firestore, using built-in default:', e);
-    books = JSON.parse(JSON.stringify(SEED_BOOKS));
-  }
+function init(){
+  books=JSON.parse(localStorage.getItem('abn_books_v2')||'null')||JSON.parse(JSON.stringify(SEED_BOOKS));
   renderBooks();
   setupReveal();
 }
@@ -378,7 +357,7 @@ function renderBooks(){
   const g=document.getElementById('books-grid');
   if(!books.length){g.innerHTML='<p style="color:var(--muted);font-style:italic">No books added yet.</p>';return;}
   g.innerHTML=books.map(b=>`
-    <div class="book-thumb-card reveal" onclick="openBookReview('${b.id}')" title="${b.title}">
+    <div class="book-thumb-card reveal" onclick="openBookReview(${b.id})" title="${b.title}">
       <div class="book-cover" style="background:${b.bg}">${b.img?`<img src="${b.img}" alt="${b.title}" style="width:100%;height:100%;object-fit:cover">`:b.title}</div>
     </div>`).join('');
   setupReveal();
