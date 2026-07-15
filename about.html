@@ -392,6 +392,13 @@ window.addEventListener('load', renderAbout);
   btn.addEventListener('click', function(){
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('nav-links');
+  if(hamburger && navLinks){
+    hamburger.addEventListener('click', function(){
+      navLinks.classList.toggle('open');
+    });
+  }
 })();
 </script>
 </body>
