@@ -179,6 +179,10 @@ section{padding:84px 48px;scroll-margin-top:90px;}
 .book-reader-author{font-size:.85rem;color:var(--vermilion);margin-bottom:10px;}
 .book-reader-stars{color:var(--saffron);font-size:1.1rem;margin-bottom:20px;letter-spacing:1px;}
 .book-reader-review{font-family:'Lora',serif;font-size:1rem;color:var(--ink);line-height:1.85;font-style:italic;}
+.book-reader-review p{margin:0 0 16px;}
+.book-reader-review p:last-child{margin-bottom:0;}
+.book-reader-review p:first-of-type::before{content:'"';}
+.book-reader-review p:last-of-type::after{content:'"';}
 @media(max-width:680px){.book-reader-panel{padding:36px 24px 40px;flex-direction:column;}.book-reader-overlay{padding:24px 12px;}.book-reader-cover{width:110px;}}
 .book-cover{width:170px;flex-shrink:0;aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:1.4rem;color:#fff;text-align:center;padding:14px;line-height:1.35;overflow:hidden;}
 .book-info-title{font-family:'Lora',serif;font-size:.98rem;font-weight:600;color:var(--ink);margin-bottom:3px;line-height:1.3;}
@@ -390,6 +394,18 @@ function renderBooks(){
     </div>`).join('');
   setupReveal();
 }
+function escapeHtml(str){
+  const d=document.createElement('div');
+  d.textContent=str;
+  return d.innerHTML;
+}
+function formatReviewText(text){
+  // Splits on blank-line-separated paragraphs, escapes HTML, and preserves
+  // single line breaks within a paragraph as <br>, so admin-typed spacing shows up.
+  return (text||'').trim().split(/\n\s*\n/)
+    .map(para => `<p>${escapeHtml(para.trim()).replace(/\n/g,'<br>')}</p>`)
+    .join('');
+}
 function openBookReview(id){
   const b=books.find(x=>x.id===id);
   if(!b)return;
@@ -399,7 +415,7 @@ function openBookReview(id){
   document.getElementById('book-reader-title').textContent=b.title;
   document.getElementById('book-reader-author').textContent=b.author;
   document.getElementById('book-reader-stars').textContent='★'.repeat(b.stars)+'☆'.repeat(5-b.stars);
-  document.getElementById('book-reader-review').textContent='"'+b.review+'"';
+  document.getElementById('book-reader-review').innerHTML=formatReviewText(b.review);
   document.getElementById('book-reader-overlay').classList.add('open');
 }
 function closeBookReview(){
