@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-21B1N93JYD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-21B1N93JYD');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art Forms Practiced · Anuprita Khare</title>
+<meta name="description" content="60+ traditional Indian folk and classical painting styles practiced by artist Anuprita Khare, from Pattachitra and Kalamkari to rare tribal traditions like Kurumba and Warli, using natural pigments and handmade materials.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Lora:ital,wght@0,400;0,600;1,400&family=Caveat:wght@400;600;700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#1A0F00; --vermilion:#C8391A; --saffron:#F0A500; --gold-deep:#C87D00;
+  --forest:#2D5A3D; --indigo:#3D2B8E; --paper:#FBF5E6; --paper-dk:#F0E8D0;
+  --paper-lt:#FFFDF5; --muted:#5A4535; --muted-lt:rgba(251,245,230,0.65);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Lato',sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+
+/* DIVIDERS */
+.folk-border{height:22px;background-image:radial-gradient(circle,var(--vermilion) 2.8px,transparent 2.8px),radial-gradient(circle,var(--saffron) 2.8px,transparent 2.8px);background-size:26px 22px,26px 22px;background-position:0 50%,13px 50%;}
+.folk-border-sm{height:14px;background-image:radial-gradient(circle,var(--forest) 1.8px,transparent 1.8px);background-size:18px 14px;background-position:0 50%;}
+.triangle-divider{height:28px;overflow:hidden;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='28'%3E%3Cpolygon points='0,28 24,0 48,28' fill='none' stroke='%23C8391A' stroke-width='1.5'/%3E%3C/svg%3E");background-size:48px 28px;background-repeat:repeat-x;background-color:var(--paper-dk);}
+
+/* NAV */
+.nav-stripe{height:5px;background:linear-gradient(90deg,var(--vermilion) 0%,var(--saffron) 20%,var(--forest) 40%,var(--indigo) 60%,var(--vermilion) 80%,var(--saffron) 100%);}
+nav{position:sticky;top:0;z-index:900;background:var(--ink);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 48px;gap:16px;flex-wrap:wrap;max-width:1400px;margin:0 auto;}
+.nav-logo{font-family:'Dancing Script','Brush Script MT',cursive;font-size:1.7rem;color:var(--saffron);}
+.nav-logo span{color:var(--vermilion);}
+.nav-links{display:flex;list-style:none;gap:24px;align-items:center;flex-wrap:wrap;}
+.nav-links a{color:rgba(251,245,230,.8);font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover{color:var(--saffron);}
+.footer-admin-btn{opacity:.3;font-size:.8rem;margin-left:8px;transition:opacity .2s;}
+.footer-admin-btn:hover{opacity:.9;color:var(--saffron);}
+.nav-admin-btn{opacity:.3;font-size:.85rem;margin-left:10px;color:rgba(251,245,230,.7);text-decoration:none;transition:opacity .2s;}
+.nav-admin-btn:hover{opacity:.9;color:var(--saffron);}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--paper);}
+
+/* HERO */
+.hero{min-height:94vh;background:var(--ink);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(200,57,26,.14) 0%,transparent 55%),radial-gradient(ellipse at 80% 70%,rgba(61,43,142,.18) 0%,transparent 55%);}
+.hero-pattern{position:absolute;inset:0;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='32' fill='none' stroke='%23F0A500' stroke-width='.8'/%3E%3Ccircle cx='40' cy='40' r='18' fill='none' stroke='%23F0A500' stroke-width='.5'/%3E%3Ccircle cx='40' cy='40' r='6' fill='%23F0A500' opacity='.4'/%3E%3Cline x1='8' y1='40' x2='72' y2='40' stroke='%23F0A500' stroke-width='.4'/%3E%3Cline x1='40' y1='8' x2='40' y2='72' stroke='%23F0A500' stroke-width='.4'/%3E%3C/svg%3E");background-size:80px 80px;}
+.hero-frame{position:absolute;inset:28px;border:1px solid rgba(240,165,0,.2);pointer-events:none;}
+.hero-frame::before,.hero-frame::after{content:'';position:absolute;width:48px;height:48px;border-style:solid;border-color:var(--saffron);}
+.hero-frame::before{top:-2px;left:-2px;border-width:2px 0 0 2px;}
+.hero-frame::after{bottom:-2px;right:-2px;border-width:0 2px 2px 0;}
+.hero-content{position:relative;z-index:2;padding:60px 32px;}
+.hero-eyebrow{font-family:'Caveat',cursive;color:var(--saffron);font-size:1.25rem;letter-spacing:2px;display:block;margin-bottom:18px;}
+.hero-title{font-family:'Yatra One',serif;font-size:clamp(3.6rem,9vw,7.5rem);color:var(--paper);line-height:1.0;letter-spacing:-2px;margin-bottom:14px;}
+.hero-title em{color:var(--saffron);font-style:normal;}
+.hero-subtitle{font-family:'Lora',serif;font-size:clamp(1rem,2.2vw,1.35rem);color:rgba(240,165,0,.85);font-style:italic;margin-bottom:42px;}
+.hero-desc{font-size:.97rem;color:rgba(251,245,230,.68);max-width:540px;margin:0 auto 50px;line-height:1.85;}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:64px;}
+.hero-stats{display:flex;gap:56px;justify-content:center;flex-wrap:wrap;border-top:1px solid rgba(240,165,0,.15);padding-top:40px;}
+.hero-stat-num{font-family:'Yatra One',serif;font-size:2.6rem;color:var(--saffron);display:block;line-height:1;}
+.hero-stat-label{font-size:.75rem;color:rgba(251,245,230,.5);text-transform:uppercase;letter-spacing:1.2px;margin-top:6px;display:block;}
+
+/* BUTTONS */
+.btn{display:inline-block;padding:13px 34px;font-family:'Lato',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;cursor:pointer;border:none;transition:all .2s;line-height:1;}
+.btn-red{background:var(--vermilion);color:#fff;}
+.btn-red:hover{background:#a82d13;transform:translateY(-2px);}
+.btn-outline-gold{background:transparent;color:var(--saffron);border:2px solid var(--saffron);}
+.btn-outline-gold:hover{background:var(--saffron);color:var(--ink);}
+.btn-dark{background:var(--ink);color:var(--paper);}
+.btn-dark:hover{background:var(--vermilion);}
+.btn-green{background:var(--forest);color:#fff;}
+.btn-green:hover{background:#1d3d29;}
+
+/* SECTION COMMONS */
+section{padding:84px 48px;scroll-margin-top:90px;}
+.section-inner{max-width:1240px;margin:0 auto;}
+.section-eyebrow{font-family:'Caveat',cursive;font-size:1.1rem;color:var(--vermilion);letter-spacing:1.5px;display:block;margin-bottom:8px;}
+.section-title{font-family:'Yatra One',serif;font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.15;margin-bottom:16px;}
+.section-desc{font-family:'Lora',serif;font-style:italic;font-size:1.02rem;color:var(--muted);max-width:620px;margin-bottom:52px;line-height:1.85;}
+
+/* ART FOR SALE */
+#art-for-sale{background:var(--paper-lt);}
+.gallery-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+.filter-btn{padding:7px 18px;font-size:.78rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;border:1px solid rgba(26,15,0,.2);background:transparent;color:var(--ink);transition:all .2s;font-family:'Lato',sans-serif;}
+.filter-btn.active,.filter-btn:hover{background:var(--vermilion);color:#fff;border-color:var(--vermilion);}
+.art-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(278px,1fr));gap:28px;}
+.art-card{background:var(--paper);border:1px solid rgba(26,15,0,.09);position:relative;transition:transform .25s,box-shadow .25s;}
+.art-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(26,15,0,.14);}
+.art-card-img-wrap{aspect-ratio:4/5;overflow:hidden;background:var(--paper-dk);display:flex;align-items:center;justify-content:center;}
+.art-card-img-wrap img{width:100%;height:100%;object-fit:cover;}
+.art-placeholder{font-family:'Caveat',cursive;font-size:1.05rem;color:rgba(26,15,0,.28);text-align:center;padding:20px;display:flex;flex-direction:column;align-items:center;gap:10px;}
+.art-placeholder-icon{font-size:2.8rem;opacity:.4;}
+.art-card-body{padding:20px 20px 22px;border-top:3px solid var(--vermilion);}
+.art-card-style{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--vermilion);margin-bottom:5px;}
+.art-card-title{font-family:'Lora',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:5px;}
+.art-card-dims{font-size:.8rem;color:#8A7060;margin-bottom:16px;}
+.art-card-footer{display:flex;align-items:center;justify-content:space-between;}
+.art-price{font-family:'Yatra One',serif;font-size:1.35rem;color:var(--forest);}
+.badge-sold{position:absolute;top:14px;right:14px;background:var(--ink);color:var(--saffron);font-size:.65rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;padding:5px 12px;}
+
+/* ART FORMS - clickable text grid */
+#art-forms{background:var(--ink);color:var(--paper);}
+#art-forms .section-title{color:var(--paper);}
+#art-forms .section-desc{color:var(--muted-lt);margin-bottom:28px;}
+#art-forms .section-eyebrow{color:var(--saffron);}
+#art-forms .section-inner{text-align:center;}
+#art-forms .section-desc{margin-left:auto;margin-right:auto;}
+.art-forms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:rgba(240,165,0,.1);}
+.art-form-row{background:var(--ink);padding:14px 18px;border-left:2px solid transparent;transition:all .2s;cursor:pointer;opacity:1;}
+.art-form-row:hover{background:rgba(240,165,0,.1);border-left-color:var(--saffron);}
+.form-name{font-family:'Lora',serif;font-size:.95rem;color:var(--paper);font-weight:600;margin-bottom:2px;}
+.form-region{font-size:.74rem;color:rgba(251,245,230,.45);letter-spacing:.3px;}
+.art-form-row:hover .form-name{color:var(--saffron);}
+.forms-footer{text-align:center;margin-top:44px;font-size:.9rem;color:rgba(251,245,230,.45);}
+.forms-footer strong{color:var(--saffron);}
+
+/* ART FORM DETAIL MODAL */
+.af-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9500;align-items:center;justify-content:center;padding:24px;}
+.af-modal.open{display:flex;}
+.af-panel{background:var(--paper-lt);max-width:560px;width:100%;position:relative;border-top:5px solid var(--saffron);}
+.af-panel-header{background:var(--ink);padding:36px 40px 28px;}
+.af-panel-eyebrow{font-family:'Caveat',cursive;font-size:1rem;color:var(--saffron);letter-spacing:1.5px;display:block;margin-bottom:8px;}
+.af-panel-name{font-family:'Yatra One',serif;font-size:2rem;color:var(--paper);margin-bottom:6px;line-height:1.1;}
+.af-panel-region{font-size:.8rem;color:rgba(251,245,230,.5);letter-spacing:.8px;text-transform:uppercase;}
+.af-panel-body{padding:32px 40px 36px;}
+.af-panel-desc{font-family:'Lora',serif;font-size:1rem;color:var(--muted);line-height:1.9;margin-bottom:28px;}
+.af-panel-close{position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:rgba(251,245,230,.6);line-height:1;transition:color .2s;}
+.af-panel-close:hover{color:var(--saffron);}
+
+/* BLOG */
+#blog{background:var(--paper);}
+.blog-grid{display:grid;gap:28px;}
+.blog-featured{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);color:var(--paper);margin-bottom:4px;}
+.blog-featured-img{min-height:340px;background:var(--paper-dk);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.blog-featured-img img{width:100%;height:100%;object-fit:cover;}
+.blog-img-ph{font-family:'Caveat',cursive;font-size:1rem;color:rgba(26,15,0,.28);text-align:center;padding:20px;}
+.blog-featured-body{padding:52px 48px;display:flex;flex-direction:column;justify-content:center;}
+.blog-tag{font-size:.68rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--saffron);margin-bottom:12px;display:block;}
+.blog-featured-body .blog-title{font-family:'Lora',serif;font-size:1.7rem;color:var(--paper);font-weight:600;line-height:1.35;margin-bottom:16px;}
+.blog-featured-body .blog-excerpt{font-size:.92rem;color:rgba(251,245,230,.65);line-height:1.8;margin-bottom:24px;}
+.blog-featured-body .blog-meta{font-size:.78rem;color:rgba(251,245,230,.38);display:flex;gap:12px;}
+.blog-cards-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px;}
+.blog-card{background:var(--paper-lt);border:1px solid rgba(26,15,0,.07);transition:box-shadow .2s;}
+.blog-card:hover{box-shadow:0 8px 24px rgba(26,15,0,.1);}
+.blog-card-img{aspect-ratio:16/9;overflow:hidden;background:var(--paper-dk);display:flex;align-items:center;justify-content:center;}
+.blog-card-img img{width:100%;height:100%;object-fit:cover;}
+.blog-card-body{padding:24px;}
+.blog-card-body .blog-title{font-family:'Lora',serif;font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.4;margin-bottom:10px;}
+.blog-card-body .blog-tag{color:var(--vermilion);}
+.blog-card-body .blog-excerpt{font-size:.86rem;color:var(--muted);line-height:1.72;margin-bottom:16px;}
+.blog-meta{font-size:.76rem;color:#9A8070;display:flex;gap:10px;}
+.no-posts{font-family:'Lora',serif;font-style:italic;color:var(--muted);padding:40px 0;}
+
+/* BOOK REVIEWS */
+#book-reviews{background:var(--paper-dk);}
+.books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;}
+.book-card{background:var(--paper-lt);display:flex;gap:18px;padding:22px;border-bottom:3px solid var(--forest);transition:box-shadow .2s;}
+.book-card:hover{box-shadow:0 6px 20px rgba(26,15,0,.1);}
+.book-cover{width:68px;flex-shrink:0;aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:.78rem;color:#fff;text-align:center;padding:6px;line-height:1.35;}
+.book-info-title{font-family:'Lora',serif;font-size:.98rem;font-weight:600;color:var(--ink);margin-bottom:3px;line-height:1.3;}
+.book-author{font-size:.78rem;color:var(--vermilion);margin-bottom:7px;}
+.book-stars{color:var(--saffron);font-size:.95rem;margin-bottom:8px;letter-spacing:1px;}
+.book-review{font-size:.82rem;color:var(--muted);font-style:italic;line-height:1.65;}
+
+/* ABOUT */
+#about{background:#7A2B10;color:var(--paper);}
+#about .section-title{color:var(--paper);}
+#about .section-eyebrow{color:var(--saffron);}
+.about-grid{display:grid;grid-template-columns:1fr 2fr;gap:88px;align-items:center;}
+.about-portrait{aspect-ratio:3/4;border:2px solid rgba(251,245,230,.3);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.about-portrait::before{content:'';position:absolute;inset:12px;border:1px solid rgba(251,245,230,.18);pointer-events:none;z-index:1;}
+.about-portrait img{width:100%;height:100%;object-fit:cover;}
+.about-ph{font-family:'Caveat',cursive;font-size:1.05rem;color:rgba(251,245,230,.35);text-align:center;padding:24px;}
+.about-text{font-family:'Lora',serif;font-size:.95rem;color:rgba(251,245,230,.88);line-height:1.85;margin-bottom:18px;}
+.about-highlights{display:flex;gap:44px;flex-wrap:wrap;margin-top:12px;}
+.about-highlight-num{font-family:'Yatra One',serif;font-size:2.2rem;color:var(--saffron);display:block;}
+.about-highlight-label{font-size:.76rem;color:rgba(251,245,230,.6);text-transform:uppercase;letter-spacing:.8px;display:block;}
+
+/* COMMISSION */
+#commission{background:var(--paper-lt);}
+.commission-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.commission-info h3{font-family:'Lora',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin:32px 0 14px;}
+.commission-info h3:first-child{margin-top:0;}
+.commission-info p{font-size:.9rem;color:var(--muted);line-height:1.75;}
+.steps{list-style:none;counter-reset:step;}
+.steps li{counter-increment:step;display:flex;gap:16px;align-items:flex-start;margin-bottom:18px;}
+.steps li::before{content:counter(step);background:var(--vermilion);color:#fff;min-width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;}
+.steps li span{font-size:.9rem;color:var(--muted);line-height:1.68;}
+.commission-form{background:var(--paper);padding:40px;border-top:4px solid var(--forest);}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:6px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:1px solid rgba(26,15,0,.18);background:var(--paper-lt);font-family:'Lato',sans-serif;font-size:.9rem;color:var(--ink);outline:none;transition:border-color .2s;-webkit-appearance:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--vermilion);}
+.form-group textarea{height:96px;resize:vertical;}
+
+/* NEWSLETTER */
+#newsletter{background:var(--forest);text-align:center;padding:80px 48px;}
+#newsletter .section-title{color:var(--paper);margin-bottom:12px;}
+.newsletter-lead{font-family:'Lora',serif;font-style:italic;font-size:1.05rem;color:rgba(251,245,230,.7);margin-bottom:36px;}
+.nl-form{display:flex;max-width:460px;margin:0 auto;}
+.nl-form input{flex:1;padding:14px 20px;border:none;font-family:'Lato',sans-serif;font-size:.9rem;color:var(--ink);background:var(--paper-lt);outline:none;}
+
+/* FOOTER */
+footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;max-width:1240px;margin:0 auto 52px;}
+.footer-brand{font-family:'Yatra One',serif;font-size:1.7rem;color:var(--saffron);display:block;margin-bottom:14px;}
+.footer-tagline{font-family:'Lora',serif;font-style:italic;font-size:.88rem;line-height:1.75;}
+.footer-col h4{font-size:.72rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--paper);margin-bottom:18px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:9px;}
+.footer-col ul li a{font-size:.86rem;color:rgba(251,245,230,.48);transition:color .2s;}
+.footer-col ul li a:hover{color:var(--saffron);}
+.footer-bottom{max-width:1240px;margin:0 auto;border-top:1px solid rgba(251,245,230,.08);padding-top:24px;text-align:center;font-size:.8rem;}
+
+/* ADMIN OVERLAY */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:9000;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;}
+.overlay.open{display:flex;}
+.panel{background:var(--paper-lt);padding:44px;max-width:600px;width:100%;position:relative;}
+.panel h2{font-family:'Yatra One',serif;font-size:1.75rem;color:var(--ink);margin-bottom:6px;}
+.panel>p.panel-sub{color:#8A7060;font-size:.86rem;margin-bottom:24px;}
+.panel-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--ink);line-height:1;}
+
+/* Admin tabs */
+.admin-tabs{display:flex;gap:0;margin-bottom:28px;border-bottom:2px solid var(--paper-dk);}
+.admin-tab{padding:10px 22px;font-size:.8rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;border:none;background:none;color:#9A8070;font-family:'Lato',sans-serif;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;}
+.admin-tab.active{color:var(--vermilion);border-bottom-color:var(--vermilion);}
+.admin-tab-pane{display:none;}
+.admin-tab-pane.active{display:block;}
+
+.admin-list-item{display:flex;align-items:flex-start;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(26,15,0,.07);gap:12px;}
+.admin-list-item-info .title{font-size:.88rem;font-weight:600;color:var(--ink);}
+.admin-list-item-info .meta{font-size:.76rem;color:#8A7060;}
+.btn-remove{background:none;border:none;color:var(--vermilion);cursor:pointer;font-size:.78rem;text-decoration:underline;font-family:'Lato',sans-serif;flex-shrink:0;}
+#img-preview{width:100%;max-height:180px;object-fit:contain;background:var(--paper-dk);display:none;margin-bottom:12px;}
+.admin-section-title{font-family:'Lora',serif;font-weight:600;font-size:1rem;color:var(--ink);margin:24px 0 14px;padding-top:20px;border-top:1px solid rgba(26,15,0,.1);}
+.star-select{display:flex;gap:6px;margin-bottom:4px;}
+.star-select span{cursor:pointer;font-size:1.4rem;color:#ccc;transition:color .15s;user-select:none;}
+.star-select span.on{color:var(--saffron);}
+.color-swatches{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;}
+.color-swatch{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:border-color .15s;}
+.color-swatch.selected{border-color:var(--ink);}
+
+/* ENQUIRY MODAL */
+.enq-panel{background:var(--paper-lt);padding:40px;max-width:460px;width:100%;position:relative;}
+.enq-panel h3{font-family:'Yatra One',serif;font-size:1.6rem;color:var(--ink);margin-bottom:6px;}
+.enq-target-label{font-size:.84rem;color:var(--vermilion);font-style:italic;margin-bottom:24px;display:block;}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:960px){section{padding:68px 28px;}.about-grid{grid-template-columns:1fr;gap:40px;}.commission-layout{grid-template-columns:1fr;gap:40px;}.blog-featured{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;gap:36px;}}
+@media(max-width:680px){section{padding:56px 20px;}nav .nav-inner{padding:12px 20px;}.nav-links{display:none;}.nav-links.open{display:flex;flex-direction:column;width:100%;padding:16px 20px 20px;background:var(--ink);gap:14px;position:absolute;top:100%;left:0;}.hamburger{display:flex;}.hero-frame{inset:12px;}.footer-grid{grid-template-columns:1fr;gap:28px;}.blog-featured-body{padding:32px 24px;}.panel{padding:28px;}.nl-form{flex-direction:column;}}
+.map-panel{min-height:auto;}}
+.region-list{max-height:200px;border-right:none;border-bottom:1px solid rgba(240,165,0,.12);}.region-detail{padding:24px 20px;max-height:none;}}
+
+
+.btn-edit{background:none;border:1px solid var(--forest);color:var(--forest);cursor:pointer;font-size:.78rem;padding:3px 10px;font-family:'Lato',sans-serif;transition:all .15s;}
+.btn-edit:hover{background:var(--forest);color:#fff;}
+
+#af-toggle-btn:hover{background:var(--saffron);color:var(--ink);}
+#af-toggle-btn.open{background:rgba(240,165,0,.12);}
+
+
+/* ART FORMS PAGE STYLES */
+#art-forms{background:var(--paper);color:var(--ink);}
+#art-forms .section-title{color:var(--ink);}
+#art-forms .section-desc{color:var(--ink);font-weight:700;margin-bottom:28px;}
+#art-forms .section-eyebrow{color:var(--vermilion);}
+#art-forms .section-inner{text-align:center;}
+#art-forms .section-desc{margin-left:auto;margin-right:auto;}
+.art-forms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:rgba(200,57,26,.12);}
+.af-regions{max-width:1080px;margin:0 auto;text-align:left;}
+.af-filter-bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;max-width:1080px;margin:0 auto 32px;justify-content:center;}
+.af-filter-bar input[type="text"]{flex:1;min-width:220px;max-width:340px;padding:10px 16px;border:1px solid rgba(26,15,0,.18);border-radius:24px;background:var(--paper-lt);font-family:Lato,sans-serif;font-size:.85rem;color:var(--ink);}
+.af-filter-bar input[type="text"]:focus{outline:none;border-color:var(--vermilion);}
+.af-filter-bar select{padding:10px 16px;border:1px solid rgba(26,15,0,.18);border-radius:24px;background:var(--paper-lt);font-family:Lato,sans-serif;font-size:.85rem;color:var(--ink);cursor:pointer;}
+.af-result-count{font-size:.78rem;color:var(--muted);font-style:italic;white-space:nowrap;}
+.af-no-results{text-align:center;color:var(--muted);font-style:italic;padding:24px 0;}
+.af-region-block{margin-bottom:32px;}
+.af-region-title{font-family:'Yatra One',serif;font-size:1.15rem;color:var(--vermilion);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(200,57,26,.25);letter-spacing:.5px;}
+.af-pills{display:flex;flex-wrap:wrap;gap:10px 12px;}
+.af-pill{background:var(--paper-lt);border:1px solid rgba(26,15,0,.14);border-radius:24px;padding:9px 18px;font-size:.82rem;font-weight:700;color:var(--ink);cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .15s;font-family:Lato,sans-serif;}
+.af-pill:hover{background:var(--vermilion);color:#fff;border-color:var(--vermilion);transform:translateY(-2px);}
+@media(max-width:680px){.af-region-block{margin-bottom:24px;}.af-pills{gap:8px 10px;}.af-pill{padding:8px 14px;font-size:.78rem;}}
+.art-form-row{background:var(--paper);padding:14px 18px;border-left:2px solid transparent;transition:all .2s;cursor:pointer;opacity:1;}
+.art-form-row:hover{background:rgba(200,57,26,.07);border-left-color:var(--vermilion);}
+.form-name{font-family:'Lora',serif;font-size:.95rem;color:#2C1500;font-weight:600;margin-bottom:2px;}
+.form-region{font-size:.74rem;color:#C8391A;letter-spacing:.3px;}
+.art-form-row:hover .form-name{color:var(--vermilion);}
+.forms-footer{text-align:center;margin-top:44px;font-size:.9rem;color:var(--muted);}
+.forms-footer strong{color:var(--vermilion);}
+
+/* ART FORM DETAIL MODAL */
+.af-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9500;align-items:center;justify-content:center;padding:24px;}
+.af-modal.open{display:flex;}
+.af-panel{background:var(--paper-lt);max-width:560px;width:100%;position:relative;border-top:5px solid var(--saffron);}
+.af-panel-header{background:var(--ink);padding:36px 40px 28px;}
+.af-panel-eyebrow{font-family:'Caveat',cursive;font-size:1rem;color:var(--saffron);letter-spacing:1.5px;display:block;margin-bottom:8px;}
+.af-panel-name{font-family:'Yatra One',serif;font-size:2rem;color:var(--paper);margin-bottom:6px;line-height:1.1;}
+.af-panel-region{font-size:.8rem;color:rgba(251,245,230,.5);letter-spacing:.8px;text-transform:uppercase;}
+.af-panel-body{padding:32px 40px 36px;}
+.af-panel-desc{font-family:'Lora',serif;font-size:1rem;color:var(--muted);line-height:1.9;margin-bottom:28px;}
+.af-panel-close{position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:rgba(251,245,230,.6);line-height:1;transition:color .2s;}
+.af-panel-close:hover{color:var(--saffron);}</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="nav-stripe"></div>
+  <div class="nav-inner">
+    <div style="display:flex;align-items:center;">
+      <span class="nav-logo">✦ Art by <span>Anuprita</span></span>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#art-for-sale">Gallery</a></li>
+      <li><a href="art-forms.html">Art Forms</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#commission">Commission</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="folk-border"></div>
+
+<!-- ART FORMS -->
+<section id="art-forms" style="background:var(--paper-lt);padding-top:64px;">
+  <div class="section-inner">
+    <span class="section-eyebrow">✦ Living Traditions</span>
+    <h2 class="section-title">Art Forms Practiced</h2>
+    <p class="section-desc">From celebrated traditions to nearly-vanished forms — each style is a doorway into a distinct cultural cosmos. All practiced with natural pigments and handmade materials.</p>
+    <div class="af-filter-bar">
+      <input type="text" id="af-search" placeholder="Search by style name…" oninput="applyArtFormFilter()">
+      <select id="af-region-filter" onchange="applyArtFormFilter()">
+        <option value="">All Regions</option>
+      </select>
+      <span id="af-result-count" class="af-result-count"></span>
+    </div>
+    <div class="af-regions" id="art-forms-grid"></div>
+    <div class="forms-footer">
+      <p style="margin-bottom:22px">All <strong>69 folk painting styles</strong> practiced using only natural pigments and handmade paper or traditional canvas.</p>
+      <a href="index.html#commission" class="btn btn-outline-gold">Request Any Style as a Commission</a>
+    </div>
+  </div>
+</section>
+
+<div class="folk-border"></div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <span class="footer-brand">✦ Art by Anuprita</span>
+      <p class="footer-tagline">Preserving 81 folk art traditions of India with natural pigments and handmade materials. Every painting is a bridge between ancient knowledge and the present moment.</p>
+    </div>
+    <div class="footer-col"><h4>Gallery</h4><ul><li><a href="index.html#art-for-sale">Available Works</a></li><li><a href="art-forms.html">Art Forms</a></li><li><a href="index.html#commission">Commissions</a></li><li><a href="about.html">About the Artist</a></li></ul></div>
+    <div class="footer-col"><h4>Journal</h4><ul><li><a href="journal.html">Weekly Blog</a></li><li><a href="books.html">Book Reviews</a></li><li><a href="#newsletter">Newsletter</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="mailto:artbyanupritaa@gmail.com">artbyanupritaa@gmail.com</a></li><li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="copyright.html">Copyright Policy</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="folk-border-sm" style="margin-bottom:22px;max-width:320px;margin-left:auto;margin-right:auto"></div>
+    <p>© 2025 Art by Anuprita · artbyanuprita.com · Made with natural pigments and a whole lot of love. <a href="index.html" class="footer-admin-btn" title="Admin">⚙</a></p>
+  </div>
+</footer>
+
+<!-- ART FORM DETAIL MODAL -->
+<div class="af-modal" id="af-modal">
+  <div class="af-panel">
+    <button class="af-panel-close" onclick="closeAfModal()">✕</button>
+    <div class="af-panel-header">
+      <span class="af-panel-eyebrow">✦ Folk Art Tradition</span>
+      <div class="af-panel-name" id="af-name"></div>
+      <div class="af-panel-region" id="af-region"></div>
+    </div>
+    <div class="af-panel-body">
+      <p class="af-panel-desc" id="af-desc"></p>
+      <a href="index.html#commission" class="btn btn-red" onclick="closeAfModal()" style="font-size:.8rem;padding:11px 28px">Commission in This Style</a>
+    </div>
+  </div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+<style>
+.back-to-top{position:fixed;bottom:28px;right:28px;width:48px;height:48px;border-radius:50%;background:var(--vermilion);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 6px 20px rgba(26,15,0,.28);cursor:pointer;border:none;transition:transform .2s,background .2s;z-index:800;}
+.back-to-top:hover{background:#a82d13;transform:translateY(-3px);}
+@media (max-width:640px){.back-to-top{bottom:18px;right:18px;width:42px;height:42px;font-size:1.1rem;}}
+</style>
+
+<script>
+const SEED_ARTFORMS = [{"id": 1, "name": "Aipan", "region": "Uttarakhand", "desc": "A ritual art form practiced by women in the Kumaon hills, using red ochre backgrounds painted over with white rice-paste designs. Aipan adorns floors, walls, and ritual objects during festivals and rites of passage."}, {"id": 2, "name": "Alpona", "region": "West Bengal", "desc": "A floor art tradition of Bengal created with rice paste on auspicious occasions like Durga Puja and weddings. Women draw intricate white patterns on red-ochre floors, depicting gods, nature, and symbolic motifs."}, {"id": 3, "name": "Aripan", "region": "Bihar / Mithila", "desc": "A sacred floor-painting tradition from the Mithila region of Bihar, closely related to Madhubani painting. Drawn with rice paste on mud floors during festivals and rites of passage."}, {"id": 4, "name": "Assamese Manuscript", "region": "Assam", "desc": "Ancient illustrated manuscripts from Assam, painted on Saanchi tree bark or cloth using natural colours. They depict scenes from Hindu epics and Vaishnavite texts."}, {"id": 5, "name": "Basholi", "region": "Jammu & Kashmir", "desc": "The earliest distinct school of Pahari miniature painting, originating in Basholi in the 17th century. Known for bold colours, large expressive eyes, and dramatic compositions."}, {"id": 6, "name": "Batik", "region": "Pan-India", "desc": "A wax-resist dyeing technique applied to fabric, practiced across India with distinct regional variations. Molten wax is applied to cloth to resist dye, creating intricate patterns."}, {"id": 7, "name": "Bengal Pattachitra", "region": "West Bengal", "desc": "A scroll painting tradition practiced by the Chitrakar community, depicting narratives from mythology and social themes in bold outlines and flat colour washes."}, {"id": 8, "name": "Bheenth Chitra", "region": "Rajasthan", "desc": "Wall paintings found in the havelis and homes of Rajasthan, depicting scenes from mythology, royalty, and daily life. Created with natural earth pigments and organic materials."}, {"id": 9, "name": "Bhil", "region": "Madhya Pradesh / Rajasthan", "desc": "A distinctive tribal art from the Bhil communities, characterized by figures densely filled with rhythmic coloured dots that give the work a shimmering, mosaic-like quality."}, {"id": 10, "name": "Bhojpuri", "region": "Uttar Pradesh / Bihar", "desc": "A folk painting tradition associated with the Bhojpuri-speaking belt of eastern Uttar Pradesh and western Bihar. Wall paintings and ritual drawings mark festivals, weddings, and religious occasions."}, {"id": 11, "name": "Bikaner", "region": "Rajasthan", "desc": "A school of Rajput miniature painting that flourished in the royal court of Bikaner from the 17th century. Known for fine detailing, a cool colour palette, and Mughal-influenced compositions."}, {"id": 12, "name": "Blue Pottery", "region": "Rajasthan (Jaipur)", "desc": "A unique craft tradition of Jaipur whose base is quartz stone powder, raw glaze, multani mitti, and gum. Decorated with cobalt blue and other colours on a white ground."}, {"id": 13, "name": "Boondi", "region": "Rajasthan", "desc": "The Boondi school of Rajput miniature painting, which flourished in the 17th and 18th centuries. Famous for its lush jewel-like landscapes and compositions teeming with animals and birds."}, {"id": 14, "name": "Chamba", "region": "Himachal Pradesh", "desc": "A Pahari painting school from the hill town of Chamba, closely related to the Kangra school. Known for its lyrical colour palette and tender depictions of Krishna and Radha."}, {"id": 15, "name": "Cheriyal", "region": "Telangana", "desc": "A scroll painting tradition from Cheriyal village near Hyderabad, practiced by the Nakashi community. Vivid narrative scrolls tell stories of Hindu mythology using flat red backgrounds."}, {"id": 16, "name": "Chitrakathi", "region": "Maharashtra (Palghar)", "desc": "A folk painting tradition from the Warli tribal area of Palghar district, practiced by the Mahadeo Koli community. Paintings depict mythology and daily life in bold, frontal figures."}, {"id": 17, "name": "Chittara", "region": "Karnataka", "desc": "A ritual art from the Deevaru community of Karnataka's Malnad region, created on mud walls and floors with rice paste. Geometric and stylised figures tell stories connected to local goddesses."}, {"id": 18, "name": "Deccan School of Painting", "region": "Deccan / Hyderabad", "desc": "The collective term for miniature painting schools of the Deccan Sultanates between the 15th and 18th centuries. Known for bold colours, rich patterning, and a blend of Persian and South Indian influences."}, {"id": 20, "name": "Ganjifa", "region": "Odisha / Maharashtra", "desc": "A painted circular playing card tradition from Odisha and Maharashtra. Cards are made from lac-coated cloth and painted with intricate miniature figures from mythology."}, {"id": 21, "name": "Godhna", "region": "Chhattisgarh", "desc": "A tattoo-inspired art tradition of tribal Chhattisgarh, in which traditional tattoo motifs are translated onto paper and walls."}, {"id": 22, "name": "Gold Emboss", "region": "Karnataka / Tamil Nadu", "desc": "A technique of applying gold leaf or gold paint to painted surfaces to create raised decorative effects, closely associated with Mysore and Tanjore painting."}, {"id": 23, "name": "Gond", "region": "Madhya Pradesh", "desc": "A vibrant tribal art from the Gondi people characterized by intricate patterns of dots and dashes that fill every surface, creating a shimmering quality."}, {"id": 24, "name": "Guler", "region": "Himachal Pradesh", "desc": "One of the earliest and most refined schools of Pahari painting from the 18th century, associated with the Manaku and Nainsukh families of artists."}, {"id": 25, "name": "Idital", "region": "Odisha", "desc": "A ritual wall painting tradition from Odisha created by women on interior walls of homes for specific festivals and rites of passage."}, {"id": 26, "name": "Jadu Patua", "region": "West Bengal / Jharkhand", "desc": "A magical scroll painting tradition practiced among the Santal tribal people. The Jadu Patua would paint a recently deceased person with blank eyes, then open them in exchange for payment."}, {"id": 27, "name": "Jatri Patti", "region": "Odisha", "desc": "A type of Pattachitra painted on small panels traditionally sold to pilgrims visiting Puri. Art as pilgrimage souvenir and sacred keepsake."}, {"id": 28, "name": "Jhoti Chitta", "region": "Odisha", "desc": "A ritual floor and wall drawing tradition of Odisha created by women with rice paste. Jhoti patterns invoke Lakshmi and auspicious energies."}, {"id": 29, "name": "Juang", "region": "Odisha", "desc": "A folk and tribal art tradition associated with the Juang community of Odisha's Keonjhar district. Paintings during festivals feature bold, direct motifs drawn from the forest environment."}, {"id": 30, "name": "Jyunti Patta", "region": "Odisha", "desc": "A sub-style of Pattachitra from Odisha traditionally painted on a thick cloth base for ritual and ceremonial use."}, {"id": 31, "name": "Kalamkari", "region": "Andhra Pradesh", "desc": "One of India's oldest textile art traditions \u2014 Kalamkari (pen work) involves hand-painting on cotton or silk using a pen dipped in natural dyes."}, {"id": 32, "name": "Kamangiri", "region": "Tamil Nadu", "desc": "A folk painting tradition from Tamil Nadu depicting local folk deities, votive offerings, and mythological narratives in a bold, direct style."}, {"id": 33, "name": "Kalighat", "region": "West Bengal", "desc": "A 19th-century urban folk painting tradition that emerged near the Kalighat temple in Kolkata. Characterized by bold outlines, flat colour washes, and a satirical edge."}, {"id": 34, "name": "Kangra", "region": "Himachal Pradesh", "desc": "The most celebrated of the Pahari miniature schools, reaching its peak in the late 18th century. Known for exquisite lyrical quality and poetic Radha-Krishna themes."}, {"id": 35, "name": "Kavad", "region": "Rajasthan", "desc": "A portable wooden shrine painted with mythological scenes, used by the Bhats (bards) of Rajasthan as a storytelling device. The shrine unfolds panel by panel as the storyteller narrates."}, {"id": 36, "name": "Kavvi Kale", "region": "Karnataka", "desc": "A folk painting tradition from Karnataka associated with the Kole community of fishermen, featuring votive paintings of local deities and nature spirits."}, {"id": 37, "name": "Kerala Mural", "region": "Kerala", "desc": "Large-scale paintings on temple and palace walls representing one of South India's most sophisticated classical painting traditions. Kerala murals use only five colours derived from natural minerals."}, {"id": 38, "name": "Kinnal", "region": "Karnataka", "desc": "A craft and painting tradition from Kinnal village in Koppal district, in which wooden figures of deities are sculpted and painted in bright colours."}, {"id": 39, "name": "Kishangarh", "region": "Rajasthan", "desc": "A school of Rajput miniature painting famous above all for the portrait of the poetess Bani Thani \u2014 sometimes called the Mona Lisa of India."}, {"id": 40, "name": "Khovar", "region": "Jharkhand", "desc": "A ritual wall art tradition from Jharkhand created by women in the bridal chamber before a wedding. Geometric patterns cover the walls from floor to ceiling."}, {"id": 41, "name": "Kolam", "region": "Tamil Nadu / Andhra Pradesh", "desc": "A daily threshold drawing tradition practiced by women across South India, created with rice flour or stone powder each morning. Kolam is a meditative practice and an act of giving."}, {"id": 42, "name": "Kurumba", "region": "Tamil Nadu (Nilgiris)", "desc": "One of the rarest surviving folk art traditions in India, belonging to the Kurumba tribe of the Nilgiri Hills. Characterized by extraordinarily fine, trembling linework."}, {"id": 43, "name": "Lippan", "region": "Gujarat (Kutch)", "desc": "A relief wall art tradition from Kutch practiced by the Rabari and Harijan communities. Clay and camel dung are applied to walls in raised patterns, then studded with mirror pieces."}, {"id": 44, "name": "Mandana", "region": "Rajasthan / Madhya Pradesh", "desc": "A floor and wall drawing tradition practiced by women using red earth and white lime. Mandana patterns include geometric forms, animals, the sacred swastika, and mythological scenes."}, {"id": 45, "name": "Manjusha", "region": "Bihar", "desc": "A folk painting tradition from the Anga region of Bihar, associated with the Bihula-Bishahari festival. Paintings are made on bamboo boxes depicting the story of Bihula."}, {"id": 46, "name": "Mansa Pat", "region": "West Bengal", "desc": "Scroll paintings depicting the story of the goddess Mansa and her devotee Behula, made by the Chitrakar community. Used as visual accompaniment to the Manasamangal Kavya recitation."}, {"id": 47, "name": "Mata Ni Pachedi", "region": "Gujarat", "desc": "A sacred cloth painting tradition of the Vaghari community, created as a portable temple for the Mother Goddess. Large cotton cloths painted with the goddess at the centre."}, {"id": 48, "name": "Mithila Painting (Bharni)", "region": "Bihar / Mithila", "desc": "The older of the two main Mithila painting styles, characterized by bold outlines filled with flat, unmixed colour. Traditionally painted by Brahmin women for ritual occasions."}, {"id": 49, "name": "Mithila Painting (Kachni)", "region": "Bihar / Mithila", "desc": "The second major style of Mithila painting, using fine hatching and cross-hatching to build up forms rather than flat colour fills. Requires extraordinary line control and patience."}, {"id": 50, "name": "Mughal", "region": "Delhi / Agra", "desc": "The court painting tradition of the Mughal Empire (16th to 19th century), one of the most sophisticated miniature painting traditions in the world."}, {"id": 51, "name": "Mysore", "region": "Karnataka", "desc": "A classical South Indian painting tradition from the royal city of Mysore, known for restrained elegance, delicate lines, and use of gold leaf."}, {"id": 52, "name": "Paitkar", "region": "Jharkhand", "desc": "A scroll and panel painting tradition of the Chitrakar community of Jharkhand, used in rituals connected with death and the afterlife."}, {"id": 53, "name": "Pattachaitra", "region": "Odisha", "desc": "Perhaps the most celebrated of Odisha's art traditions \u2014 intricate paintings on cloth or dried palm leaf by the Chitrakara community, using only natural pigments throughout."}, {"id": 54, "name": "Phad", "region": "Rajasthan", "desc": "Large-scale narrative paintings on cloth from Bhilwara district, depicting the epic stories of local folk heroes. Traditionally unfurled at night performances by lamplight."}, {"id": 55, "name": "Pithora", "region": "Gujarat / Madhya Pradesh", "desc": "A ritual painting created on the inner walls of homes by the Rathwa and Bhilala tribal communities, as an act of thanksgiving. Completed in a single sitting with rituals and a community feast."}, {"id": 56, "name": "Pichchwai", "region": "Rajasthan (Nathdwara)", "desc": "Large devotional paintings on cloth, created as the backdrop for the idol of Shrinathji in the Nathdwara temple. Different Pichwais are displayed for different seasons and festivals."}, {"id": 57, "name": "Raagmala", "region": "Rajasthan / Himachal Pradesh", "desc": "A genre of Indian miniature painting that visualizes the classical musical modes as human figures in specific settings, seasons, and emotional states."}, {"id": 58, "name": "Rajasthani Miniature", "region": "Rajasthan", "desc": "The broad category encompassing the various Rajput miniature painting schools of Rajasthan \u2014 Mewar, Marwar, Jaipur, Boondi, Kota, Bikaner, Kishangarh, and others."}, {"id": 59, "name": "Suara", "region": "Odisha", "desc": "A folk painting tradition associated with the Suara tribal community of Odisha. Wall paintings created for festivals feature stylized animals, trees, and geometric patterns."}, {"id": 60, "name": "Santhal", "region": "Jharkhand / West Bengal", "desc": "The visual art traditions of the Santhal people, one of the largest tribal communities in India. Santal art encompasses wall paintings, scroll art, and body decoration."}, {"id": 61, "name": "Shah Qalam", "region": "Deccan", "desc": "A distinctive sub-style within the Deccan school of painting, characterized by unusual and fantastical subject matter \u2014 strange hybrids, exotic foreigners, and naturalistic curiosities."}, {"id": 62, "name": "Tanjore", "region": "Tamil Nadu", "desc": "A classical South Indian painting tradition from Thanjavur, known for its use of semi-precious stones, glass, and extensive gold leaf pressed into a chalk and glue base."}, {"id": 63, "name": "Pattachitra on Tusser Silk", "region": "Odisha / Jharkhand", "desc": "A distinctive variation of the Pattachitra tradition, painted on tussar silk rather than treated cloth or palm leaf. The warm, textured surface of tussar silk gives the paintings a unique richness."}, {"id": 64, "name": "Thangka", "region": "Tibet / Himalayas", "desc": "Sacred Buddhist paintings on cotton or silk, used as meditation aids and ritual objects in Tibetan and Himalayan Buddhist traditions. Every pose, colour, and gesture carries specific spiritual meaning."}, {"id": 65, "name": "Thollu", "region": "Andhra Pradesh", "desc": "The painted leather puppet tradition of Andhra Pradesh, in which large translucent leather figures painted with natural dyes are used to cast coloured shadows on a white screen."}, {"id": 66, "name": "Tikuli", "region": "Bihar", "desc": "A folk painting tradition from Bihar in which natural pigments are applied to a glass or lac-coated surface (tikuli), creating small jewel-like decorated panels."}, {"id": 67, "name": "Togalu Gombayatta", "region": "Karnataka", "desc": "The leather shadow puppet tradition of Karnataka, in which large painted leather figures perform stories from the Ramayana and Puranas."}, {"id": 68, "name": "Usta Kala", "region": "Rajasthan (Bikaner)", "desc": "A rare camel-hide painting and gilding tradition unique to Bikaner, practiced by the Usta community. Natural dyes and gold are applied to camel leather to create richly decorated objects."}, {"id": 69, "name": "Yantras", "region": "Pan-India", "desc": "Sacred geometric diagrams used across Hindu and tantric traditions as meditation aids, ritual objects, and protective symbols. The act of drawing a yantra is itself a form of worship."}, {"id": 70, "name": "Warli", "region": "Maharashtra", "desc": "A tribal painting tradition from the Warli community of the Sahyadri mountain range, characterized by simple white geometric figures on a red-ochre background."}];
+
+const AF_DATA = [{"name": "Aipan", "region": "Uttarakhand", "desc": "A ritual art form practiced by women in the Kumaon hills, using red ochre backgrounds painted over with white rice-paste designs. Aipan adorns floors, walls, and ritual objects during festivals and rites of passage. The geometric patterns draw from nature and local mythology, passed down through generations of women."}, {"name": "Alpona", "region": "West Bengal", "desc": "A floor art tradition of Bengal created with rice paste on auspicious occasions like Durga Puja and weddings. Women draw intricate white patterns on red-ochre floors, depicting gods, nature, and symbolic motifs. Alpona is a living offering to the divine \u2014 temporary, devotional, and renewed with each occasion."}, {"name": "Aripan", "region": "Bihar / Mithila", "desc": "A sacred floor-painting tradition from the Mithila region of Bihar, closely related to Madhubani painting. Drawn with rice paste on mud floors during festivals and rites of passage, Aripan patterns encode cosmological beliefs and auspicious symbols in concentric geometric compositions."}, {"name": "Assamese Manuscript", "region": "Assam", "desc": "Ancient illustrated manuscripts from Assam, painted on Saanchi tree bark or cloth using natural colours. They depict scenes from Hindu epics and Vaishnavite texts and are among the oldest surviving painted manuscripts of Northeast India."}, {"name": "Basholi", "region": "Jammu & Kashmir", "desc": "The earliest distinct school of Pahari miniature painting, originating in Basholi in the 17th century. Known for bold colours, large expressive eyes, and dramatic compositions. A distinctive feature is the use of actual beetle-wing cases to render glittering emerald jewellery."}, {"name": "Batik", "region": "Pan-India", "desc": "A wax-resist dyeing technique applied to fabric, practiced across India with distinct regional variations. Molten wax is applied to cloth to resist dye, creating intricate patterns revealed as wax is removed. Indian Batik draws from Indonesian traditions as well as local folk and classical motifs."}, {"name": "Bengal Pattachitra", "region": "West Bengal", "desc": "A scroll painting tradition practiced by the Chitrakar community, depicting narratives from mythology and social themes in bold outlines and flat colour washes. Traditionally, Chitrakars sang the stories as they unrolled the scrolls \u2014 painting and song were inseparable."}, {"name": "Bheenth Chitra", "region": "Rajasthan", "desc": "Wall paintings found in the havelis and homes of Rajasthan, depicting scenes from mythology, royalty, and daily life. Created with natural earth pigments and organic materials, these murals can cover entire room walls and ceilings."}, {"name": "Bhil", "region": "Madhya Pradesh / Rajasthan", "desc": "A distinctive tribal art from the Bhil communities, characterized by figures densely filled with rhythmic coloured dots that give the work a shimmering, mosaic-like quality. The Bhil universe \u2014 its forests, gods, and daily life \u2014 is the primary subject."}, {"name": "Bhojpuri", "region": "Uttar Pradesh / Bihar", "desc": "A folk painting tradition associated with the Bhojpuri-speaking belt of eastern Uttar Pradesh and western Bihar. Wall paintings and ritual drawings mark festivals, weddings, and religious occasions with earthy, celebratory imagery."}, {"name": "Bikaner", "region": "Rajasthan", "desc": "A school of Rajput miniature painting that flourished in the royal court of Bikaner from the 17th century. Known for fine detailing, a cool colour palette, and Mughal-influenced compositions, particularly celebrated for its exquisite portraits and hunting scenes."}, {"name": "Blue Pottery", "region": "Rajasthan (Jaipur)", "desc": "A unique craft tradition of Jaipur whose base is quartz stone powder, raw glaze, multani mitti, and gum. Decorated with cobalt blue and other colours on a white ground, it features Persian-influenced floral and geometric patterns."}, {"name": "Boondi", "region": "Rajasthan", "desc": "The Boondi school of Rajput miniature painting, which flourished in the 17th and 18th centuries. Famous for its lush jewel-like landscapes, dramatic use of deep green, and compositions teeming with animals, birds, and foliage."}, {"name": "Chamba", "region": "Himachal Pradesh", "desc": "A Pahari painting school from the hill town of Chamba, closely related to the Kangra school. Known for its lyrical colour palette and tender depictions of Krishna and Radha set in lush Himalayan landscapes."}, {"name": "Cheriyal", "region": "Telangana", "desc": "A scroll painting tradition from Cheriyal village near Hyderabad, practiced by the Nakashi community. Vivid narrative scrolls tell stories of Hindu mythology using flat red backgrounds, bold outlines, and bright natural colours."}, {"name": "Chitrakathi", "region": "Maharashtra (Palghar)", "desc": "A folk painting tradition from the Warli tribal area of Palghar district, practiced by the Mahadeo Koli community. Chitrakathi paintings depict scenes from mythology and daily life in bold, frontal figures filled with flat colour."}, {"name": "Chittara", "region": "Karnataka", "desc": "A ritual art from the Deevaru community of Karnataka's Malnad region, created on mud walls and floors with rice paste. Geometric and stylised figures tell stories connected to local goddesses and nature spirits."}, {"name": "Deccan School of Painting", "region": "Deccan / Hyderabad", "desc": "The collective term for miniature painting schools of the Deccan Sultanates between the 15th and 18th centuries. Known for bold colours, flattened perspectives, rich patterning, and a blend of Persian, Mughal, and South Indian influences."}, {"name": "Ganjifa", "region": "Odisha / Maharashtra", "desc": "A painted circular playing card tradition from Odisha and Maharashtra. Cards are made from lac-coated cloth and painted with intricate miniature figures from mythology. Each suit represents a chapter of the Dashavatara \u2014 the ten avatars of Vishnu."}, {"name": "Godhna", "region": "Chhattisgarh", "desc": "A tattoo-inspired art tradition of tribal Chhattisgarh, in which traditional tattoo motifs are translated onto paper and walls. The geometric, zoomorphic, and botanical patterns carry coded information about community identity, status, and belief."}, {"name": "Gold Emboss", "region": "Karnataka / Tamil Nadu", "desc": "A technique of applying gold leaf or gold paint to painted surfaces to create raised decorative effects, closely associated with Mysore and Tanjore painting. The embossed gold creates a three-dimensional luminosity unique to South Indian classical painting."}, {"name": "Gond", "region": "Madhya Pradesh", "desc": "A vibrant tribal art from the Gondi people characterized by intricate patterns of dots and dashes that fill every surface, creating a shimmering quality. Trees, animals, and mythological beings from the Gond cosmology are the primary subjects."}, {"name": "Guler", "region": "Himachal Pradesh", "desc": "One of the earliest and most refined schools of Pahari painting from the 18th century, associated with the Manaku and Nainsukh families of artists. Nainsukh of Guler is considered one of the greatest painters in Indian history."}, {"name": "Idital", "region": "Odisha", "desc": "A ritual wall painting tradition from Odisha created by women on interior walls of homes for specific festivals and rites of passage. Painted with natural pigments on a mud base, featuring stylized human figures, animals, and geometric patterns."}, {"name": "Jadu Patua", "region": "West Bengal / Jharkhand", "desc": "A magical scroll painting tradition practiced among the Santal tribal people. The Jadu Patua would paint a recently deceased person with blank eyes, then open the painted eyes in exchange for payment \u2014 believed to release the soul."}, {"name": "Jatri Patti", "region": "Odisha", "desc": "A type of Pattachitra painted on small panels traditionally sold to pilgrims visiting Puri. These paintings depict scenes from the lives of Lord Jagannath in the characteristic Pattachitra style \u2014 art as pilgrimage souvenir and sacred keepsake."}, {"name": "Jhoti Chitta", "region": "Odisha", "desc": "A ritual floor and wall drawing tradition of Odisha created by women with rice paste. Among the most ancient of Odisha folk art forms, Jhoti patterns invoke Lakshmi and auspicious energies. The motifs \u2014 lotus, conch, fish \u2014 are learned in childhood."}, {"name": "Juang", "region": "Odisha", "desc": "A folk and tribal art tradition associated with the Juang community of Odisha's Keonjhar district. Paintings during festivals feature bold, direct motifs drawn from the forest environment \u2014 animals, trees, and ancestral spirits."}, {"name": "Jyunti Patta", "region": "Odisha", "desc": "A sub-style of Pattachitra from Odisha traditionally painted on a thick cloth base for ritual and ceremonial use. Deities from the Jagannath tradition are depicted in the characteristic Pattachitra style."}, {"name": "Kalamkari", "region": "Andhra Pradesh", "desc": "One of India's oldest textile art traditions \u2014 Kalamkari (pen work) involves hand-painting on cotton or silk using a pen dipped in natural dyes. Two main centres: Srikalahasti for hand-drawn mythological narratives, and Machilipatnam for block-printed floral patterns."}, {"name": "Kamangiri", "region": "Tamil Nadu", "desc": "A folk painting tradition from Tamil Nadu depicting local folk deities, votive offerings, and mythological narratives in a bold, direct style. Created with natural colours on cloth or paper for devotional and ritual functions."}, {"name": "Kalighat", "region": "West Bengal", "desc": "A 19th-century urban folk painting tradition that emerged near the Kalighat temple in Kolkata. Characterized by bold outlines, flat colour washes, and a satirical edge that commented on colonial-era Bengali society."}, {"name": "Kangra", "region": "Himachal Pradesh", "desc": "The most celebrated of the Pahari miniature schools, reaching its peak in the late 18th century under Raja Sansar Chand. Known for exquisite lyrical quality, delicate lines, and poetic Radha-Krishna themes. Sometimes called the poetry of Indian painting."}, {"name": "Kavad", "region": "Rajasthan", "desc": "A portable wooden shrine painted with mythological scenes, used by the Bhats (bards) of Rajasthan as a storytelling device. The shrine unfolds panel by panel as the storyteller narrates the tale \u2014 simultaneously a painting tradition, a theatrical tradition, and oral literature."}, {"name": "Kavvi Kale", "region": "Karnataka", "desc": "A folk painting tradition from Karnataka associated with the Kole community of fishermen, featuring votive paintings of local deities and nature spirits. The style is distinctive for its elongated figures and use of natural earth pigments on cloth."}, {"name": "Kerala Mural", "region": "Kerala", "desc": "Large-scale paintings on temple and palace walls representing one of South India's most sophisticated classical painting traditions. Dating back over a thousand years, Kerala murals use only five colours derived from natural minerals."}, {"name": "Kinnal", "region": "Karnataka", "desc": "A craft and painting tradition from Kinnal village in Koppal district, in which wooden figures of deities are sculpted and painted in bright colours. The surface is coated with a natural primer before mineral colours are applied. Known for its bold, joyful aesthetic."}, {"name": "Kishangarh", "region": "Rajasthan", "desc": "A school of Rajput miniature painting famous above all for the portrait of the poetess Bani Thani \u2014 sometimes called the Mona Lisa of India. Characterized by elongated elegant figures with pronounced lotus-petal eyes and dreamy romantic compositions."}, {"name": "Khovar", "region": "Jharkhand", "desc": "A ritual wall art tradition from Jharkhand created by women in the bridal chamber before a wedding. Geometric patterns in black, red, and white \u2014 incorporating animals, plants, and auspicious symbols \u2014 cover the walls from floor to ceiling."}, {"name": "Kolam", "region": "Tamil Nadu / Andhra Pradesh", "desc": "A daily threshold drawing tradition practiced by women across South India, created with rice flour or stone powder each morning. More than decoration, Kolam is a meditative practice and an act of giving. The intricate patterns are drawn from memory, completed before sunrise."}, {"name": "Kurumba", "region": "Tamil Nadu (Nilgiris)", "desc": "One of the rarest surviving folk art traditions in India, belonging to the Kurumba tribe of the Nilgiri Hills. Characterized by extraordinarily fine, trembling linework building complex compositions unlike any other Indian folk tradition. Few living masters remain today."}, {"name": "Lippan", "region": "Gujarat (Kutch)", "desc": "A relief wall art tradition from Kutch practiced by the Rabari and Harijan communities. Clay and camel dung are applied to walls in raised patterns, then studded with mirror pieces and painted with natural colours \u2014 a wall that catches and scatters light with every movement."}, {"name": "Mandana", "region": "Rajasthan / Madhya Pradesh", "desc": "A floor and wall drawing tradition practiced by women using red earth and white lime. Created for everyday auspicious occasions as well as festivals, Mandana patterns include geometric forms, animals, the sacred swastika, and mythological scenes."}, {"name": "Manjusha", "region": "Bihar", "desc": "A folk painting tradition from the Anga region of Bihar, associated with the Bihula-Bishahari festival. Paintings are made on bamboo boxes and on paper, depicting the story of Bihula who brought her dead husband back to life. The style features borders of snake motifs."}, {"name": "Mansa Pat", "region": "West Bengal", "desc": "Scroll paintings depicting the story of the goddess Mansa and her devotee Behula, made by the Chitrakar community. Used as visual accompaniment to the oral recitation of the Manasamangal Kavya \u2014 a medieval Bengali epic poem."}, {"name": "Mata Ni Pachedi", "region": "Gujarat", "desc": "A sacred cloth painting tradition of the Vaghari community, created as a portable temple for the Mother Goddess. Since the community was historically denied entry to stone temples, they created their own \u2014 large cotton cloths painted with the goddess at the centre."}, {"name": "Mithila Painting (Bharni)", "region": "Bihar / Mithila", "desc": "The older of the two main Mithila painting styles, Bharni is characterized by bold outlines filled with flat, unmixed colour. Traditionally painted by Brahmin women for ritual occasions, depicting deities in full opulent colour \u2014 Durga, Kali, Shiva, and scenes from the epics."}, {"name": "Mithila Painting (Kachni)", "region": "Bihar / Mithila", "desc": "The second major style of Mithila painting, Kachni uses fine hatching and cross-hatching to build up forms and textures rather than flat colour fills. Traditionally associated with the Kayastha community, Kachni requires extraordinary line control and patience."}, {"name": "Mughal", "region": "Delhi / Agra", "desc": "The court painting tradition of the Mughal Empire (16th to 19th century), one of the most sophisticated miniature painting traditions in the world. Developed by combining Persian manuscript painting with Indian sensibility and European influence."}, {"name": "Mysore", "region": "Karnataka", "desc": "A classical South Indian painting tradition from the royal city of Mysore, known for restrained elegance, delicate lines, and use of gold leaf. Unlike the bold Tanjore style, Mysore paintings have a softer quality \u2014 subjects are primarily Hindu deities."}, {"name": "Paitkar", "region": "Jharkhand", "desc": "A scroll and panel painting tradition of the Chitrakar community of Jharkhand, used in rituals connected with death and the afterlife. The painter uses these works to guide the soul of the deceased through the spirit world."}, {"name": "Pattachaitra", "region": "Odisha", "desc": "Perhaps the most celebrated of Odisha's art traditions \u2014 intricate paintings on cloth or dried palm leaf by the Chitrakara community. Only natural pigments are used throughout and the characteristic outline is drawn with a fine squirrel-hair brush."}, {"name": "Phad", "region": "Rajasthan", "desc": "Large-scale narrative paintings on cloth from Bhilwara district, depicting the epic stories of local folk heroes \u2014 particularly Pabuji and Devnarayan. Traditionally unfurled at night performances where a bhopa narrates the story by lamplight."}, {"name": "Pithora", "region": "Gujarat / Madhya Pradesh", "desc": "A ritual painting created on the inner walls of homes by the Rathwa and Bhilala tribal communities, as an act of thanksgiving to the god Pithora. The paintings must be completed in a single sitting accompanied by rituals, music, and a community feast."}, {"name": "Pichchwai", "region": "Rajasthan (Nathdwara)", "desc": "Large devotional paintings on cloth, created as the backdrop for the idol of Shrinathji in the Nathdwara temple. Different Pichwais are displayed for different seasons, festivals, and times of day \u2014 they are the ever-changing environment of the deity."}, {"name": "Raagmala", "region": "Rajasthan / Himachal Pradesh", "desc": "A genre of Indian miniature painting that visualizes the classical musical modes as human figures in specific settings, seasons, and emotional states \u2014 a tradition of synesthesia, translating sound into image."}, {"name": "Rajasthani Miniature", "region": "Rajasthan", "desc": "The broad category encompassing the various Rajput miniature painting schools of Rajasthan \u2014 Mewar, Marwar, Jaipur, Boondi, Kota, Bikaner, Kishangarh, and others. Each state developed its own sub-style reflecting its dynasty and artistic traditions."}, {"name": "Suara", "region": "Odisha", "desc": "A folk painting tradition associated with the Suara tribal community of Odisha. Wall paintings created for festivals feature stylized animals, trees, and geometric patterns rooted in the community's relationship with the forest and seasonal life."}, {"name": "Santhal", "region": "Jharkhand / West Bengal", "desc": "The visual art traditions of the Santhal people, one of the largest tribal communities in India. Santal art encompasses wall paintings, scroll art, and body decoration, with a characteristic boldness of line rooted in the Santal relationship with nature and ancestral spirits."}, {"name": "Shah Qalam", "region": "Deccan", "desc": "A distinctive sub-style within the Deccan school of painting, characterized by unusual and fantastical subject matter \u2014 strange hybrids, exotic foreigners, and naturalistic curiosities \u2014 painted with extraordinary freedom and originality."}, {"name": "Tanjore", "region": "Tamil Nadu", "desc": "A classical South Indian painting tradition from Thanjavur, known for its use of semi-precious stones, glass, and extensive gold leaf pressed into a chalk and glue base. Subjects are predominantly Hindu deities depicted in a frontal, hieratic style."}, {"name": "Pattachitra on Tusser Silk", "region": "Odisha / Jharkhand", "desc": "A distinctive variation of the Pattachitra tradition, painted on tussar silk rather than treated cloth or palm leaf. The warm, naturally textured surface of tussar silk gives the paintings a unique richness and luminous quality."}, {"name": "Thangka", "region": "Tibet / Himalayas", "desc": "Sacred Buddhist paintings on cotton or silk, used as meditation aids and ritual objects in Tibetan and Himalayan Buddhist traditions. Thangka iconography follows precise canonical guidelines \u2014 every pose, colour, proportion, and gesture carries specific spiritual meaning."}, {"name": "Thollu", "region": "Andhra Pradesh", "desc": "The painted leather puppet tradition of Andhra Pradesh, in which large translucent leather figures painted with natural dyes are used to cast coloured shadows on a white screen. The puppets depict characters from the Ramayana and Mahabharata."}, {"name": "Tikuli", "region": "Bihar", "desc": "A folk painting tradition from Bihar in which natural pigments are applied to a glass or lac-coated surface (tikuli), creating small jewel-like decorated panels. Originally associated with the decorative bindi, Tikuli has expanded into a form of painting on glass."}, {"name": "Togalu Gombayatta", "region": "Karnataka", "desc": "The leather shadow puppet tradition of Karnataka, in which large painted leather figures perform stories from the Ramayana and Puranas. The Karnataka puppets have a distinctive local aesthetic reflecting the region's own mythological and artistic traditions."}, {"name": "Usta Kala", "region": "Rajasthan (Bikaner)", "desc": "A rare camel-hide painting and gilding tradition unique to Bikaner, practiced by the Usta community. Natural dyes and gold are applied to camel leather to create richly decorated objects. The gilding technique is considered among the finest in Indian decorative craft."}, {"name": "Yantras", "region": "Pan-India", "desc": "Sacred geometric diagrams used across Hindu and tantric traditions as meditation aids, ritual objects, and protective symbols. The Sri Yantra and Kali Yantra are rendered using precise geometric construction and natural pigments. The act of drawing a yantra is itself a form of worship."}, {"name": "Warli", "region": "Maharashtra", "desc": "A tribal painting tradition from the Warli community of the Sahyadri mountain range, characterized by simple white geometric figures on a red-ochre background, depicting scenes of daily life, harvest, dance, and ritual with remarkable vitality."}];
+
+var artforms = JSON.parse(JSON.stringify(SEED_ARTFORMS));
+var afGroupsCache = null;
+
+function primaryRegion(region){
+  // Strip parenthetical detail e.g. "Rajasthan (Jaipur)" -> "Rajasthan",
+  // and take the first named region from combos like "Bihar / Mithila".
+  var base = region.replace(/\([^)]*\)/g,'').trim();
+  return base.split('/')[0].trim();
+}
+function buildArtFormGroups(){
+  var groups = {};
+  artforms.forEach(function(f, i){
+    var key = primaryRegion(f.region);
+    if(!groups[key]) groups[key] = [];
+    groups[key].push({f:f, idx:i});
+  });
+  return groups;
+}
+function renderArtForms(){
+  afGroupsCache = buildArtFormGroups();
+  var sel = document.getElementById('af-region-filter');
+  if(sel){
+    var keys = Object.keys(afGroupsCache).sort();
+    sel.innerHTML = '<option value="">All Regions</option>' +
+      keys.map(function(k){ return '<option value="' + k + '">' + k + '</option>'; }).join('');
+  }
+  applyArtFormFilter();
+}
+function applyArtFormFilter(){
+  var grid = document.getElementById('art-forms-grid');
+  if(!grid || !afGroupsCache) return;
+  var searchEl = document.getElementById('af-search');
+  var regionEl = document.getElementById('af-region-filter');
+  var searchTerm = searchEl ? searchEl.value.trim().toLowerCase() : '';
+  var regionFilter = regionEl ? regionEl.value : '';
+  var keys = Object.keys(afGroupsCache).sort();
+  if(regionFilter) keys = keys.filter(function(k){ return k === regionFilter; });
+
+  var totalShown = 0;
+  var html = keys.map(function(key){
+    var items = afGroupsCache[key].filter(function(item){
+      return !searchTerm || item.f.name.toLowerCase().indexOf(searchTerm) !== -1;
+    });
+    if(!items.length) return '';
+    totalShown += items.length;
+    var pills = items.map(function(item){
+      return '<button class="af-pill" onclick="showArtForm(' + item.idx + ')">' + item.f.name + '</button>';
+    }).join('');
+    return '<div class="af-region-block"><div class="af-region-title">' + key + '</div><div class="af-pills">' + pills + '</div></div>';
+  }).join('');
+
+  grid.innerHTML = html || '<p class="af-no-results">No art forms match your search.</p>';
+  var countEl = document.getElementById('af-result-count');
+  if(countEl) countEl.textContent = (searchTerm || regionFilter) ? totalShown + ' of ' + artforms.length + ' styles' : artforms.length + ' styles';
+}
+function showArtForm(i) {
+  var f = AF_DATA[i];
+  if (!f) return;
+  document.getElementById('af-name').textContent   = f.name;
+  document.getElementById('af-region').textContent = f.region;
+  document.getElementById('af-desc').textContent   = f.desc;
+  document.getElementById('af-modal').classList.add('open');
+}
+function closeAfModal() {
+  document.getElementById('af-modal').classList.remove('open');
+}
+document.getElementById('af-modal').addEventListener('click', function(e){ if(e.target===this) closeAfModal(); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAfModal(); });
+
+window.addEventListener('load', renderArtForms);
+</script>
+
+<script>
+(function(){
+  var btn = document.getElementById('backToTop');
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('nav-links');
+  if(hamburger && navLinks){
+    hamburger.addEventListener('click', function(){
+      navLinks.classList.toggle('open');
+    });
+  }
+})();
+</script>
+</body>
+</html>
