@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-21B1N93JYD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-21B1N93JYD');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commission a Painting · Anuprita Khare</title>
+<meta name="description" content="Commission an original folk art painting from artist Anuprita Khare in any of 69 traditional Indian styles — for your home, a gift, a wedding, or a heritage project. Natural pigments, handmade materials.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Lora:ital,wght@0,400;0,600;1,400&family=Caveat:wght@400;600;700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#1A0F00; --vermilion:#C8391A; --saffron:#F0A500; --gold-deep:#C87D00;
+  --forest:#2D5A3D; --indigo:#3D2B8E; --paper:#FBF5E6; --paper-dk:#F0E8D0;
+  --paper-lt:#FFFDF5; --muted:#5A4535; --muted-lt:rgba(251,245,230,0.65);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Lato',sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+
+/* DIVIDERS */
+.folk-border{height:22px;background-image:radial-gradient(circle,var(--vermilion) 2.8px,transparent 2.8px),radial-gradient(circle,var(--saffron) 2.8px,transparent 2.8px);background-size:26px 22px,26px 22px;background-position:0 50%,13px 50%;}
+.folk-border-sm{height:14px;background-image:radial-gradient(circle,var(--forest) 1.8px,transparent 1.8px);background-size:18px 14px;background-position:0 50%;}
+.triangle-divider{height:28px;overflow:hidden;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='28'%3E%3Cpolygon points='0,28 24,0 48,28' fill='none' stroke='%23C8391A' stroke-width='1.5'/%3E%3C/svg%3E");background-size:48px 28px;background-repeat:repeat-x;background-color:var(--paper-dk);}
+
+/* NAV */
+.nav-stripe{height:5px;background:linear-gradient(90deg,var(--vermilion) 0%,var(--saffron) 20%,var(--forest) 40%,var(--indigo) 60%,var(--vermilion) 80%,var(--saffron) 100%);}
+nav{position:sticky;top:0;z-index:900;background:var(--ink);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 48px;gap:16px;flex-wrap:wrap;max-width:1400px;margin:0 auto;}
+.nav-logo{font-family:'Dancing Script','Brush Script MT',cursive;font-size:1.7rem;color:var(--saffron);}
+.nav-logo span{color:var(--vermilion);}
+.nav-links{display:flex;list-style:none;gap:24px;align-items:center;flex-wrap:wrap;}
+.nav-links a{color:rgba(251,245,230,.8);font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover{color:var(--saffron);}
+.footer-admin-btn{opacity:.3;font-size:.8rem;margin-left:8px;transition:opacity .2s;}
+.footer-admin-btn:hover{opacity:.9;color:var(--saffron);}
+.nav-admin-btn{opacity:.3;font-size:.85rem;margin-left:10px;color:rgba(251,245,230,.7);text-decoration:none;transition:opacity .2s;}
+.nav-admin-btn:hover{opacity:.9;color:var(--saffron);}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--paper);}
+
+/* HERO */
+.hero{min-height:94vh;background:var(--ink);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(200,57,26,.14) 0%,transparent 55%),radial-gradient(ellipse at 80% 70%,rgba(61,43,142,.18) 0%,transparent 55%);}
+.hero-pattern{position:absolute;inset:0;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='32' fill='none' stroke='%23F0A500' stroke-width='.8'/%3E%3Ccircle cx='40' cy='40' r='18' fill='none' stroke='%23F0A500' stroke-width='.5'/%3E%3Ccircle cx='40' cy='40' r='6' fill='%23F0A500' opacity='.4'/%3E%3Cline x1='8' y1='40' x2='72' y2='40' stroke='%23F0A500' stroke-width='.4'/%3E%3Cline x1='40' y1='8' x2='40' y2='72' stroke='%23F0A500' stroke-width='.4'/%3E%3C/svg%3E");background-size:80px 80px;}
+.hero-frame{position:absolute;inset:28px;border:1px solid rgba(240,165,0,.2);pointer-events:none;}
+.hero-frame::before,.hero-frame::after{content:'';position:absolute;width:48px;height:48px;border-style:solid;border-color:var(--saffron);}
+.hero-frame::before{top:-2px;left:-2px;border-width:2px 0 0 2px;}
+.hero-frame::after{bottom:-2px;right:-2px;border-width:0 2px 2px 0;}
+.hero-content{position:relative;z-index:2;padding:60px 32px;}
+.hero-eyebrow{font-family:'Caveat',cursive;color:var(--saffron);font-size:1.25rem;letter-spacing:2px;display:block;margin-bottom:18px;}
+.hero-title{font-family:'Yatra One',serif;font-size:clamp(3.6rem,9vw,7.5rem);color:var(--paper);line-height:1.0;letter-spacing:-2px;margin-bottom:14px;}
+.hero-title em{color:var(--saffron);font-style:normal;}
+.hero-subtitle{font-family:'Lora',serif;font-size:clamp(1rem,2.2vw,1.35rem);color:rgba(240,165,0,.85);font-style:italic;margin-bottom:42px;}
+.hero-desc{font-size:.97rem;color:rgba(251,245,230,.68);max-width:540px;margin:0 auto 50px;line-height:1.85;}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:64px;}
+.hero-stats{display:flex;gap:56px;justify-content:center;flex-wrap:wrap;border-top:1px solid rgba(240,165,0,.15);padding-top:40px;}
+.hero-stat-num{font-family:'Yatra One',serif;font-size:2.6rem;color:var(--saffron);display:block;line-height:1;}
+.hero-stat-label{font-size:.75rem;color:rgba(251,245,230,.5);text-transform:uppercase;letter-spacing:1.2px;margin-top:6px;display:block;}
+
+/* BUTTONS */
+.btn{display:inline-block;padding:13px 34px;font-family:'Lato',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;cursor:pointer;border:none;transition:all .2s;line-height:1;}
+.btn-red{background:var(--vermilion);color:#fff;}
+.btn-red:hover{background:#a82d13;transform:translateY(-2px);}
+.btn-outline-gold{background:transparent;color:var(--saffron);border:2px solid var(--saffron);}
+.btn-outline-gold:hover{background:var(--saffron);color:var(--ink);}
+.btn-dark{background:var(--ink);color:var(--paper);}
+.btn-dark:hover{background:var(--vermilion);}
+.btn-green{background:var(--forest);color:#fff;}
+.btn-green:hover{background:#1d3d29;}
+
+/* SECTION COMMONS */
+section{padding:84px 48px;scroll-margin-top:90px;}
+.section-inner{max-width:1240px;margin:0 auto;}
+.section-eyebrow{font-family:'Caveat',cursive;font-size:1.1rem;color:var(--vermilion);letter-spacing:1.5px;display:block;margin-bottom:8px;}
+.section-title{font-family:'Yatra One',serif;font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.15;margin-bottom:16px;}
+.section-desc{font-family:'Lora',serif;font-style:italic;font-size:1.02rem;color:var(--muted);max-width:620px;margin-bottom:52px;line-height:1.85;}
+
+/* ART FOR SALE */
+#art-for-sale{background:var(--paper-lt);}
+.gallery-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+.filter-btn{padding:7px 18px;font-size:.78rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;border:1px solid rgba(26,15,0,.2);background:transparent;color:var(--ink);transition:all .2s;font-family:'Lato',sans-serif;}
+.filter-btn.active,.filter-btn:hover{background:var(--vermilion);color:#fff;border-color:var(--vermilion);}
+.art-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(278px,1fr));gap:28px;}
+.art-card{background:var(--paper);border:1px solid rgba(26,15,0,.09);position:relative;transition:transform .25s,box-shadow .25s;}
+.art-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(26,15,0,.14);}
+.art-card-img-wrap{aspect-ratio:4/5;overflow:hidden;background:var(--paper-dk);display:flex;align-items:center;justify-content:center;}
+.art-card-img-wrap img{width:100%;height:100%;object-fit:cover;}
+.art-placeholder{font-family:'Caveat',cursive;font-size:1.05rem;color:rgba(26,15,0,.28);text-align:center;padding:20px;display:flex;flex-direction:column;align-items:center;gap:10px;}
+.art-placeholder-icon{font-size:2.8rem;opacity:.4;}
+.art-card-body{padding:20px 20px 22px;border-top:3px solid var(--vermilion);}
+.art-card-style{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--vermilion);margin-bottom:5px;}
+.art-card-title{font-family:'Lora',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:5px;}
+.art-card-dims{font-size:.8rem;color:#8A7060;margin-bottom:16px;}
+.art-card-footer{display:flex;align-items:center;justify-content:space-between;}
+.art-price{font-family:'Yatra One',serif;font-size:1.35rem;color:var(--forest);}
+.badge-sold{position:absolute;top:14px;right:14px;background:var(--ink);color:var(--saffron);font-size:.65rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;padding:5px 12px;}
+
+/* ART FORMS - clickable text grid */
+#art-forms{background:var(--ink);color:var(--paper);}
+#art-forms .section-title{color:var(--paper);}
+#art-forms .section-desc{color:var(--muted-lt);margin-bottom:28px;}
+#art-forms .section-eyebrow{color:var(--saffron);}
+#art-forms .section-inner{text-align:center;}
+#art-forms .section-desc{margin-left:auto;margin-right:auto;}
+.art-forms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:rgba(240,165,0,.1);}
+.art-form-row{background:var(--ink);padding:14px 18px;border-left:2px solid transparent;transition:all .2s;cursor:pointer;opacity:1;}
+.art-form-row:hover{background:rgba(240,165,0,.1);border-left-color:var(--saffron);}
+.form-name{font-family:'Lora',serif;font-size:.95rem;color:var(--paper);font-weight:600;margin-bottom:2px;}
+.form-region{font-size:.74rem;color:rgba(251,245,230,.45);letter-spacing:.3px;}
+.art-form-row:hover .form-name{color:var(--saffron);}
+.forms-footer{text-align:center;margin-top:44px;font-size:.9rem;color:rgba(251,245,230,.45);}
+.forms-footer strong{color:var(--saffron);}
+
+/* ART FORM DETAIL MODAL */
+.af-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9500;align-items:center;justify-content:center;padding:24px;}
+.af-modal.open{display:flex;}
+.af-panel{background:var(--paper-lt);max-width:560px;width:100%;position:relative;border-top:5px solid var(--saffron);}
+.af-panel-header{background:var(--ink);padding:36px 40px 28px;}
+.af-panel-eyebrow{font-family:'Caveat',cursive;font-size:1rem;color:var(--saffron);letter-spacing:1.5px;display:block;margin-bottom:8px;}
+.af-panel-name{font-family:'Yatra One',serif;font-size:2rem;color:var(--paper);margin-bottom:6px;line-height:1.1;}
+.af-panel-region{font-size:.8rem;color:rgba(251,245,230,.5);letter-spacing:.8px;text-transform:uppercase;}
+.af-panel-body{padding:32px 40px 36px;}
+.af-panel-desc{font-family:'Lora',serif;font-size:1rem;color:var(--muted);line-height:1.9;margin-bottom:28px;}
+.af-panel-close{position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:rgba(251,245,230,.6);line-height:1;transition:color .2s;}
+.af-panel-close:hover{color:var(--saffron);}
+
+/* BLOG */
+#blog{background:var(--paper);}
+.blog-grid{display:grid;gap:28px;}
+.blog-featured{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);color:var(--paper);margin-bottom:4px;}
+.blog-featured-img{min-height:340px;background:var(--paper-dk);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.blog-featured-img img{width:100%;height:100%;object-fit:cover;}
+.blog-img-ph{font-family:'Caveat',cursive;font-size:1rem;color:rgba(26,15,0,.28);text-align:center;padding:20px;}
+.blog-featured-body{padding:52px 48px;display:flex;flex-direction:column;justify-content:center;}
+.blog-tag{font-size:.68rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--saffron);margin-bottom:12px;display:block;}
+.blog-featured-body .blog-title{font-family:'Lora',serif;font-size:1.7rem;color:var(--paper);font-weight:600;line-height:1.35;margin-bottom:16px;}
+.blog-featured-body .blog-excerpt{font-size:.92rem;color:rgba(251,245,230,.65);line-height:1.8;margin-bottom:24px;}
+.blog-featured-body .blog-meta{font-size:.78rem;color:rgba(251,245,230,.38);display:flex;gap:12px;}
+.blog-cards-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px;}
+.blog-card{background:var(--paper-lt);border:1px solid rgba(26,15,0,.07);transition:box-shadow .2s;}
+.blog-card:hover{box-shadow:0 8px 24px rgba(26,15,0,.1);}
+.blog-card-img{aspect-ratio:16/9;overflow:hidden;background:var(--paper-dk);display:flex;align-items:center;justify-content:center;}
+.blog-card-img img{width:100%;height:100%;object-fit:cover;}
+.blog-card-body{padding:24px;}
+.blog-card-body .blog-title{font-family:'Lora',serif;font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.4;margin-bottom:10px;}
+.blog-card-body .blog-tag{color:var(--vermilion);}
+.blog-card-body .blog-excerpt{font-size:.86rem;color:var(--muted);line-height:1.72;margin-bottom:16px;}
+.blog-meta{font-size:.76rem;color:#9A8070;display:flex;gap:10px;}
+.no-posts{font-family:'Lora',serif;font-style:italic;color:var(--muted);padding:40px 0;}
+
+/* BOOK REVIEWS */
+#book-reviews{background:var(--paper-dk);}
+.books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;}
+.book-card{background:var(--paper-lt);display:flex;gap:18px;padding:22px;border-bottom:3px solid var(--forest);transition:box-shadow .2s;}
+.book-card:hover{box-shadow:0 6px 20px rgba(26,15,0,.1);}
+.book-cover{width:68px;flex-shrink:0;aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:.78rem;color:#fff;text-align:center;padding:6px;line-height:1.35;}
+.book-info-title{font-family:'Lora',serif;font-size:.98rem;font-weight:600;color:var(--ink);margin-bottom:3px;line-height:1.3;}
+.book-author{font-size:.78rem;color:var(--vermilion);margin-bottom:7px;}
+.book-stars{color:var(--saffron);font-size:.95rem;margin-bottom:8px;letter-spacing:1px;}
+.book-review{font-size:.82rem;color:var(--muted);font-style:italic;line-height:1.65;}
+
+/* ABOUT */
+#about{background:#7A2B10;color:var(--paper);}
+#about .section-title{color:var(--paper);}
+#about .section-eyebrow{color:var(--saffron);}
+.about-grid{display:grid;grid-template-columns:1fr 2fr;gap:88px;align-items:center;}
+.about-portrait{aspect-ratio:3/4;border:2px solid rgba(251,245,230,.3);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.about-portrait::before{content:'';position:absolute;inset:12px;border:1px solid rgba(251,245,230,.18);pointer-events:none;z-index:1;}
+.about-portrait img{width:100%;height:100%;object-fit:cover;}
+.about-ph{font-family:'Caveat',cursive;font-size:1.05rem;color:rgba(251,245,230,.35);text-align:center;padding:24px;}
+.about-text{font-family:'Lora',serif;font-size:.95rem;color:rgba(251,245,230,.88);line-height:1.85;margin-bottom:18px;}
+.about-highlights{display:flex;gap:44px;flex-wrap:wrap;margin-top:12px;}
+.about-highlight-num{font-family:'Yatra One',serif;font-size:2.2rem;color:var(--saffron);display:block;}
+.about-highlight-label{font-size:.76rem;color:rgba(251,245,230,.6);text-transform:uppercase;letter-spacing:.8px;display:block;}
+
+/* COMMISSION */
+#commission{background:var(--paper-lt);}
+.commission-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.commission-info h3{font-family:'Lora',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin:32px 0 14px;}
+.commission-info h3:first-child{margin-top:0;}
+.commission-info p{font-size:.9rem;color:var(--muted);line-height:1.75;}
+.steps{list-style:none;counter-reset:step;}
+.steps li{counter-increment:step;display:flex;gap:16px;align-items:flex-start;margin-bottom:18px;}
+.steps li::before{content:counter(step);background:var(--vermilion);color:#fff;min-width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;}
+.steps li span{font-size:.9rem;color:var(--muted);line-height:1.68;}
+.commission-form{background:var(--paper);padding:40px;border-top:4px solid var(--forest);}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:6px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:1px solid rgba(26,15,0,.18);background:var(--paper-lt);font-family:'Lato',sans-serif;font-size:.9rem;color:var(--ink);outline:none;transition:border-color .2s;-webkit-appearance:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--vermilion);}
+.form-group textarea{height:96px;resize:vertical;}
+
+/* NEWSLETTER */
+#newsletter{background:var(--forest);text-align:center;padding:80px 48px;}
+#newsletter .section-title{color:var(--paper);margin-bottom:12px;}
+.newsletter-lead{font-family:'Lora',serif;font-style:italic;font-size:1.05rem;color:rgba(251,245,230,.7);margin-bottom:36px;}
+.nl-form{display:flex;max-width:460px;margin:0 auto;}
+.nl-form input{flex:1;padding:14px 20px;border:none;font-family:'Lato',sans-serif;font-size:.9rem;color:var(--ink);background:var(--paper-lt);outline:none;}
+
+/* FOOTER */
+footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;max-width:1240px;margin:0 auto 52px;}
+.footer-brand{font-family:'Yatra One',serif;font-size:1.7rem;color:var(--saffron);display:block;margin-bottom:14px;}
+.footer-tagline{font-family:'Lora',serif;font-style:italic;font-size:.88rem;line-height:1.75;}
+.footer-col h4{font-size:.72rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--paper);margin-bottom:18px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:9px;}
+.footer-col ul li a{font-size:.86rem;color:rgba(251,245,230,.48);transition:color .2s;}
+.footer-col ul li a:hover{color:var(--saffron);}
+.footer-bottom{max-width:1240px;margin:0 auto;border-top:1px solid rgba(251,245,230,.08);padding-top:24px;text-align:center;font-size:.8rem;}
+
+/* ADMIN OVERLAY */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:9000;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;}
+.overlay.open{display:flex;}
+.panel{background:var(--paper-lt);padding:44px;max-width:600px;width:100%;position:relative;}
+.panel h2{font-family:'Yatra One',serif;font-size:1.75rem;color:var(--ink);margin-bottom:6px;}
+.panel>p.panel-sub{color:#8A7060;font-size:.86rem;margin-bottom:24px;}
+.panel-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--ink);line-height:1;}
+
+/* Admin tabs */
+.admin-tabs{display:flex;gap:0;margin-bottom:28px;border-bottom:2px solid var(--paper-dk);}
+.admin-tab{padding:10px 22px;font-size:.8rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;border:none;background:none;color:#9A8070;font-family:'Lato',sans-serif;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;}
+.admin-tab.active{color:var(--vermilion);border-bottom-color:var(--vermilion);}
+.admin-tab-pane{display:none;}
+.admin-tab-pane.active{display:block;}
+
+.admin-list-item{display:flex;align-items:flex-start;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(26,15,0,.07);gap:12px;}
+.admin-list-item-info .title{font-size:.88rem;font-weight:600;color:var(--ink);}
+.admin-list-item-info .meta{font-size:.76rem;color:#8A7060;}
+.btn-remove{background:none;border:none;color:var(--vermilion);cursor:pointer;font-size:.78rem;text-decoration:underline;font-family:'Lato',sans-serif;flex-shrink:0;}
+#img-preview{width:100%;max-height:180px;object-fit:contain;background:var(--paper-dk);display:none;margin-bottom:12px;}
+.admin-section-title{font-family:'Lora',serif;font-weight:600;font-size:1rem;color:var(--ink);margin:24px 0 14px;padding-top:20px;border-top:1px solid rgba(26,15,0,.1);}
+.star-select{display:flex;gap:6px;margin-bottom:4px;}
+.star-select span{cursor:pointer;font-size:1.4rem;color:#ccc;transition:color .15s;user-select:none;}
+.star-select span.on{color:var(--saffron);}
+.color-swatches{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;}
+.color-swatch{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:border-color .15s;}
+.color-swatch.selected{border-color:var(--ink);}
+
+/* ENQUIRY MODAL */
+.enq-panel{background:var(--paper-lt);padding:40px;max-width:460px;width:100%;position:relative;}
+.enq-panel h3{font-family:'Yatra One',serif;font-size:1.6rem;color:var(--ink);margin-bottom:6px;}
+.enq-target-label{font-size:.84rem;color:var(--vermilion);font-style:italic;margin-bottom:24px;display:block;}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:960px){section{padding:68px 28px;}.about-grid{grid-template-columns:1fr;gap:40px;}.commission-layout{grid-template-columns:1fr;gap:40px;}.blog-featured{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;gap:36px;}}
+@media(max-width:680px){section{padding:56px 20px;}nav .nav-inner{padding:12px 20px;}.nav-links{display:none;}.nav-links.open{display:flex;flex-direction:column;width:100%;padding:16px 20px 20px;background:var(--ink);gap:14px;position:absolute;top:100%;left:0;}.hamburger{display:flex;}.hero-frame{inset:12px;}.footer-grid{grid-template-columns:1fr;gap:28px;}.blog-featured-body{padding:32px 24px;}.panel{padding:28px;}.nl-form{flex-direction:column;}}
+.map-panel{min-height:auto;}}
+.region-list{max-height:200px;border-right:none;border-bottom:1px solid rgba(240,165,0,.12);}.region-detail{padding:24px 20px;max-height:none;}}
+
+
+.btn-edit{background:none;border:1px solid var(--forest);color:var(--forest);cursor:pointer;font-size:.78rem;padding:3px 10px;font-family:'Lato',sans-serif;transition:all .15s;}
+.btn-edit:hover{background:var(--forest);color:#fff;}
+
+#af-toggle-btn:hover{background:var(--saffron);color:var(--ink);}
+#af-toggle-btn.open{background:rgba(240,165,0,.12);}
+
+
+/* COMMISSION PAGE STYLES */
+#commission{background:var(--paper-lt);}
+.commission-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.commission-info h3{font-family:'Lora',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin:32px 0 14px;}
+.commission-info h3:first-child{margin-top:0;}
+.commission-info p{font-size:.9rem;color:var(--muted);line-height:1.75;}
+.steps{list-style:none;counter-reset:step;}
+.steps li{counter-increment:step;display:flex;gap:16px;align-items:flex-start;margin-bottom:18px;}
+.steps li::before{content:counter(step);background:var(--vermilion);color:#fff;min-width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;}
+.steps li span{font-size:.9rem;color:var(--muted);line-height:1.68;}
+.commission-form{background:var(--paper);padding:40px;border-top:4px solid var(--forest);}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:6px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:1px solid rgba(26,15,0,.18);background:var(--paper-lt);font-family:'Lato',sans-serif;font-size:.9rem;color:var(--ink);outline:none;transition:border-color .2s;-webkit-appearance:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--vermilion);}
+.form-group textarea{height:96px;resize:vertical;}
+@media(max-width:960px){.commission-layout{grid-template-columns:1fr;gap:40px;}}</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="nav-stripe"></div>
+  <div class="nav-inner">
+    <div style="display:flex;align-items:center;">
+      <span class="nav-logo">✦ Art by <span>Anuprita</span></span>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#art-for-sale">Gallery</a></li>
+      <li><a href="art-forms.html">Art Forms</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="commission.html">Commission</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="folk-border"></div>
+
+<!-- COMMISSION -->
+<section id="commission">
+  <div class="section-inner">
+    <span class="section-eyebrow">✦ Custom Artwork</span>
+    <h2 class="section-title">Commission a Painting</h2>
+    <p class="section-desc">Request an original piece in any of the folk painting styles — for your home, a gift, a wedding, or a heritage project.</p>
+    <div class="commission-layout">
+      <div class="commission-info">
+        <h3>How it works</h3>
+        <ol class="steps">
+          <li><span>Share your vision — the style, subject, size, and occasion.</span></li>
+          <li><span>Anuprita replies with a timeline and pricing estimate within 3–5 days.</span></li>
+          <li><span>A 50% advance confirms the commission. Work begins with natural pigments.</span></li>
+          <li><span>Progress photos at key milestones. Final delivery with a signed certificate.</span></li>
+        </ol>
+        <h3>Pricing guide</h3>
+        <p>Pricing varies with the art form, complexity, and size. Please reach out with your vision and Anuprita will provide a personalised estimate within 3–5 days.</p>
+        <h3>Delivery</h3>
+        <p>Within India: 7–10 days. International: 14–21 days via tracked courier.</p>
+      </div>
+      <div>
+        <div class="commission-form">
+          <div class="form-group"><label>Your Name</label><input type="text" id="c-name" placeholder="Full name"></div>
+          <div class="form-group"><label>Email</label><input type="email" id="c-email" placeholder="your@email.com"></div>
+          <div class="form-group"><label>Art Style</label>
+            <select id="c-style"><option value="">Select a style…</option><option>Pattachitra</option><option>Madhubani</option><option>Cheriyal</option><option>Kalamkari</option><option>Warli</option><option>Gond</option><option>Pichwai</option><option>Thangka</option><option>Phad</option><option>Tanjore</option><option>Mysore</option><option>Kangra</option><option>Other — I'll describe below</option></select>
+          </div>
+          <div class="form-group"><label>Size</label>
+            <select id="c-size"><option>Small (A4)</option><option>Medium (A3)</option><option>Large (A2)</option><option>Extra Large / Custom</option></select>
+          </div>
+          <div class="form-group"><label>Your Vision</label><textarea id="c-vision" placeholder="Describe the subject, occasion, colours you love…"></textarea></div>
+          <button class="btn btn-red" style="width:100%" id="commission-submit">Send Commission Request</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="folk-border"></div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <span class="footer-brand">✦ Art by Anuprita</span>
+      <p class="footer-tagline">Preserving 81 folk art traditions of India with natural pigments and handmade materials. Every painting is a bridge between ancient knowledge and the present moment.</p>
+    </div>
+    <div class="footer-col"><h4>Gallery</h4><ul><li><a href="index.html#art-for-sale">Available Works</a></li><li><a href="art-forms.html">Art Forms</a></li><li><a href="commission.html">Commissions</a></li><li><a href="about.html">About the Artist</a></li></ul></div>
+    <div class="footer-col"><h4>Journal</h4><ul><li><a href="journal.html">Weekly Blog</a></li><li><a href="books.html">Book Reviews</a></li><li><a href="#newsletter">Newsletter</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="mailto:artbyanupritaa@gmail.com">artbyanupritaa@gmail.com</a></li><li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="copyright.html">Copyright Policy</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="folk-border-sm" style="margin-bottom:22px;max-width:320px;margin-left:auto;margin-right:auto"></div>
+    <p>© 2025 Art by Anuprita · artbyanuprita.com · Made with natural pigments and a whole lot of love. <a href="index.html" class="footer-admin-btn" title="Admin">⚙</a></p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+<style>
+.back-to-top{position:fixed;bottom:28px;right:28px;width:48px;height:48px;border-radius:50%;background:var(--vermilion);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 6px 20px rgba(26,15,0,.28);cursor:pointer;border:none;transition:transform .2s,background .2s;z-index:800;}
+.back-to-top:hover{background:#a82d13;transform:translateY(-3px);}
+@media (max-width:640px){.back-to-top{bottom:18px;right:18px;width:42px;height:42px;font-size:1.1rem;}}
+</style>
+
+<script>
+document.getElementById('commission-submit').addEventListener('click',()=>{
+  const name=document.getElementById('c-name').value.trim();
+  const email=document.getElementById('c-email').value.trim();
+  const style=document.getElementById('c-style').value;
+  const size=document.getElementById('c-size').value;
+  const vision=document.getElementById('c-vision').value.trim();
+  if(!name||!email){alert('Please enter your name and email.');return;}
+  const subject=`Commission Request${style?' — '+style:''}`;
+  const body=`Hi Anuprita,\n\nI'd like to request a commission.\n\nStyle: ${style||'(not specified)'}\nSize: ${size}\nMy vision: ${vision||'(not specified)'}\n\nMy name: ${name}\nMy email: ${email}\n\nPlease get back to me. Thank you!`;
+  window.location.href=`mailto:artbyanupritaa@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  ['c-name','c-email','c-vision'].forEach(id=>document.getElementById(id).value='');
+});
+</script>
+
+<script>
+(function(){
+  var btn = document.getElementById('backToTop');
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('nav-links');
+  if(hamburger && navLinks){
+    hamburger.addEventListener('click', function(){
+      navLinks.classList.toggle('open');
+    });
+  }
+})();
+</script>
+</body>
+</html>
