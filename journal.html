@@ -137,8 +137,11 @@ section{padding:84px 48px;scroll-margin-top:90px;}
 #blog .section-title{margin-bottom:10px;}
 #blog .section-eyebrow{margin-bottom:4px;}
 .blog-grid{display:grid;gap:28px;}
-.blog-featured{display:grid;grid-template-columns:1fr;align-items:start;background:var(--ink);color:var(--paper);margin-bottom:4px;}
-.blog-featured-body{padding:36px 40px;display:flex;flex-direction:column;justify-content:flex-start;}
+.blog-featured{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;background:var(--ink);color:var(--paper);margin-bottom:4px;}
+.blog-featured-img{min-height:280px;background:var(--paper-dk);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.blog-featured-img img{width:100%;height:100%;object-fit:cover;}
+.blog-img-ph{font-family:'Caveat',cursive;font-size:1rem;color:rgba(26,15,0,.28);text-align:center;padding:20px;}
+.blog-featured-body{padding:36px 40px;display:flex;flex-direction:column;justify-content:center;}
 .blog-tag{font-size:.68rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--saffron);margin-bottom:12px;display:block;}
 .blog-featured-body .blog-title{font-family:'Lora',serif;font-size:1.7rem;color:var(--paper);font-weight:600;line-height:1.35;margin-bottom:16px;}
 .blog-featured-body .blog-excerpt{font-size:.92rem;color:rgba(251,245,230,.65);line-height:1.8;margin-bottom:24px;}
@@ -146,6 +149,8 @@ section{padding:84px 48px;scroll-margin-top:90px;}
 .blog-cards-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px;}
 .blog-card{background:var(--paper-lt);border:1px solid rgba(26,15,0,.07);transition:box-shadow .2s;}
 .blog-card:hover{box-shadow:0 8px 24px rgba(26,15,0,.1);}
+.blog-card-img{aspect-ratio:16/9;overflow:hidden;background:var(--paper-dk);display:flex;align-items:center;justify-content:center;}
+.blog-card-img img{width:100%;height:100%;object-fit:cover;}
 .blog-card-body{padding:24px;}
 .blog-card-body .blog-title{font-family:'Lora',serif;font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.4;margin-bottom:10px;}
 .blog-card-body .blog-tag{color:var(--vermilion);}
@@ -272,6 +277,8 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 .post-reader-overlay{display:none;position:fixed;inset:0;background:rgba(10,6,0,.82);z-index:9200;align-items:flex-start;justify-content:center;padding:56px 20px;overflow-y:auto;}
 .post-reader-overlay.open{display:flex;}
 .post-reader-panel{background:var(--paper-lt);max-width:720px;width:100%;padding:56px 56px 64px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.4);}
+.post-reader-hero-img{width:calc(100% + 112px);margin:-56px -56px 32px;max-height:340px;overflow:hidden;}
+.post-reader-hero-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .post-reader-close{position:absolute;top:20px;right:20px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--muted);width:36px;height:36px;border-radius:50%;transition:all .2s;}
 .post-reader-close:hover{background:rgba(26,15,0,.08);color:var(--ink);}
 .post-reader-tag{font-size:.75rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--vermilion);display:block;margin-bottom:14px;}
@@ -279,7 +286,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 .post-reader-meta{font-size:.82rem;color:#9A8070;margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid rgba(26,15,0,.1);}
 .post-reader-body p{font-size:1rem;color:var(--ink);line-height:1.9;margin-bottom:22px;}
 .post-reader-body p:last-child{margin-bottom:0;}
-@media(max-width:680px){.post-reader-panel{padding:40px 24px 48px;}.post-reader-overlay{padding:24px 12px;}}
+@media(max-width:680px){.post-reader-panel{padding:40px 24px 48px;}.post-reader-overlay{padding:24px 12px;}.post-reader-hero-img{width:calc(100% + 48px);margin:-40px -24px 24px;max-height:220px;}}
 
 </style>
 </head>
@@ -319,6 +326,7 @@ footer{background:var(--ink);padding:64px 48px 32px;color:rgba(251,245,230,.55);
 <div class="post-reader-overlay" id="post-reader-overlay">
   <div class="post-reader-panel" onclick="event.stopPropagation()">
     <button class="post-reader-close" onclick="closePost()">✕</button>
+    <div class="post-reader-hero-img" id="post-reader-hero-img" style="display:none;"></div>
     <span class="post-reader-tag" id="post-reader-tag"></span>
     <h2 class="post-reader-title" id="post-reader-title"></h2>
     <div class="post-reader-meta" id="post-reader-meta"></div>
@@ -388,6 +396,7 @@ function renderBlog(){
   const [featured,...rest]=posts; // already newest-first from Firestore query
   let html=`<div class="blog-grid">
     <div class="blog-featured reveal" onclick="openPost('${featured.id}')" style="cursor:pointer">
+      <div class="blog-featured-img">${featured.img?`<img src="${featured.img}" alt="${featured.title}">`:'<span class="blog-img-ph">Article image</span>'}</div>
       <div class="blog-featured-body">
         <span class="blog-tag">✦ Latest · ${featured.tag}</span>
         <h3 class="blog-title">${featured.title}</h3>
@@ -399,6 +408,7 @@ function renderBlog(){
     html+=`<div class="blog-cards-row">
       ${rest.slice(0,3).map(p=>`
         <div class="blog-card reveal" onclick="openPost('${p.id}')" style="cursor:pointer">
+          <div class="blog-card-img">${p.img?`<img src="${p.img}" alt="${p.title}">`:'<span class="blog-img-ph" style="font-size:.85rem">Article image</span>'}</div>
           <div class="blog-card-body">
             <span class="blog-tag">✦ ${p.tag}</span>
             <h3 class="blog-title">${p.title}</h3>
@@ -422,6 +432,9 @@ function openPost(id){
   document.getElementById('post-reader-title').textContent=p.title;
   document.getElementById('post-reader-meta').textContent=formatDate(p.date)+' · '+p.read+' read';
   document.getElementById('post-reader-body').innerHTML=bodyHtml;
+  const heroImg=document.getElementById('post-reader-hero-img');
+  if(p.img){ heroImg.innerHTML='<img src="'+p.img+'" alt="'+p.title+'">'; heroImg.style.display='block'; }
+  else { heroImg.innerHTML=''; heroImg.style.display='none'; }
   document.getElementById('post-reader-overlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
