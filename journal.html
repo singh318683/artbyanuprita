@@ -383,6 +383,11 @@ async function init(){
   setupReveal();
   document.getElementById('post-reader-overlay').addEventListener('click',closePost);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closePost();});
+  // if arriving from the homepage journal preview (?post=ID), auto-open that article
+  const postParam = new URLSearchParams(location.search).get('post');
+  if(postParam){
+    setTimeout(()=>{ openPost(postParam); }, 150);
+  }
 }
 
 function formatDate(d){
